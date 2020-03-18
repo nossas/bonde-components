@@ -12,7 +12,7 @@ const Footer = styled(({ className, children }) => (
   display: flex;
   flex-direction: row;
   background-color: ${props => props.theme.background};
-  padding: 10px ${props => props.theme.paddingX};
+  padding: 20px ${props => props.theme.paddingX};
 `;
 
 Footer.defaultProps = {
