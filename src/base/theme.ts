@@ -2,14 +2,14 @@ const theme = {
   brand: {
     main: '#ee0099',
     dark: '#000',
-    light: '#fff'
+    light: '#fff',
   },
   commons: {
     dark: '#424242',
     main: '#aaa',
-    light: '#eee'
+    light: '#eee',
   },
-  fontFamily: "'Nunito Sans', sans-serif"
+  fontFamily: "'Nunito Sans', sans-serif",
 };
 
 export default theme;

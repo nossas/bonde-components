@@ -1,10 +1,6 @@
 import React from 'react';
 import { Text } from '@';
 
-export default {
-  title: 'Paragraph',
-};
-
 export const render = () => <Text>A simple paragraph.</Text>;
 
 render.story = {
@@ -20,3 +16,7 @@ export const inlineBold = () => <Text>Write a <b>bold line</b> text.</Text>
 inlineBold.story = {
   name: 'Inline Bold'
 }
+
+export default {
+  title: 'Text',
+};

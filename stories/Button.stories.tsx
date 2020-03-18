@@ -13,10 +13,6 @@ Layout.defaultProps = {
   bg: '#fff'
 }
 
-export default {
-  title: 'Button',
-};
-
 export const render = () =>
   <Layout>
     <Button onClick={action('Hit me!')}>Hit me!</Button>
@@ -44,3 +40,7 @@ export const disabled = () =>
     <Button disabled onClick={action('Hit me!')}>Hit me!</Button>
   </Layout>
 ;
+
+export default {
+  title: 'Button',
+};

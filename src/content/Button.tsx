@@ -4,48 +4,48 @@ import styled from 'styled-components';
 const themes = {
   default: {
     color: {
-      main: '#fff'
+      main: '#fff',
     },
     border: {
-      main: 'none'
+      main: 'none',
     },
     background: {
       main: '#ee0099',
       hover: '#e2058a',
-      focus: '#b4006c'
-    }
+      focus: '#b4006c',
+    },
   },
   dark: {
     color: {
       main: '#000',
       hover: '#424242',
-      focus: '#9b9b9b'
+      focus: '#9b9b9b',
     },
     border: {
       main: '#000',
       hover: '#424242',
-      focus: '#9b9b9b'
+      focus: '#9b9b9b',
     },
     background: {
-      main: 'none'
-    }
+      main: 'none',
+    },
   },
   light: {
     color: {
       main: '#fff',
       hover: '#9b9b9b',
-      focus: '#424242'
+      focus: '#424242',
     },
     border: {
       main: '#fff',
       hover: '#eee',
-      focus: '#424242'
+      focus: '#424242',
     },
     background: {
-      main: 'none'
-    }
-  }
-}
+      main: 'none',
+    },
+  },
+};
 
 interface ButtonProps {
   /** Children nodes. */
@@ -58,7 +58,7 @@ interface ButtonProps {
   light?: boolean;
   /** Button align. */
   align?: 'center' | 'left' | 'right';
-};
+}
 
 /**
  * The only true Button component.
@@ -67,7 +67,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   font-size: 13px;
-  text-align: ${(props) => props.align};
+  text-align: ${props => props.align};
   border-radius: 100px;
   padding: 5px 20px;
   text-transform: uppercase;
@@ -79,14 +79,18 @@ const ButtonStyled = styled.button<ButtonProps>`
   color: ${({ theme }) => theme.color.main};
   border-color: ${({ theme }) => theme.border.main};
   background: ${({ theme }) => theme.background.main};
-  ${({ disabled, theme }) => !disabled && `
+  ${({ disabled, theme }) =>
+    !disabled &&
+    `
     &:hover {
       color: ${theme.color.hover || theme.color.main};
       border-color: ${theme.border.hover || theme.border.main};
       background: ${theme.background.hover || theme.background.main};
     }
   `}
-  ${({ disabled, theme }) => !disabled && `
+  ${({ disabled, theme }) =>
+    !disabled &&
+    `
     &:active {
       color: ${theme.color.focus || theme.color.main};
       border-color: ${theme.border.focus || theme.border.main};
@@ -94,18 +98,22 @@ const ButtonStyled = styled.button<ButtonProps>`
     }
   `}
 
-  ${({ dark, light, disabled }) => (dark || light || disabled) && `
+  ${({ dark, light, disabled }) =>
+    (dark || light || disabled) &&
+    `
     box-shadow: none;
     border: 1px solid;
   `}
 
-  ${({ disabled }) => disabled && `
+  ${({ disabled }) =>
+    disabled &&
+    `
     cursor: initial;
     background: #d1cdd2;
     border: none;
     color: #fff;
   `}
-`
+`;
 
 ButtonStyled.defaultProps = {
   align: 'center',
@@ -113,11 +121,10 @@ ButtonStyled.defaultProps = {
 };
 
 const Button = (props: any) => {
-  const theme = !props.dark && !props.light
-    ? 'default' : props.dark
-    ? 'dark' : 'light'
+  const theme =
+    !props.dark && !props.light ? 'default' : props.dark ? 'dark' : 'light';
 
-  return <ButtonStyled theme={themes[theme]} {...props} />
-}
+  return <ButtonStyled theme={themes[theme]} {...props} />;
+};
 
 export default Button;
