@@ -4,7 +4,7 @@ import BondeSVG from '../BondeSVG';
 import theme from '../theme';
 
 interface NavbarProps {
-  className: string;
+  className?: string;
   indexRoute: string;
 }
 
