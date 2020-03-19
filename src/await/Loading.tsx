@@ -4,7 +4,7 @@ import LoadingSVG, { LoadingSVGProps } from './LoadingSVG';
 import Header from '../content/Header';
 
 interface FullSizeProps {
-  background: string;
+  background?: string;
 }
 
 const FullSize = styled.div<FullSizeProps>`
@@ -20,9 +20,9 @@ const FullSize = styled.div<FullSizeProps>`
 
 interface LoadingProps extends LoadingSVGProps {
   fullsize?: boolean;
-  background: string;
+  background?: string;
   message?: string;
-  messageComponent: any;
+  messageComponent?: any;
 }
 
 /**

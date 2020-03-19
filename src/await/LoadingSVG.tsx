@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Sparkles from './Sparkles';
 
 export interface LoadingSVGProps {
-  size: 'small' | 'default' | 'large';
-  color: string;
-  sparklesColor: string;
-  sparklesColorInit: string;
-  sparklesDuration: string;
+  size?: 'small' | 'default' | 'large';
+  color?: string;
+  sparklesColor?: string;
+  sparklesColorInit?: string;
+  sparklesDuration?: string;
 }
 
 /**
