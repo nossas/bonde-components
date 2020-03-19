@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Header from '../content/Header';
 
 interface Img {
   src: string;
@@ -43,6 +44,9 @@ const DropdownImageItem = styled(({ className, value }) => {
       background-color: #c7c7c7;
     }
   `}
+  ${Header.h4}, ${Header.h5} {
+    margin: 0;
+  }
 `;
 
 export default DropdownImageItem;

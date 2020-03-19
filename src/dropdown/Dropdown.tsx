@@ -21,7 +21,7 @@ const useOutsideAlerter = (ref: any, onEvent: any) => {
   });
 };
 
-const DropdownFluid = styled.div`
+export const DropdownFluid = styled.div`
   display: flex;
   flex-direction: column;
   font-family: ${props => props.theme.fontFamily};
@@ -32,12 +32,26 @@ DropdownFluid.defaultProps = {
   theme,
 };
 
-const DropdownFluidList = styled.div`
+interface DropdownFluidListProps {
+  direction?: 'left' | 'right';
+}
+
+const DropdownFluidList = styled.div<DropdownFluidListProps>`
   position: absolute;
   top: calc(100% + 15px);
   display: flex;
   flex-direction: column;
   z-index: 3;
+  ${props =>
+    props.direction === 'left' &&
+    `
+    left: 0;
+  `}
+  ${props =>
+    props.direction === 'right' &&
+    `
+    right: 0;
+  `}
 `;
 
 const DropdownFluidInput = styled(({ children, className, onToggle, open }) => (
@@ -81,6 +95,7 @@ interface DropdownProps {
   dropdownInput?: any;
   dropdownItem?: any;
   dropdownList?: any;
+  direction?: 'left' | 'right';
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -89,6 +104,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   items,
   selectable,
   onSelect,
+  direction,
   dropdownInput: DropdownInputUI,
   dropdownItem: DropdownItemUI,
   dropdownList: DropdownListUI,
@@ -111,7 +127,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       </DropdownFluidInput>
       <DropdownFluidLayout>
         {open && (
-          <DropdownFluidList>
+          <DropdownFluidList direction={direction}>
             <DropdownListUI>
               {items.map((value, index) => {
                 const clickable =
@@ -153,6 +169,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 };
 
 Dropdown.defaultProps = {
+  direction: 'left',
   selectable: true,
   items: [],
   dropdownInput: DropdownInput,

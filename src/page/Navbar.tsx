@@ -21,6 +21,14 @@ const HomeLink = styled.a`
   }
 `;
 
+const FluidLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+`;
+
 const Navbar: React.FC<NavbarProps> = ({
   brand,
   children,
@@ -31,7 +39,7 @@ const Navbar: React.FC<NavbarProps> = ({
     <HomeLink href={indexRoute} title="Bonde Home Link">
       {brand !== 'small' ? <BondeSVG /> : <Icon name="Bonde" />}
     </HomeLink>
-    {children}
+    <FluidLayout>{children}</FluidLayout>
   </div>
 );
 

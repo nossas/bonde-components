@@ -6,6 +6,7 @@ export { default as Icon } from './content/Icon';
 export { default as Header } from './content/Header';
 
 export { default as Dropdown } from './dropdown/Dropdown';
+export { default as DropdownIconItem } from './dropdown/DropdownIconItem';
 export { default as DropdownImageInput } from './dropdown/DropdownImageInput';
 export { default as DropdownImageItem } from './dropdown/DropdownImageItem';
 
