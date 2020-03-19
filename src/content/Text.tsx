@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '../base/theme';
 
-interface TextProps {
+export interface TextProps {
   align?: 'left' | 'center' | 'right';
   bold?: boolean;
   uppercase?: boolean;
