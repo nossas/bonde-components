@@ -5,12 +5,7 @@ import Hint from './Hint';
 import Input from './Input';
 import Label from './Label';
 
-interface InputFieldProps {
-  name: string;
-  label?: string;
-}
-
-const InputField = (props: InputFieldProps) => {
+const InputField = (props: any) => {
   const { label, name, ...config } = props;
   const { input, meta } = useField(name, config);
 
