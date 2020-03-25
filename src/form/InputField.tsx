@@ -12,7 +12,9 @@ const InputField = (props: any) => {
   return (
     <FormField>
       <Label>{label}</Label>
-      {meta.error && meta.touched && <Hint color="error">{meta.error}</Hint>}
+      {(meta.error || meta.submitError) && meta.touched && (
+        <Hint color="error">{meta.error || meta.submitError}</Hint>
+      )}
       <Input {...input} />
     </FormField>
   );
