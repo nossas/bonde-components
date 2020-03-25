@@ -68,6 +68,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
   font-size: 13px;
