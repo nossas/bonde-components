@@ -8,14 +8,7 @@ pipeline:
       - yarn
     when:
       event: [push, tag]
-      
-  build-storybook:
-    image: node:12-alpine
-    commands:
-      - yarn build-storybook
-    when:
-      event: [push, tag]
-
+  
   tests:
     image: node:12-alpine
     commands:
@@ -25,6 +18,14 @@ pipeline:
     when:
       status: success
       branch: [hotfix/*, release/*, feature/*, support/*, develop]
+      
+  build-storybook:
+    image: node:12-alpine
+    commands:
+      - yarn build-storybook
+    when:
+      event: [push, tag]
+
 
   publish-storybook:
     image: plugins/docker
