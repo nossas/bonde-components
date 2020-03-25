@@ -1,5 +1,6 @@
 export { default as Loading } from './await/Loading';
 
+export { default as Bonde } from './content/Bonde';
 export { default as Button } from './content/Button';
 export { default as Text } from './content/Text';
 export { default as Icon } from './content/Icon';

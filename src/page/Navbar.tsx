@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../content/Icon';
+import Bonde from '../content/Bonde';
 import theme from './theme';
-import BondeSVG from './BondeSVG';
 
 interface NavbarProps {
   className?: string;
@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => (
   <div className={className}>
     <HomeLink href={indexRoute} title="Bonde Home Link">
-      {brand !== 'small' ? <BondeSVG /> : <Icon name="Bonde" />}
+      {brand !== 'small' ? <Bonde /> : <Icon name="Bonde" />}
     </HomeLink>
     <FluidLayout>{children}</FluidLayout>
   </div>

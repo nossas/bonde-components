@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import BondeSVG from './BondeSVG';
+import Bonde from '../content/Bonde';
 import theme from './theme';
 
 const Footer = styled(({ className, children }) => (
   <div className={className}>
-    <BondeSVG />
+    <Bonde />
     {children}
   </div>
 ))`
