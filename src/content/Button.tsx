@@ -1,52 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
-
-const themes = {
-  default: {
-    color: {
-      main: '#fff',
-    },
-    border: {
-      main: '#ee0099',
-    },
-    background: {
-      main: '#ee0099',
-      hover: '#e2058a',
-      focus: '#b4006c',
-    },
-  },
-  dark: {
-    color: {
-      main: '#000',
-      hover: '#424242',
-      focus: '#9b9b9b',
-    },
-    border: {
-      main: '#000',
-      hover: '#424242',
-      focus: '#9b9b9b',
-    },
-    background: {
-      main: 'none',
-    },
-  },
-  light: {
-    color: {
-      main: '#fff',
-      hover: '#9b9b9b',
-      focus: '#424242',
-    },
-    border: {
-      main: '#fff',
-      hover: '#eee',
-      focus: '#424242',
-    },
-    background: {
-      main: 'none',
-    },
-  },
-};
+import theme from '../base/theme';
 
 interface ButtonProps {
   /** Children nodes. */
@@ -69,7 +24,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: ${props => props.theme.fontFamily};
   font-weight: bold;
   font-size: 13px;
   text-align: ${props => props.align};
@@ -174,10 +129,18 @@ ButtonStyled.defaultProps = {
 };
 
 const Button = (props: any) => {
-  const theme =
+  const keyTheme =
     !props.dark && !props.light ? 'default' : props.dark ? 'dark' : 'light';
 
-  return <ButtonStyled theme={themes[theme]} {...props} />;
+  return (
+    <ButtonStyled
+      theme={{
+        fontFamily: theme.fontFamily,
+        ...(theme[keyTheme] || {}),
+      }}
+      {...props}
+    />
+  );
 };
 
 export default Button;
