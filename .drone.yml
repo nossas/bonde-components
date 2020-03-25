@@ -26,7 +26,6 @@ pipeline:
     when:
       event: [push, tag]
 
-
   publish-storybook:
     image: plugins/docker
     repo: nossas/bonde-components
@@ -41,7 +40,7 @@ pipeline:
   deploy-storybook:
     image: peloton/drone-rancher
     url: http://cluster.bonde.org
-    service: clients/storybook
+    service: webservers/storybook
     group: deploying
     docker_image: nossas/bonde-components:${DRONE_BRANCH/\//-}
     timeout: 360
@@ -49,7 +48,7 @@ pipeline:
     secrets: [ rancher_access_key, rancher_secret_key ]
     when:
       status: success
-      branch: [hotfix/*, feature/*, develop]
+      branch: [hotfix/*, release/*, feature/*, develop]
 
   publish-npm:
     image: plugins/npm
