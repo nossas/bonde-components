@@ -8,6 +8,13 @@ pipeline:
       - yarn
     when:
       event: [push, tag]
+      
+  build-storybook:
+    image: node:12-alpine
+    commands:
+      - yarn build-storybook
+    when:
+      event: [push, tag]
 
   tests:
     image: node:12-alpine
@@ -18,6 +25,30 @@ pipeline:
     when:
       status: success
       branch: [hotfix/*, release/*, feature/*, support/*, develop]
+
+  publish-storybook:
+    image: plugins/docker
+    repo: nossas/bonde-components
+    group: publishing
+    secrets: [ docker_username, docker_password ]
+    tags:
+      - ${DRONE_BRANCH/\//-}
+    when:
+      status: success
+      branch: [hotfix/*, release/*, feature/*, develop]
+
+  deploy-storybook:
+    image: peloton/drone-rancher
+    url: http://cluster.bonde.org
+    service: clients/storybook
+    group: deploying
+    docker_image: nossas/bonde-components:${DRONE_BRANCH/\//-}
+    timeout: 360
+    confirm: true
+    secrets: [ rancher_access_key, rancher_secret_key ]
+    when:
+      status: success
+      branch: [hotfix/*, feature/*, develop]
 
   publish-npm:
     image: plugins/npm
