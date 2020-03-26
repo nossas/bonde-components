@@ -21,6 +21,7 @@ export const render = () =>
     <Icon name='Bot' />
     <Icon name='Close' />
     <Icon name='Network' />
+    <Icon name='Search' />
     <Icon name='Settings' />
     <Icon name='Plus' />
     <Icon name='User' />
@@ -43,6 +44,7 @@ export const small = () =>
     <Icon name='Close' size='small' />
     <Icon name='Network' size='small' />
     <Icon name='Plus' size='small' />
+    <Icon name='Search' size='small' />
     <Icon name='Settings' size='small' />
     <Icon name='User' size='small' />
     <Icon name='Window' size='small' />
@@ -60,6 +62,7 @@ export const large = () =>
     <Icon name='Close' size='large' />
     <Icon name='Network' size='large' />
     <Icon name='Plus' size='large' />
+    <Icon name='Search' size='large' />
     <Icon name='Settings' size='large' />
     <Icon name='User' size='large' />
     <Icon name='Window' size='large' />
@@ -77,6 +80,7 @@ export const color = () =>
     <Icon name='Close' size='large' color='red' />
     <Icon name='Network' size='large' color='red' />
     <Icon name='Plus' size='large' color='red' />
+    <Icon name='Search' size='large' color='red' />
     <Icon name='Settings' size='large' color='red' />
     <Icon name='User' size='large' color='red' />
     <Icon name='Window' size='large' color='red' />
