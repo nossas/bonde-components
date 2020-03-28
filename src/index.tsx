@@ -12,6 +12,7 @@ export { default as DropdownIconItem } from './dropdown/DropdownIconItem';
 export { default as DropdownImageInput } from './dropdown/DropdownImageInput';
 export { default as DropdownImageItem } from './dropdown/DropdownImageItem';
 
+export { default as ConnectedForm } from './form/ConnectedForm';
 export { default as Form } from './form/Form';
 export { default as FormField } from './form/FormField';
 export { default as Hint } from './form/Hint';
