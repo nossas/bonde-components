@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button, ConnectedForm, Form, InputField } from '@';
+import { Button, ConnectedForm, Form, InputField, Validators } from '@';
 import { Form as FinalForm } from 'react-final-form';
 import styled from 'styled-components';
 
@@ -17,7 +17,7 @@ const submit = async (values) => {
   action('submit')(values)
 }
 
-const required = value => (value ? undefined : 'Required')
+const { required, composeValidators, isEmail, min } = Validators
 
 export const form = () =>
   <FinalForm onSubmit={submit}>
@@ -27,13 +27,13 @@ export const form = () =>
           label='E-mail'
           name='email'
           type='email'
-          validate={required}
+          validate={required('Required')}
         />
         <InputField
           label='Password'
           name='password'
           type='password'
-          validate={required}
+          validate={required('Required')}
         />
         <Container>
           <Button dark onClick={action('forget password')}>Reset my password</Button>
@@ -46,19 +46,35 @@ export const form = () =>
 
 export const connectedForm = () =>
   <ConnectedForm onSubmit={submit}>
+    {({ submitting, form }) => {
+      return (
+          <>
+            <InputField label='Full Name' name='fullname' />
+            <InputField label='City' name='city' />
+            <Container>
+              <Button dark onClick={form.reset}>Clean</Button>
+              <Button type='submit' disabled={submitting}>Submit</Button>
+            </Container>
+          </>
+      )
+    }}
+  </ConnectedForm>
+;
+
+export const validators = () =>
+  <ConnectedForm onSubmit={submit}>
     {({ submitting }) => (
         <>
           <InputField
-            label='E-mail'
+            label='E-mail (Required)'
             name='email'
-            type='email'
-            validate={required}
+            validate={composeValidators(required('Required'), isEmail('Invalid email'))}
           />
           <InputField
-            label='Password'
+            label='Password (Min. 6)'
             name='password'
             type='password'
-            validate={required}
+            validate={min(6, 'Password should be > 6')}
           />
           <Container>
             <Button dark onClick={action('forget password')}>Reset my password</Button>
