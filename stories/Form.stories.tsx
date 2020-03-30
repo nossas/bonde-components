@@ -61,6 +61,26 @@ export const connectedForm = () =>
   </ConnectedForm>
 ;
 
+export const initialValues = () =>
+  <ConnectedForm
+    onSubmit={submit}
+    initialValues={{ city: 'Belo Horizonte' }}
+  >
+    {({ submitting, form }) => {
+      return (
+          <>
+            <InputField label='Full Name' name='fullname' />
+            <InputField label='City' name='city' />
+            <Container>
+              <Button dark onClick={form.reset}>Clean</Button>
+              <Button type='submit' disabled={submitting}>Submit</Button>
+            </Container>
+          </>
+      )
+    }}
+  </ConnectedForm>
+;
+
 export const validators = () =>
   <ConnectedForm onSubmit={submit}>
     {({ submitting }) => (

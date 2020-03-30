@@ -10,8 +10,9 @@ interface ConnectedFormProps {
 const ConnectedForm: React.FC<ConnectedFormProps> = ({
   children,
   onSubmit,
+  ...ownProps
 }) => (
-  <FinalForm onSubmit={onSubmit}>
+  <FinalForm onSubmit={onSubmit} {...ownProps}>
     {({ handleSubmit, ...formProps }) => (
       <Form onSubmit={handleSubmit}>{children(formProps)}</Form>
     )}
