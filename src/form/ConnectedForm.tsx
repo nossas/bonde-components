@@ -1,8 +1,10 @@
 import React from 'react';
 import { Form as FinalForm } from 'react-final-form';
+// eslint-disable-next-line prettier/prettier
+import type { FormProps } from 'react-final-form';
 import Form from './Form';
 
-interface ConnectedFormProps {
+interface ConnectedFormProps extends FormProps {
   children(formProps: any): any;
   onSubmit(values: any): any;
 }
