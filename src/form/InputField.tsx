@@ -18,6 +18,7 @@ const InputField = (props: any) => {
       <Input
         placeholder={placeholder}
         type={type}
+        invalid={(meta.error || meta.submitError) && meta.touched}
         disabled={disabled}
         {...input}
       />

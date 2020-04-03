@@ -4,11 +4,29 @@ import { Button, ConnectedForm, Form, InputField, Validators } from '@';
 import { Form as FinalForm } from 'react-final-form';
 import styled from 'styled-components';
 
-const Container = styled.div`
+interface ContainerProps {
+  between?: boolean
+}
+
+const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  ${props => props.between && `justify-content: space-between;`}
+  ${props => !props.between && `
+    & > div {
+      flex-grow: 1;
+      margin-right: 20px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  `}
 `
+
+Container.defaultProps = {
+  between: false
+}
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -23,6 +41,14 @@ export const form = () =>
   <FinalForm onSubmit={submit}>
     {({ handleSubmit, submitting }) => (
       <Form onSubmit={handleSubmit}>
+        <Container>
+          <InputField
+            label='First name'
+            name='firstName'
+            validate={required('Required')}
+          />
+          <InputField label='Last name' name='lastName' />
+        </Container>
         <InputField
           label='E-mail'
           name='email'
@@ -35,7 +61,7 @@ export const form = () =>
           type='password'
           validate={required('Required')}
         />
-        <Container>
+        <Container between>
           <Button dark onClick={action('forget password')}>Reset my password</Button>
           <Button type='submit' disabled={submitting}>Submit</Button>
         </Container>

@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import theme from '../base/theme';
 
-const Input = styled.input`
+interface InputProps {
+  invalid?: boolean;
+}
+
+const Input = styled.input<InputProps>`
   font-family: ${props => props.theme.fontFamily};
   font-size: 16px;
   color: #000;
@@ -10,6 +14,8 @@ const Input = styled.input`
   padding: 8px 0;
   background: none;
 
+  ${props => props.invalid && `border-color: #ff0931;`}
+
   &[disabled] {
     color: #d1cdd2;
     background: none;
@@ -17,6 +23,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
+    border-bottom: 1px solid ${props => props.theme.brand.main};
   }
 
   &::placeholder {
@@ -38,6 +45,7 @@ const Input = styled.input`
 
 Input.defaultProps = {
   theme,
+  invalid: false,
   type: 'text',
 };
 

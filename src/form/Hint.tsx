@@ -10,7 +10,7 @@ const handleColor = ({ color }: HintProps) => {
     case 'info':
       return '#aaa';
     case 'error':
-      return '#ff2b4e';
+      return '#ff0931';
     default:
       return '#50e3c2';
   }
