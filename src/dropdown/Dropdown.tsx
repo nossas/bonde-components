@@ -57,7 +57,7 @@ const DropdownFluidList = styled.div<DropdownFluidListProps>`
 const DropdownFluidInput = styled(({ children, className, onToggle, open }) => (
   <div className={className} onClick={onToggle}>
     {children}
-    <Icon name={!open ? 'ArrowDown' : 'ArrowRight'} color="#fff" size="small" />
+    <Icon name={!open ? 'ArrowDown' : 'ArrowUp'} color="#fff" size="small" />
   </div>
 ))`
   display: flex;
