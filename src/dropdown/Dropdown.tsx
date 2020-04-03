@@ -25,7 +25,6 @@ export const DropdownFluid = styled.div`
   display: flex;
   flex-direction: column;
   font-family: ${props => props.theme.fontFamily};
-  font-size: 16px;
 `;
 
 DropdownFluid.defaultProps = {
@@ -66,6 +65,9 @@ const DropdownFluidInput = styled(({ children, className, onToggle, open }) => (
   flex-direction: row;
   align-items: center;
   color: #fff;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
 
   ${Icon} {
     margin-left: 10px;
