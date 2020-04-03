@@ -29,7 +29,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   font-size: 13px;
   text-align: ${props => props.align};
   border-radius: 100px;
-  padding: 10px 20px;
+  padding: 12px 60px;
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
