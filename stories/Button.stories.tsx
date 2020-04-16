@@ -1,7 +1,6 @@
 import React from 'react';
-import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button } from '@';
+import { Button, Icon } from '@';
 
 const Layout = ({ children, bg }) => (
   <div style={{ padding: '20px 10px', backgroundColor: bg }}>
@@ -12,10 +11,6 @@ const Layout = ({ children, bg }) => (
 Layout.defaultProps = {
   bg: '#fff'
 }
-
-export default {
-  title: 'Button',
-};
 
 export const render = () =>
   <Layout>
@@ -44,3 +39,30 @@ export const disabled = () =>
     <Button disabled onClick={action('Hit me!')}>Hit me!</Button>
   </Layout>
 ;
+
+export const icon = () => 
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <Layout>
+      <Button>
+        <Icon name='Plus' size='small' />
+        ADD FIELD
+      </Button>
+    </Layout>
+    <Layout bg='#000'>
+      <Button light>
+        <Icon name='Plus' size='small' />
+        ADD FIELD
+      </Button>
+    </Layout>
+    <Layout>
+      <Button dark>
+        <Icon name='Plus' size='small' />
+        ADD FIELD
+      </Button>
+    </Layout>
+  </div>
+;
+
+export default {
+  title: 'Button',
+};
