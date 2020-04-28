@@ -21,6 +21,8 @@ export { default as Input } from './form/Input';
 export { default as InputField } from './form/InputField';
 export { default as Label } from './form/Label';
 export { default as Validators } from './form/Validators';
+export { default as TextareaField } from './form/TextareaField';
+export { default as Textarea } from './form/Textarea';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';

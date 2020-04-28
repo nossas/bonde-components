@@ -19,3 +19,5 @@ export { default as Body } from './page/Body';
 export { default as Footer } from './page/Footer';
 export { default as Main } from './page/Main';
 export { default as Navbar } from './page/Navbar';
+export { default as TextareaField } from './form/TextareaField';
+export { default as Textarea } from './form/Textarea';
