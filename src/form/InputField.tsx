@@ -6,7 +6,7 @@ import Input from './Input';
 import Label from './Label';
 
 const InputField = (props: any) => {
-  const { label, name, placeholder, type, disabled, ...config } = props;
+  const { label, name, placeholder, type, disabled, onBlur, ...config } = props;
   const { input, meta } = useField(name, config);
 
   return (
@@ -16,11 +16,15 @@ const InputField = (props: any) => {
         <Hint color="error">{meta.error || meta.submitError}</Hint>
       )}
       <Input
+        {...input}
         placeholder={placeholder}
         type={type}
         invalid={(meta.error || meta.submitError) && meta.touched}
         disabled={disabled}
-        {...input}
+        onBlur={e => {
+          onBlur && onBlur(e);
+          input.onBlur(e);
+        }}
       />
     </FormField>
   );
