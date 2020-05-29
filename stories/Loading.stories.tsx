@@ -3,9 +3,9 @@ import { Loading, Text, Header } from '@';
 
 export const inline = () => 
   <div>
-    <Loading size='large' />
-    <Loading />
-    <Loading size='small' />
+    <Loading align='left' />
+    <Loading message="Saving..." />
+    <Loading align='right' />
   </div>
 ;
 

@@ -18,18 +18,27 @@ const FullSize = styled.div<FullSizeProps>`
   background: ${props => props.background};
 `;
 
+
 interface LoadingProps extends LoadingSVGProps {
   fullsize?: boolean;
   background?: string;
   message?: string;
   messageComponent?: any;
+  align?: 'center' | 'left' | 'right';
 }
+
+type LoadingStylesProps = Pick<LoadingProps, 'align'>
+
+const LoadingStyles = styled.div<LoadingStylesProps>`
+  text-align: ${props => props.align};
+`
 
 /**
  * Animated loading transition component.
  */
 const Loading: React.FC<LoadingProps> = ({
   children,
+  align,
   fullsize,
   background,
   message,
@@ -42,11 +51,15 @@ const Loading: React.FC<LoadingProps> = ({
       {message ? <MessageComponent>{message}</MessageComponent> : children}
     </FullSize>
   ) : (
-    <LoadingSVG {...props} />
+    <LoadingStyles align={align}>
+      <LoadingSVG {...props} />
+      {message ? <MessageComponent>{message}</MessageComponent> : children}
+    </LoadingStyles>
   );
 };
 
 Loading.defaultProps = {
+  align: 'center',
   fullsize: false,
   background: 'rgba(219,219,219,0.31)',
   color: '#050505',
