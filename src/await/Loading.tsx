@@ -18,7 +18,6 @@ const FullSize = styled.div<FullSizeProps>`
   background: ${props => props.background};
 `;
 
-
 interface LoadingProps extends LoadingSVGProps {
   fullsize?: boolean;
   background?: string;
@@ -27,11 +26,11 @@ interface LoadingProps extends LoadingSVGProps {
   align?: 'center' | 'left' | 'right';
 }
 
-type LoadingStylesProps = Pick<LoadingProps, 'align'>
+type LoadingStylesProps = Pick<LoadingProps, 'align'>;
 
 const LoadingStyles = styled.div<LoadingStylesProps>`
   text-align: ${props => props.align};
-`
+`;
 
 /**
  * Animated loading transition component.
