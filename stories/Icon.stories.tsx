@@ -20,10 +20,14 @@ export const render = () =>
     <Icon name='Bonde' />
     <Icon name='Bot' />
     <Icon name='Close' />
+    <Icon name='Info' />
+    <Icon name='InfoMsg' />
     <Icon name='Network' />
+    <Icon name='Pencil' />
+    <Icon name='Plus' />
     <Icon name='Search' />
     <Icon name='Settings' />
-    <Icon name='Plus' />
+    <Icon name='Trash' />
     <Icon name='User' />
     <Icon name='Window' />
   </Layout>
@@ -42,10 +46,14 @@ export const small = () =>
     <Icon name='Bonde' size='small' />
     <Icon name='Bot' size='small' />
     <Icon name='Close' size='small' />
+    <Icon name='Info' size='small' />
+    <Icon name='InfoMsg' size='small' />
     <Icon name='Network' size='small' />
+    <Icon name='Pencil' size='small' />
     <Icon name='Plus' size='small' />
     <Icon name='Search' size='small' />
     <Icon name='Settings' size='small' />
+    <Icon name='Trash' size='small' />
     <Icon name='User' size='small' />
     <Icon name='Window' size='small' />
   </Layout>
@@ -60,10 +68,14 @@ export const large = () =>
     <Icon name='Bonde' size='large' />
     <Icon name='Bot' size='large' />
     <Icon name='Close' size='large' />
+    <Icon name='Info' size='large' />
+    <Icon name='InfoMsg' size='large' />
     <Icon name='Network' size='large' />
+    <Icon name='Pencil' size='large' />
     <Icon name='Plus' size='large' />
     <Icon name='Search' size='large' />
     <Icon name='Settings' size='large' />
+    <Icon name='Trash' size='large' />
     <Icon name='User' size='large' />
     <Icon name='Window' size='large' />
   </Layout>
@@ -78,10 +90,14 @@ export const color = () =>
     <Icon name='Bonde' size='large' color='red' />
     <Icon name='Bot' size='large' color='red' />
     <Icon name='Close' size='large' color='red' />
+    <Icon name='Info' size='large' color='red' />
+    <Icon name='InfoMsg' size='large' color='red' />
     <Icon name='Network' size='large' color='red' />
+    <Icon name='Pencil' size='large' color='red' />
     <Icon name='Plus' size='large' color='red' />
     <Icon name='Search' size='large' color='red' />
     <Icon name='Settings' size='large' color='red' />
+    <Icon name='Trash' size='large' color='red' />
     <Icon name='User' size='large' color='red' />
     <Icon name='Window' size='large' color='red' />
   </Layout>
