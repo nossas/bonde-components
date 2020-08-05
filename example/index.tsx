@@ -22,6 +22,7 @@ import {
   Button,
   TextareaField,
   Validators,
+  Question
 } from '../.';
 
 const useSession = (defaultCommunity: any) => {
@@ -149,11 +150,24 @@ const Routing = () => {
               }}
             </ConnectedForm>
           </Route>
+          <Route exact path="/question">
+            <div style={{
+              width: "800px",
+              height: "600px"
+            }}>
+              <Question
+                siteUrl={process.env.REACT_APP_METABASE_SITE_URL || ""}
+                secretKey={process.env.REACT_APP_METABASE_SECRET_KEY || ""}
+                config={{ resource: { question: 1140 }, params: {} }}
+                questionOptions={"#bordered=false&titled=true"}
+              />
+            </div>
+          </Route>
         </Switch>
         <Link to="/with-menu">Navigate to page with menu</Link>
       </Body>
       <Footer />
-    </Main>
+    </Main >
   );
 };
 
