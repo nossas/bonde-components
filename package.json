@@ -20,8 +20,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "tsdx lint --fix"
+    ]
   },
   "prettier": {
     "printWidth": 80,
@@ -45,6 +50,7 @@
     "@types/styled-components": "^5.0.1",
     "babel-loader": "^8.0.6",
     "husky": "^4.2.3",
+    "lint-staged": "^10.2.11",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "ts-loader": "^6.2.1",
