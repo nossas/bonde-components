@@ -42,6 +42,8 @@ const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 const submit = async values => {
   await sleep(1000);
   action('submit')(values);
+
+  return {}
 };
 
 const { required, composeValidators, isEmail, min } = Validators;
@@ -89,12 +91,12 @@ export const form = () => (
 );
 
 export const connectedForm = () => (
-  <ConnectedForm onSubmit={submit}>
+  <ConnectedForm onSubmit={submit} initialValues={{ fullname: 'Jonas' }}>
     {({ submitting, form }) => {
       return (
         <>
           <InputField label="Full Name" name="fullname" />
-          <InputField label="City" name="city" />
+          <InputField label="City" name="city" validate={(value: any) => !value ? 'Error!' : null} />
           <Container>
             <Button dark onClick={form.reset}>
               Clean
