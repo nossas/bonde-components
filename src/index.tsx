@@ -8,6 +8,7 @@ export { default as Icon } from './content/Icon';
 export { default as Header } from './content/Header';
 export { default as Link } from './content/Link';
 export { default as Question } from './content/Question';
+export { default as Shortcut } from './content/Shortcut';
 
 export { default as Dropdown } from './dropdown/Dropdown';
 export { default as DropdownIconItem } from './dropdown/DropdownIconItem';
