@@ -7,41 +7,54 @@ import {
   DropdownImageInput,
   DropdownImageItem,
   Header,
-  Text
+  // Text
 } from '@';
 
 const RenderLabel = ({ label, email }) => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Header.h4>{label}</Header.h4>
-    <Header.h5>{email}</Header.h5>
+    <Header.H4>{label}</Header.H4>
+    <Header.H5>{email}</Header.H5>
   </div>
-)
+);
 
 export const communities = () => {
-  const [item, setItem] = useState(undefined)
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [item, setItem] = useState(undefined);
 
   return (
-    <Navbar brand='small' indexRoute='/'>
+    <Navbar brand="small" indexRoute="/">
       <Dropdown
-        placeholder='Selecione uma comunidade'
+        placeholder="Selecione uma comunidade"
         item={item}
         items={[
           {
-            img: { src: 'https://s3.amazonaws.com/hub-central/uploads/1540751246_Ninguemficapratras-Logo.png', alt: 'Ninguém fica pra trás' },
-            label: 'Ninguém fica pra trás'
+            img: {
+              src:
+                'https://s3.amazonaws.com/hub-central/uploads/1540751246_Ninguemficapratras-Logo.png',
+              alt: 'Ninguém fica pra trás',
+            },
+            label: 'Ninguém fica pra trás',
           },
           {
-            img: { src: 'https://s3.amazonaws.com/hub-central/uploads/1484260522_reboo.png', alt: 'Meu Rio' },
-            label: 'Meu Rio'
+            img: {
+              src:
+                'https://s3.amazonaws.com/hub-central/uploads/1484260522_reboo.png',
+              alt: 'Meu Rio',
+            },
+            label: 'Meu Rio',
           },
           {
-            img: { src: 'https://s3.amazonaws.com/hub-central/uploads/1502212636_betaavatar.png', alt: 'BETA' },
-            label: 'BETA'
-          }
+            img: {
+              src:
+                'https://s3.amazonaws.com/hub-central/uploads/1502212636_betaavatar.png',
+              alt: 'BETA',
+            },
+            label: 'BETA',
+          },
         ]}
         onSelect={(value: any) => {
-          setItem(value)
-          action('SelectDropdown')(value)
+          setItem(value);
+          action('SelectDropdown')(value);
         }}
         dropdownInput={DropdownImageInput}
         dropdownItem={DropdownImageItem}
@@ -49,38 +62,42 @@ export const communities = () => {
 
       <Dropdown
         selectable={false}
-        direction='right'
-        placeholder='Katia Maria'
+        direction="right"
+        placeholder="Katia Maria"
         item={item}
         items={[
           {
             clickable: false,
-            img: { src: 'https://s3.amazonaws.com/hub-central/uploads/1484260522_reboo.png', alt: 'User IMAGE' },
+            img: {
+              src:
+                'https://s3.amazonaws.com/hub-central/uploads/1484260522_reboo.png',
+              alt: 'User IMAGE',
+            },
             label: 'Katia Maria',
             email: 'katia@maria.org',
-            render: (({ value }: any) => {
-              const { img, label, email} = value
+            render: ({ value }) => {
+              const { img, label, email } = value;
               return (
                 <DropdownImageItem
                   value={{
                     img,
-                    label: <RenderLabel label={label} email={email} />
+                    label: <RenderLabel label={label} email={email} />,
                   }}
                 />
-              )
-            }
+              );
+            },
           },
           {
             icon: 'User',
-            label: 'Perfil'
+            label: 'Perfil',
           },
           {
             icon: 'Close',
-            label: 'Logout'
-          }
+            label: 'Logout',
+          },
         ]}
         onSelect={(value: any) => {
-          action('SelectDropdown')(value)
+          action('SelectDropdown')(value);
         }}
         dropdownItem={DropdownIconItem}
       />

@@ -3,39 +3,39 @@ import * as ReactDOM from 'react-dom';
 import { Header } from '../src';
 
 describe('it', () => {
-  it('Header.h1 renders without crashing', () => {
+  it('Header.H1 renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Header.h1>Header</Header.h1>, div);
+    ReactDOM.render(<Header.H1>Header</Header.H1>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Header.h2 renders without crashing', () => {
+  it('Header.H2 renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Header.h2>Header</Header.h2>, div);
+    ReactDOM.render(<Header.H2>Header</Header.H2>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Header.h3 renders without crashing', () => {
+  it('Header.H3 renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Header.h3>Header</Header.h3>, div);
+    ReactDOM.render(<Header.H3>Header</Header.H3>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Header.h4 renders without crashing', () => {
+  it('Header.H4 renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Header.h4>Header</Header.h4>, div);
+    ReactDOM.render(<Header.H4>Header</Header.H4>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Header.h5 renders without crashing', () => {
+  it('Header.H5 renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Header.h5>Header</Header.h5>, div);
+    ReactDOM.render(<Header.H5>Header</Header.H5>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('Header.h6 renders without crashing', () => {
+  it('Header.H6 renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Header.h6>Header</Header.h6>, div);
+    ReactDOM.render(<Header.H6>Header</Header.H6>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 });

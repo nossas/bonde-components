@@ -1,10 +1,15 @@
 import React from 'react';
-import { Row, Col, Grid, Header } from '@';
+import {
+  Row,
+  Col,
+  // Grid,
+  Header,
+} from '@';
 import styled from 'styled-components';
 
 interface BlockProps {
   bgColor: string;
-};
+}
 
 const Block = styled.div<BlockProps>`
   display: flex;
@@ -15,116 +20,116 @@ const Block = styled.div<BlockProps>`
   padding: 10px 0;
 `;
 
-export const grid = () =>
+export const grid = () => (
   <>
-    <Header.h3>Row 1</Header.h3>
+    <Header.H3>Row 1</Header.H3>
     <Row>
       <Col size={[6, 6]}>
         <Block>
-          <Header.h2>{`[6, 6, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 6, 12, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[6, 6]}>
         <Block>
-          <Header.h2>{`[6, 6, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 6, 12, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[6]}>
         <Block>
-          <Header.h2>{`[6, 12, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 12, 12, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
-    <Header.h3>Row 2</Header.h3>
+    <Header.H3>Row 2</Header.H3>
     <Row>
       <Col size={[6, 8, 10]}>
         <Block>
-          <Header.h2>{`[6, 8, 10, 12]`}</Header.h2>
+          <Header.H2>{`[6, 8, 10, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
-    <Header.h3>Row 3</Header.h3>
+    <Header.H3>Row 3</Header.H3>
     <Row>
       <Col size={[6, 3, 6]}>
         <Block>
-          <Header.h2>{`[6, 3, 6, 12]`}</Header.h2>
+          <Header.H2>{`[6, 3, 6, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[4, 6, 6]}>
         <Block>
-          <Header.h2>{`[4, 6, 6, 12]`}</Header.h2>
+          <Header.H2>{`[4, 6, 6, 12]`}</Header.H2>
         </Block>
       </Col>
-      <Col size={[2, 3]} collapse='sm xs'>
+      <Col size={[2, 3]} collapse="sm xs">
         <Block>
-          <Header.h2>{`[2, 3, 12, 12]`}</Header.h2>
+          <Header.H2>{`[2, 3, 12, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
   </>
-;
+);
 
-export const spacing = () =>
+export const spacing = () => (
   <>
-    <Header.h3>Spacing between</Header.h3>
-    <Row spacing='between'>
+    <Header.H3>Spacing between</Header.H3>
+    <Row spacing="between">
       <Col size={[6, 6]}>
         <Block>
-          <Header.h2>{`[6, 6, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 6, 12, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[3, 3]}>
         <Block>
-          <Header.h2>{`[3, 3, 12, 12]`}</Header.h2>
+          <Header.H2>{`[3, 3, 12, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
-    <Header.h3>Spacing around</Header.h3>
-    <Row spacing='around'>
+    <Header.H3>Spacing around</Header.H3>
+    <Row spacing="around">
       <Col size={[3, 3]}>
         <Block>
-          <Header.h2>{`[3, 3, 12, 12]`}</Header.h2>
+          <Header.H2>{`[3, 3, 12, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[6, 6]}>
         <Block>
-          <Header.h2>{`[6, 6, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 6, 12, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
   </>
-;
+);
 
-export const flex = () =>
+export const flex = () => (
   <>
-    <Header.h3>Flex start</Header.h3>
-    <Row flex='start'>
+    <Header.H3>Flex start</Header.H3>
+    <Row flex="start">
       <Col size={[6, 6]}>
         <Block>
-          <Header.h2>{`[6, 6, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 6, 12, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[3, 3]}>
         <Block>
-          <Header.h2>{`[3, 3, 12, 12]`}</Header.h2>
+          <Header.H2>{`[3, 3, 12, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
-    <Header.h3>Flex end</Header.h3>
-    <Row flex='end'>
+    <Header.H3>Flex end</Header.H3>
+    <Row flex="end">
       <Col size={[3, 3]}>
         <Block>
-          <Header.h2>{`[3, 3, 12, 12]`}</Header.h2>
+          <Header.H2>{`[3, 3, 12, 12]`}</Header.H2>
         </Block>
       </Col>
       <Col size={[6, 6]}>
         <Block>
-          <Header.h2>{`[6, 6, 12, 12]`}</Header.h2>
+          <Header.H2>{`[6, 6, 12, 12]`}</Header.H2>
         </Block>
       </Col>
     </Row>
   </>
-;
+);
 
 export default {
   title: 'Responsive',

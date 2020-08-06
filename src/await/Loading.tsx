@@ -50,11 +50,11 @@ const Loading: React.FC<LoadingProps> = ({
       {message ? <MessageComponent>{message}</MessageComponent> : children}
     </FullSize>
   ) : (
-    <LoadingStyles align={align}>
-      <LoadingSVG {...props} />
-      {message ? <MessageComponent>{message}</MessageComponent> : children}
-    </LoadingStyles>
-  );
+      <LoadingStyles align={align}>
+        <LoadingSVG {...props} />
+        {message ? <MessageComponent>{message}</MessageComponent> : children}
+      </LoadingStyles>
+    );
 };
 
 Loading.defaultProps = {
@@ -66,7 +66,7 @@ Loading.defaultProps = {
   sparklesColor: '#35E3C3',
   sparklesColorInit: '#DBDBDB',
   sparklesDuration: '6s',
-  messageComponent: Header.h3,
+  messageComponent: Header.H3,
 };
 
 export default Loading;
