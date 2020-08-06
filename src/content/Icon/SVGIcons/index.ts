@@ -15,3 +15,8 @@ export { default as Settings } from './Settings';
 export { default as Trash } from './Trash';
 export { default as User } from './User';
 export { default as Window } from './Window';
+export { default as Location } from './Location';
+export { default as Favorite } from './Favorite';
+export { default as Whatsapp } from './Whatsapp';
+export { default as Show } from './Show';
+export { default as Open } from './Open';
