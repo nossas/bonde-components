@@ -5,7 +5,7 @@ const theme = {
     light: '#fff',
   },
   commons: {
-    dark: '#424242',
+    dark: '#4A4A4A',
     main: '#aaa',
     light: '#eee',
   },
@@ -26,12 +26,12 @@ const theme = {
   dark: {
     color: {
       main: '#000',
-      hover: '#424242',
+      hover: '#4A4A4A',
       focus: '#9b9b9b',
     },
     border: {
       main: '#000',
-      hover: '#424242',
+      hover: '#4A4A4A',
       focus: '#9b9b9b',
     },
     background: {
@@ -42,17 +42,18 @@ const theme = {
     color: {
       main: '#fff',
       hover: '#9b9b9b',
-      focus: '#424242',
+      focus: '#4A4A4A',
     },
     border: {
       main: '#fff',
       hover: '#eee',
-      focus: '#424242',
+      focus: '#4A4A4A',
     },
     background: {
       main: 'none',
     },
   },
+  error: '#FF2B4E'
 };
 
 export default theme;

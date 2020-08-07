@@ -25,6 +25,8 @@ export { default as Label } from './form/Label';
 export { default as Validators } from './form/Validators';
 export { default as TextareaField } from './form/TextareaField';
 export { default as Textarea } from './form/Textarea';
+export { default as RoundSelect } from './form/RoundSelect';
+export { default as RoundSelectField } from './form/RoundSelectField';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';
