@@ -53,6 +53,21 @@ const theme = {
       main: 'none',
     },
   },
+  secondary: {
+    color: {
+      main: '#000',
+      hover: '#424242',
+      focus: '#9B9B9B',
+    },
+    border: {
+      main: 'transparent',
+      hover: 'transparent',
+      focus: 'transparent',
+    },
+    background: {
+      main: 'none',
+    },
+  },
   error: '#FF2B4E',
 };
 

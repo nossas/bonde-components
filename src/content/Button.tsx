@@ -12,6 +12,7 @@ interface ButtonProps {
   type?: string;
   dark?: boolean;
   light?: boolean;
+  secondary?: boolean;
   /** Button align. */
   align?: 'center' | 'left' | 'right';
 }
@@ -20,23 +21,27 @@ interface ButtonProps {
  * The only true Button component.
  */
 const ButtonStyled = styled.button<ButtonProps>`
-  display: flex;
-  flex-direction: row;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-content: ${props => props.align};
+  grid-template-columns: auto auto;
+  grid-column-gap: 5px;
   font-family: ${props => props.theme.fontFamily};
   font-weight: bold;
-  font-size: 13px;
-  text-align: ${props => props.align};
-  border-radius: 100px;
-  padding: 12px 60px;
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 10px 20px;
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
-  box-shadow: 1px 2px 7px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid;
-  
+  width: 100%;
+
+  border-color: ${({ theme }) => theme.border.main};
+  background: ${({ theme }) => theme.background.main};
   color: ${({ theme }) => theme.color.main};
+
   ${Icon}.stroke {
     path {
       stroke: ${({ theme }) => theme.color.main};
@@ -48,8 +53,6 @@ const ButtonStyled = styled.button<ButtonProps>`
     }
   }
 
-  border-color: ${({ theme }) => theme.border.main};
-  background: ${({ theme }) => theme.background.main};
   ${({ disabled, theme }) =>
     !disabled &&
     `
@@ -73,7 +76,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   ${({ disabled, theme }) =>
     !disabled &&
     `
-    &:active {
+    &:active, &:focus {
       color: ${theme.color.focus || theme.color.main};
       ${Icon}.stroke {
         path {
@@ -87,15 +90,14 @@ const ButtonStyled = styled.button<ButtonProps>`
       }
 
       border-color: ${theme.border.focus || theme.border.main};
-      background: ${theme.background.focus || theme.background.main};;
+      background: ${theme.background.focus || theme.background.main};
     }
   `}
 
-  ${({ dark, light, disabled }) =>
-    (dark || light || disabled) &&
+  ${({ dark, light, disabled, secondary }) =>
+    (dark || light || disabled || secondary) &&
     `
     box-shadow: none;
-    border: 1px solid;
   `}
 
   ${({ disabled }) =>
@@ -105,6 +107,10 @@ const ButtonStyled = styled.button<ButtonProps>`
     background: #d1cdd2;
     border: none;
     color: #fff;
+
+    &:hover, &:focus, &:active {
+      background: none;
+    }
     
     ${Icon}.stroke {
       path {
@@ -117,10 +123,6 @@ const ButtonStyled = styled.button<ButtonProps>`
       }
     }
   `}
-  
-  ${Icon} {
-    margin-right: 5px;
-  }
 `;
 
 ButtonStyled.defaultProps = {
@@ -130,7 +132,13 @@ ButtonStyled.defaultProps = {
 
 const Button = (props: any) => {
   const keyTheme =
-    !props.dark && !props.light ? 'default' : props.dark ? 'dark' : 'light';
+    !props.dark && !props.light && !props.secondary
+      ? 'default'
+      : props.dark
+      ? 'dark'
+      : props.light
+      ? 'light'
+      : 'secondary';
 
   return (
     <ButtonStyled
