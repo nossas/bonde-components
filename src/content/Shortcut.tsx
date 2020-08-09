@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Header } from '../index';
+import Header from './Header';
 
 const CleanButton = styled.button`
   /* Reset Button CSS */

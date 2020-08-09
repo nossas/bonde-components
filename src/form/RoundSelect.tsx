@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import ReactSelect, { components } from 'react-select';
 
 import theme from '../base/theme';
-import { Icon } from '../.';
+import Icon from '../content/Icon';
 
 const SelectIcon = styled.div<{ show: boolean }>`
   transition: all 275ms;
