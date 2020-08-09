@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { RoundSelect, RoundSelectField, Form, Button } from '@';
+import { RoundSelect, RoundSelectField, Form, Button, RoundInput } from '@';
 import { Form as FinalForm } from 'react-final-form';
 
 const Layout = ({ children, bg = '#fff' }) => (
@@ -76,6 +76,18 @@ export const selectField = () => {
 
 selectField.story = {
   name: 'Select Field',
+};
+
+export const input = () => {
+  return (
+    <Layout>
+      <RoundInput placeholder="Buscar nome, email, especialidade..." />
+    </Layout>
+  );
+};
+
+select.story = {
+  name: 'Input',
 };
 
 export default {
