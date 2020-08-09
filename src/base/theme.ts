@@ -53,7 +53,7 @@ const theme = {
       main: 'none',
     },
   },
-  error: '#FF2B4E'
+  error: '#FF2B4E',
 };
 
 export default theme;

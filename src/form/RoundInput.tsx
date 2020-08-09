@@ -16,12 +16,16 @@ const RoundInput = styled.input<InputProps>`
   font-size: 16px;
   line-height: 22px;
   color: ${props => props.theme.commons.dark};
-  
+
   border: 1px solid ${props => props.theme.brand.dark};
   box-sizing: border-box;
   border-radius: 7px;
 
-  ${props => props.invalid && css`border-color: ${props.theme.error};`}
+  ${props =>
+    props.invalid &&
+    css`
+      border-color: ${props.theme.error};
+    `}
 
   &[disabled] {
     color: #d1cdd2;

@@ -50,11 +50,11 @@ const Loading: React.FC<LoadingProps> = ({
       {message ? <MessageComponent>{message}</MessageComponent> : children}
     </FullSize>
   ) : (
-      <LoadingStyles align={align}>
-        <LoadingSVG {...props} />
-        {message ? <MessageComponent>{message}</MessageComponent> : children}
-      </LoadingStyles>
-    );
+    <LoadingStyles align={align}>
+      <LoadingSVG {...props} />
+      {message ? <MessageComponent>{message}</MessageComponent> : children}
+    </LoadingStyles>
+  );
 };
 
 Loading.defaultProps = {
