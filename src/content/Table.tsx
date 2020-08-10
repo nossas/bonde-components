@@ -150,6 +150,7 @@ function Table({ columns, data, backgroundColor, sticky }: Props) {
                   {...cell.getCellProps({
                     className: cell.column.className,
                     style: cell.column.style,
+                    bold: cell.column.bold,
                   })}
                 >
                   {cell.render('Cell')}

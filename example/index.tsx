@@ -114,9 +114,7 @@ const Routing = () => {
         Header: 'Column 1',
         accessor: 'col1', // accessor is the "key" in the data
         className: 'sticky',
-        style: {
-          fontWeight: 'bold'
-        }
+        bold: true
       },
       {
         Header: 'Column 2',
