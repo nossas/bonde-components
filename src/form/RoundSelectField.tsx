@@ -1,6 +1,9 @@
 import React from 'react';
 import { useField } from 'react-final-form';
-import { FormField, Hint, RoundSelect, Label } from '../.';
+import FormField from './FormField';
+import Hint from './Hint';
+import RoundSelect from './RoundSelect';
+import Label from './Label';
 
 type Props = {
   label: string;
