@@ -10,6 +10,12 @@ const theme = {
     light: '#eee',
   },
   fontFamily: "'Nunito Sans', sans-serif",
+  body: {
+    padding: 65,
+    background: {
+      main: '#fff',
+    },
+  },
   default: {
     color: {
       main: '#fff',

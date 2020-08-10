@@ -1,41 +1,34 @@
 import styled, { css } from 'styled-components';
+import CleanButton from '../content/CleanButton';
 import theme from '../base/theme';
 
-interface TabProps {
-  inverted?: boolean;
-  active?: boolean;
-}
-
-const Tab = styled.div<TabProps>`
-  display: inline-block;
-  font-family: ${props => props.theme.fontFamily};
-  font-size: 13px;
-  font-weight: 800;
-  line-height: 1.15;
-  color: ${props => (props.inverted ? '#000' : '#fff')};
-  text-transform: uppercase;
-  cursor: pointer;
-  margin: 0 15px 0 0;
-  padding-bottom: 11px;
-  text-decoration: none;
-
-  ${props =>
-    props.active &&
+const Tab = styled(CleanButton)<{ active?: boolean; theme?: any }>`
+  ${({ active, theme }) =>
+    active &&
     css`
-      border-bottom: 2px solid #ee0099;
-      padding-bottom: 9px;
+      border-bottom: 1.5px solid ${theme.brand.main};
     `}
-
-  &:hover, &:active {
-    border-bottom: 2px solid #ee0099;
-    padding-bottom: 9px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.005em;
+  font-family: ${({ theme }) => theme.fontFamily};
+  text-transform: uppercase;
+  padding-bottom: 15px;
+  color: ${({ active, theme }) =>
+    active ? `${theme.brand.main}` : `${theme.brand.light}`};
+  &:hover,
+  &:active,
+  &:focus {
+    ${({ theme }) => `
+      border-bottom: 1.5px solid ${theme.brand.main};
+      color: ${theme.brand.main};
+    `}
   }
 `;
 
 Tab.defaultProps = {
   theme,
-  active: false,
-  inverted: false,
 };
 
 export default Tab;
