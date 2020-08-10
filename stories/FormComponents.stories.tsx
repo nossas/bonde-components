@@ -1,13 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import { action } from '@storybook/addon-actions';
-import { RoundSelect, RoundSelectField, Form, Button, RoundInput } from '@';
+import { RoundSelect, RoundSelectField, Form, Button, InputWithIcon } from '@';
 import { Form as FinalForm } from 'react-final-form';
 
-const Layout = ({ children, bg = '#fff' }) => (
-  <div style={{ width: '200px', padding: '20px 10px', backgroundColor: bg }}>
-    {children}
-  </div>
-);
+const Layout = styled.div<{ bg?: string }>`
+  width: 350px;
+  padding: 20px 10px;
+  background-color: ${props => props.bg || '#fff'};
+`;
 
 export const select = () => {
   const dicio = [
@@ -81,12 +82,15 @@ selectField.story = {
 export const input = () => {
   return (
     <Layout>
-      <RoundInput placeholder="Buscar nome, email, especialidade..." />
+      <InputWithIcon
+        icon="Search"
+        placeholder="Buscar nome, email, especialidade..."
+      />
     </Layout>
   );
 };
 
-select.story = {
+input.story = {
   name: 'Input',
 };
 
