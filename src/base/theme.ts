@@ -14,7 +14,7 @@ const theme = {
     padding: 65,
     background: {
       light: '#fff',
-      main: '#e5e5e5'
+      main: '#e5e5e5',
     },
   },
   default: {
