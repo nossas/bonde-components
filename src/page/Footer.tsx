@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Bonde from '../content/Bonde';
-import theme from './theme';
+import theme from '../base/theme';
 
 const Footer = styled(({ className, children }) => (
   <div className={className}>
@@ -11,8 +11,8 @@ const Footer = styled(({ className, children }) => (
 ))`
   display: flex;
   flex-direction: row;
-  background-color: ${props => props.theme.background};
-  padding: 20px ${props => props.theme.paddingX};
+  background-color: ${({ theme }) => theme.body.background.light};
+  padding: 20px ${({ theme }) => theme.body.padding};
 `;
 
 Footer.defaultProps = {

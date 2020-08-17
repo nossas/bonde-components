@@ -13,7 +13,8 @@ const theme = {
   body: {
     padding: 65,
     background: {
-      main: '#fff',
+      light: '#fff',
+      main: '#e5e5e5'
     },
   },
   default: {
