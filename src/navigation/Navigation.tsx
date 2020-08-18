@@ -9,6 +9,7 @@ const Navigation = styled.div`
   grid-column-gap: 15px;
   align-items: end;
   padding: 0 ${({ theme }) => theme.body.padding}px;
+  justify-items: center;
 `;
 
 Navigation.defaultProps = {
