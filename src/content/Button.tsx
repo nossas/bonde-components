@@ -16,10 +16,10 @@ interface ButtonProps {
   /** Button align. */
   align?: 'center' | 'left' | 'right';
   color?: {
-    main?: string
-    hover?: string
-    focus?: string
-  }
+    main?: string;
+    hover?: string;
+    focus?: string;
+  };
 }
 
 /**
@@ -140,10 +140,10 @@ const Button = (props: any) => {
     !props.dark && !props.light && !props.secondary
       ? 'default'
       : props.dark
-        ? 'dark'
-        : props.light
-          ? 'light'
-          : 'secondary';
+      ? 'dark'
+      : props.light
+      ? 'light'
+      : 'secondary';
 
   return (
     <ButtonStyled

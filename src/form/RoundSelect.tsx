@@ -136,17 +136,18 @@ const Option = (props: any) => (
 
 type Props = {
   options: Array<{
-    value: string;
-    label: string;
+    value: string | number;
+    label: string | number;
   }>;
   placeholder: string;
   invalid?: boolean;
   disabled?: boolean;
   value: {
-    value: string;
-    label: string;
+    value: string | number;
+    label: string | number;
   };
   onChange: (event: any) => void;
+  menuPortalTarget?: HTMLBodyElement | null;
 };
 
 const RoundSelect = ({ ...props }: Props) => {
