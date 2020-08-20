@@ -56,6 +56,22 @@ export const secondary = () => (
   </Layout>
 );
 
+export const custom = () => (
+  <Layout>
+    <Button
+      secondary
+      onClick={action('Hit me!')}
+      color={{
+        main: '#000',
+        hover: '#aaa',
+        focus: '#ee0099',
+      }}
+    >
+      Hit me!
+    </Button>
+  </Layout>
+);
+
 export const icon = () => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Layout>

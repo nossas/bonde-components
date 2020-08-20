@@ -15,6 +15,11 @@ interface ButtonProps {
   secondary?: boolean;
   /** Button align. */
   align?: 'center' | 'left' | 'right';
+  color?: {
+    main?: string
+    hover?: string
+    focus?: string
+  }
 }
 
 /**
@@ -40,32 +45,32 @@ const ButtonStyled = styled.button<ButtonProps>`
 
   border-color: ${({ theme }) => theme.border.main};
   background: ${({ theme }) => theme.background.main};
-  color: ${({ theme }) => theme.color.main};
+  color: ${({ theme, color }) => color?.main || theme.color.main};
 
   ${Icon}.stroke {
     path {
-      stroke: ${({ theme }) => theme.color.main};
+      stroke: ${({ theme, color }) => color?.main || theme.color.main};
     }
   }
   ${Icon}.fill {  
     path {
-      fill: ${({ theme }) => theme.color.main};
+      fill: ${({ theme, color }) => color?.main || theme.color.main};
     }
   }
 
-  ${({ disabled, theme }) =>
+  ${({ disabled, theme, color }) =>
     !disabled &&
     `
     &:hover {
-      color: ${theme.color.hover || theme.color.main};
+      color: ${color?.hover || theme.color.hover || theme.color.main};
       ${Icon}.stroke {
         path {
-          stroke: ${theme.color.hover || theme.color.main};
+          stroke: ${color?.hover || theme.color.hover || theme.color.main};
         }
       }
       ${Icon}.fill {
         path {
-          fill: ${theme.color.hover || theme.color.main};
+          fill: ${color?.hover || theme.color.hover || theme.color.main};
         }
       }
 
@@ -73,19 +78,19 @@ const ButtonStyled = styled.button<ButtonProps>`
       background: ${theme.background.hover || theme.background.main};
     }
   `}
-  ${({ disabled, theme }) =>
+  ${({ disabled, theme, color }) =>
     !disabled &&
     `
     &:active, &:focus {
-      color: ${theme.color.focus || theme.color.main};
+      color: ${color?.focus || theme.color.focus || theme.color.main};
       ${Icon}.stroke {
         path {
-          stroke: ${theme.color.focus || theme.color.main};
+          stroke: ${color?.focus || theme.color.focus || theme.color.main};
         }
       }
       ${Icon}.fill {
         path {
-          fill: ${theme.color.focus || theme.color.main};
+          fill: ${color?.focus || theme.color.focus || theme.color.main};
         }
       }
 
@@ -135,10 +140,10 @@ const Button = (props: any) => {
     !props.dark && !props.light && !props.secondary
       ? 'default'
       : props.dark
-      ? 'dark'
-      : props.light
-      ? 'light'
-      : 'secondary';
+        ? 'dark'
+        : props.light
+          ? 'light'
+          : 'secondary';
 
   return (
     <ButtonStyled
