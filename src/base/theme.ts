@@ -11,10 +11,10 @@ const theme = {
   },
   fontFamily: "'Nunito Sans', sans-serif",
   body: {
-    padding: 65,
+    padding: '20px 65px',
     background: {
       light: '#fff',
-      main: '#e5e5e5',
+      main: 'rgb(247,247,247)',
     },
   },
   default: {

@@ -3,7 +3,7 @@ import theme from '../base/theme';
 
 const Body = styled.div`
   flex-grow: 1;
-  padding: 0 ${({ theme }) => theme.body.padding}px;
+  padding: ${({ theme }) => theme.body.padding};
   overflow: hidden;
 `;
 
