@@ -61,11 +61,9 @@ export const custom = () => (
     <Button
       secondary
       onClick={action('Hit me!')}
-      color={{
-        main: '#000',
-        hover: '#aaa',
-        focus: '#ee0099',
-      }}
+      main="#000"
+      hover="#aaa"
+      focus="#ee0099"
     >
       Hit me!
     </Button>

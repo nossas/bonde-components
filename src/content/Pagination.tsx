@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import Button from "./Button";
-import RoundSelect from "../form/RoundSelect";
-import theme from "../base/theme"
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Button from './Button';
+import RoundSelect from '../form/RoundSelect';
+import theme from '../base/theme';
 
 type Props = {
   goToPage: (arg: number) => void;
@@ -16,7 +16,7 @@ type Props = {
 const WrapPagination = styled.div`
   display: grid;
   margin: 20px 0px;
-  grid-template-columns: 40px 80px minmax(100px, 650px) 80px 40px 100px;
+  grid-template-columns: 40px 80px minmax(100px, 650px) 80px 40px 130px;
   grid-gap: 15px;
 `;
 
@@ -25,7 +25,7 @@ const WrapItems = styled.div`
   grid-auto-flow: column;
 `;
 
-const StyledButton = styled(({ active, ...rest }) => <Button {...rest} />) <{
+const StyledButton = styled(({ active, ...rest }) => <Button {...rest} />)<{
   active: boolean;
 }>`
   ${({ disabled }) =>
@@ -75,8 +75,8 @@ const WrapSelect = styled.div<{ theme: any }>`
 `;
 
 WrapSelect.defaultProps = {
-  theme
-}
+  theme,
+};
 
 const Pagination = ({
   goToPage,
@@ -133,15 +133,15 @@ const Pagination = ({
         onClick={() => setPage(0, totalPages)}
         disabled={pageIndex === 0}
       >
-        {"<<"}
-      </StyledButton>{" "}
+        {'<<'}
+      </StyledButton>{' '}
       <StyledButton
         secondary
         onClick={() => setPage(pageIndex - 1, totalPages)}
         disabled={pageIndex === 0}
       >
         anterior
-      </StyledButton>{" "}
+      </StyledButton>{' '}
       <WrapItems>
         {items.map((item, i) => (
           <StyledButton
@@ -161,36 +161,36 @@ const Pagination = ({
         disabled={pageIndex === pageCount - 1}
       >
         próxima
-      </StyledButton>{" "}
+      </StyledButton>{' '}
       <StyledButton
         secondary
         onClick={() => setPage(pageCount - 1, totalPages)}
         disabled={pageIndex === pageCount - 1}
       >
-        {">>"}
-      </StyledButton>{" "}
+        {'>>'}
+      </StyledButton>{' '}
       <WrapSelect>
         <RoundSelect
           options={[
             {
               value: 10,
-              label: "Mostrar 10",
+              label: 'Mostrar 10',
             },
             {
               value: 20,
-              label: "Mostrar 20",
+              label: 'Mostrar 20',
             },
             {
               value: 30,
-              label: "Mostrar 30",
+              label: 'Mostrar 30',
             },
             {
               value: 40,
-              label: "Mostrar 40",
+              label: 'Mostrar 40',
             },
             {
               value: 50,
-              label: "Mostrar 50",
+              label: 'Mostrar 50',
             },
           ]}
           placeholder=""
@@ -198,8 +198,8 @@ const Pagination = ({
             value: pageSize,
             label: `Mostrar ${pageSize}`,
           }}
-          onChange={(e) => setPageSize(Number(e.value))}
-          menuPortalTarget={document.querySelector("body")}
+          onChange={e => setPageSize(Number(e.value))}
+          menuPortalTarget={document.querySelector('body')}
         />
       </WrapSelect>
     </WrapPagination>

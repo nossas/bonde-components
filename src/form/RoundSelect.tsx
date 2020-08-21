@@ -59,6 +59,10 @@ const StyledControl = styled.div<{
   }
 `;
 
+StyledControl.defaultProps = {
+  theme,
+};
+
 const StyledSingleValue = styled.div<{
   isDisabled: boolean;
   theme: any;
@@ -72,6 +76,10 @@ const StyledSingleValue = styled.div<{
       !props.value ? props.theme.commons.dark : props.theme.brand.main};
   }
 `;
+
+StyledSingleValue.defaultProps = {
+  theme,
+};
 
 const StyledOption = styled.div<{
   theme: any;
@@ -105,8 +113,12 @@ const StyledOption = styled.div<{
   }
 `;
 
+StyledOption.defaultProps = {
+  theme,
+};
+
 const SingleValue = (props: any) => (
-  <StyledSingleValue value={props.selectProps.value} theme={theme} {...props}>
+  <StyledSingleValue value={props.selectProps.value} {...props}>
     <components.SingleValue {...props} />
   </StyledSingleValue>
 );
@@ -123,13 +135,13 @@ const DropdownIndicator = (props: any) => {
 };
 
 const Control = (props: any) => (
-  <StyledControl value={props.selectProps.value} theme={theme} {...props}>
+  <StyledControl value={props.selectProps.value} {...props}>
     <components.Control {...props} />
   </StyledControl>
 );
 
 const Option = (props: any) => (
-  <StyledOption value={props.selectProps.value} theme={theme} {...props}>
+  <StyledOption value={props.selectProps.value} {...props}>
     <components.Option {...props} />
   </StyledOption>
 );
