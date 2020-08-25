@@ -32,6 +32,7 @@ export { default as Textarea } from './form/Textarea';
 export { default as RoundSelect } from './form/RoundSelect';
 export { default as RoundSelectField } from './form/RoundSelectField';
 export { default as InputWithIcon } from './form/InputWithIcon';
+export { default as InputWithIconField } from './form/InputWithIconField';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';
@@ -45,4 +46,5 @@ export { default as Col } from './responsive/Col';
 export { default as Grid } from './responsive/Grid';
 export { default as Row } from './responsive/Row';
 
-export { useField } from 'react-final-form';
+export { useField, FormSpy } from 'react-final-form';
+export { diff } from 'deep-object-diff';
