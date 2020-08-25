@@ -10,8 +10,7 @@ interface InputProps {
 
 const Wrapper = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
   align-items: center;
 `;
 

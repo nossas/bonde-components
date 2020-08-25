@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import RoundSelect from '../form/RoundSelect';
@@ -6,7 +6,6 @@ import theme from '../base/theme';
 
 type Props = {
   goToPage: (arg: number) => void;
-  pageCount: number;
   pageIndex: number;
   pageSize: number;
   setPageSize: (arg: number) => void;
@@ -16,7 +15,7 @@ type Props = {
 const WrapPagination = styled.div`
   display: grid;
   margin: 20px 0px;
-  grid-template-columns: 40px 80px minmax(100px, 650px) 80px 40px 130px;
+  grid-template-columns: 40px 80px minmax(100px, 650px) 80px 40px 150px;
   grid-gap: 15px;
 `;
 
@@ -25,7 +24,7 @@ const WrapItems = styled.div`
   grid-auto-flow: column;
 `;
 
-const StyledButton = styled(({ active, ...rest }) => <Button {...rest} />)<{
+const StyledButton = styled(({ _active, ...rest }) => <Button {...rest} />)<{
   active: boolean;
 }>`
   ${({ disabled }) =>
@@ -42,6 +41,7 @@ const StyledButton = styled(({ active, ...rest }) => <Button {...rest} />)<{
       color:  #ee0099;
     }
   `}
+  padding: 0;
 `;
 
 const WrapSelect = styled.div<{ theme: any }>`
@@ -78,77 +78,68 @@ WrapSelect.defaultProps = {
   theme,
 };
 
+const getItems = (page: number, totalPages: number) => {
+  let startPage: number, endPage: number;
+  if (totalPages <= 10) {
+    // less than 10 total pages so show all
+    startPage = 1;
+    endPage = totalPages;
+  } else {
+    // more than 10 total pages so calculate start and end pages
+    if (page <= 6) {
+      startPage = 1;
+      endPage = 10;
+    } else if (page + 4 >= totalPages) {
+      startPage = totalPages - 9;
+      endPage = totalPages;
+    } else {
+      startPage = page - 5;
+      endPage = page + 4;
+    }
+  }
+
+  // create an array of pages to ng-repeat in the pager control
+  return Array.from(Array(endPage + 1 - startPage), (_, i) => startPage + i);
+};
+
 const Pagination = ({
   goToPage,
-  pageCount,
   pageIndex,
   pageSize,
   totalPages,
   setPageSize,
 }: Props): React.ReactElement => {
-  const [items, setItems] = useState<number[]>([]);
+  const [items, setItems] = useState<number[]>(getItems(pageIndex, totalPages));
 
-  const getItems = (page: number, totalPages: number) => {
-    let startPage: number, endPage: number;
-    if (totalPages <= 10) {
-      // less than 10 total pages so show all
-      startPage = 1;
-      endPage = totalPages;
-    } else {
-      // more than 10 total pages so calculate start and end pages
-      if (page <= 6) {
-        startPage = 1;
-        endPage = 10;
-      } else if (page + 4 >= totalPages) {
-        startPage = totalPages - 9;
-        endPage = totalPages;
-      } else {
-        startPage = page - 5;
-        endPage = page + 4;
-      }
-    }
-
-    // create an array of pages to ng-repeat in the pager control
-    const pages = Array.from(
-      Array(endPage + 1 - startPage),
-      (_, i) => startPage + i
-    );
-
-    return setItems(pages);
-  };
-
-  const setPage = (page: number, totalPages: number) => {
-    getItems(page, totalPages);
+  const setPage = (page: number) => {
+    const items = getItems(page, totalPages);
+    setItems(items);
     return goToPage(page);
   };
-
-  useEffect(() => {
-    return getItems(0, totalPages);
-  }, [totalPages]);
 
   return (
     <WrapPagination>
       <StyledButton
         secondary
-        onClick={() => setPage(0, totalPages)}
+        onClick={() => setPage(0)}
         disabled={pageIndex === 0}
       >
         {'<<'}
       </StyledButton>{' '}
       <StyledButton
         secondary
-        onClick={() => setPage(pageIndex - 1, totalPages)}
+        onClick={() => setPage(pageIndex - 1)}
         disabled={pageIndex === 0}
       >
         anterior
       </StyledButton>{' '}
       <WrapItems>
-        {items.map((item, i) => (
+        {items.map((item: number, i: number) => (
           <StyledButton
             focus="#000"
             active={item - 1 === pageIndex}
             secondary
-            onClick={() => setPage(item - 1, totalPages)}
+            onClick={() => setPage(item - 1)}
             key={`page-item-${i}`}
           >
             {item}
@@ -157,15 +148,15 @@ const Pagination = ({
       </WrapItems>
       <StyledButton
         secondary
-        onClick={() => setPage(pageIndex + 1, totalPages)}
-        disabled={pageIndex === pageCount - 1}
+        onClick={() => setPage(pageIndex + 1)}
+        disabled={pageIndex === totalPages - 1}
       >
         próxima
       </StyledButton>{' '}
       <StyledButton
         secondary
-        onClick={() => setPage(pageCount - 1, totalPages)}
-        disabled={pageIndex === pageCount - 1}
+        onClick={() => setPage(totalPages - 1)}
+        disabled={pageIndex === totalPages - 1}
       >
         {'>>'}
       </StyledButton>{' '}
