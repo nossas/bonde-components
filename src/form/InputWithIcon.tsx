@@ -62,21 +62,23 @@ const RoundInput = styled.input<InputProps>`
 
 type Props = {
   icon: string | any;
+  type: string;
+  invalid?: boolean;
+  disabled?: boolean;
   placeholder?: string;
+  onBlur?: (e: any) => void;
 };
 
-const InputWithIcon = ({ icon, placeholder }: Props) => (
+const InputWithIcon = ({ icon, ...props }: Props) => (
   <Wrapper>
-    <RoundInput theme={theme} placeholder={placeholder} />
+    <RoundInput theme={theme} {...props} />
     <Icon size="xs" name={icon} />
   </Wrapper>
 );
 
 InputWithIcon.defaultProps = {
-  theme,
   invalid: false,
   type: 'text',
-  icon: false,
 };
 
 export default InputWithIcon;
