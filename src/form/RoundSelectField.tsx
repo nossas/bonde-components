@@ -6,14 +6,15 @@ import RoundSelect from './RoundSelect';
 import Label from './Label';
 
 type Props = {
-  label: string;
   name: string;
-  placeholder: string;
-  disabled: boolean;
   options: Array<{
     value: string;
     label: string;
   }>;
+  label?: string;
+  placeholder?: string;
+  disabled?: boolean;
+  menuPortalTarget?: HTMLBodyElement | null;
 };
 
 const RoundSelectField = ({
@@ -22,12 +23,13 @@ const RoundSelectField = ({
   placeholder,
   disabled,
   options,
+  menuPortalTarget,
   ...config
 }: Props) => {
   const { input, meta } = useField(name, config);
   return (
     <FormField>
-      <Label>{label}</Label>
+      {label && <Label>{label}</Label>}
       {(meta.error || meta.submitError) && meta.touched && (
         <Hint color="error">{meta.error || meta.submitError}</Hint>
       )}
@@ -37,6 +39,7 @@ const RoundSelectField = ({
         placeholder={placeholder}
         invalid={(meta.error || meta.submitError) && meta.touched}
         disabled={disabled}
+        menuPortalTarget={menuPortalTarget}
       />
     </FormField>
   );
