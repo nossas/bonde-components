@@ -24,15 +24,15 @@ const StyledControl = styled.div<{
 }>`
   & > .Select__control {
     ${props =>
-    !props.value
-      ? css`
+      !props.value
+        ? css`
             &:hover,
             &:focus {
               border-color: ${props.theme.brand.dark};
             }
             border-color: ${props.theme.brand.dark};
           `
-      : css`
+        : css`
             &:hover,
             &:focus {
               border-color: ${props.theme.brand.main};
@@ -40,8 +40,8 @@ const StyledControl = styled.div<{
             border-color: ${props.theme.brand.main};
           `}
     ${props =>
-    props.invalid &&
-    css`
+      props.invalid &&
+      css`
         &:hover,
         &:focus {
           border-color: ${props.theme.error};
@@ -73,7 +73,7 @@ const StyledSingleValue = styled.div<{
     transition: opacity 300ms;
     font-family: ${props => props.theme.fontFamily};
     color: ${props =>
-    !props.value ? props.theme.commons.dark : props.theme.brand.main};
+      !props.value ? props.theme.commons.dark : props.theme.brand.main};
   }
 `;
 
@@ -91,25 +91,25 @@ const StyledOption = styled.div<{
     font-family: ${props => props.theme.fontFamily};
     cursor: ${props => (props.isDisabled ? 'not-allowed' : 'default')};
     ${props =>
-    props.isSelected &&
-    css`
+      props.isSelected &&
+      css`
         background-color: rgba(74, 74, 74, 0.5);
         &:active {
           backgroundcolor: rgba(74, 74, 74, 0.5);
         }
       `}
     ${props =>
-    props.isFocused &&
-    css`
+      props.isFocused &&
+      css`
         background-color: rgba(74, 74, 74, 0.3);
       `}
     ${props =>
-    props.isDisabled &&
-    css`
+      props.isDisabled &&
+      css`
         color: #ccc;
       `}
     color: ${props =>
-    props.isSelected ? props.theme.brand.light : props.theme.commons.dark};
+      props.isSelected ? props.theme.brand.light : props.theme.commons.dark};
   }
 `;
 
