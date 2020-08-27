@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 const RoundInput = styled.input<InputProps>`
   padding: 10px 40px 10px 15px;
   width: 100%;
+  max-height: 40px;
 
   font-family: ${props => props.theme.fontFamily};
   font-size: 14px;

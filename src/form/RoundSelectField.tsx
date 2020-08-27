@@ -8,13 +8,14 @@ import Label from './Label';
 type Props = {
   name: string;
   options: Array<{
-    value: string;
-    label: string;
+    value: string | number;
+    label: string | number;
   }>;
   label?: string;
   placeholder?: string;
   disabled?: boolean;
   menuPortalTarget?: HTMLBodyElement | null;
+  isClearable?: boolean;
 };
 
 const RoundSelectField = ({
@@ -24,6 +25,7 @@ const RoundSelectField = ({
   disabled,
   options,
   menuPortalTarget,
+  isClearable,
   ...config
 }: Props) => {
   const { input, meta } = useField(name, config);
@@ -40,6 +42,7 @@ const RoundSelectField = ({
         invalid={(meta.error || meta.submitError) && meta.touched}
         disabled={disabled}
         menuPortalTarget={menuPortalTarget}
+        isClearable={isClearable}
       />
     </FormField>
   );

@@ -160,6 +160,7 @@ type Props = {
   invalid?: boolean;
   disabled?: boolean;
   menuPortalTarget?: HTMLBodyElement | null;
+  isClearable?: boolean;
 };
 
 const RoundSelect = ({ ...props }: Props) => {

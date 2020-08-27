@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { action } from '@storybook/addon-actions';
-import { RoundSelect, RoundSelectField, Form, Button, InputWithIcon, InputWithIconField } from '@';
+import {
+  RoundSelect,
+  RoundSelectField,
+  Form,
+  Button,
+  InputWithIcon,
+  InputWithIconField,
+} from '@';
 import { Form as FinalForm } from 'react-final-form';
 
 const Layout = styled.div<{ bg?: string }>`
@@ -27,7 +34,8 @@ export const select = () => {
         options={dicio}
         name="availability"
         placeholder="Disponibilidade"
-        onChange={(e) => action('onChange')(e.value)}
+        isClearable
+        onChange={e => action('onChange')(e.value)}
       />
     </Layout>
   );
@@ -64,12 +72,10 @@ export const selectField = () => {
           <RoundSelectField
             options={dicio}
             name="availability"
-          // placeholder="Disponibilidade"
+            isClearable={true}
+            // placeholder="Disponibilidade"
           />
-          <InputWithIconField
-            icon="Search"
-            name="search"
-          />
+          <InputWithIconField icon="Search" name="search" />
           <Button type="submit" disabled={submitting}>
             Submit
           </Button>
