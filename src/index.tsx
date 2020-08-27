@@ -47,4 +47,3 @@ export { default as Grid } from './responsive/Grid';
 export { default as Row } from './responsive/Row';
 
 export { useField, FormSpy } from 'react-final-form';
-export { diff } from 'deep-object-diff';
