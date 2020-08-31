@@ -12,11 +12,11 @@ interface NavbarProps {
 
 // Reset link to keep BondeSVG render
 const HomeLink = styled.a`
-  color: black;
+  color: #000;
   text-decoration: none;
 
-  $:hover {
-    color: black;
+  &:hover {
+    color: #000;
     text-decoration: none;
   }
 `;
@@ -47,8 +47,8 @@ const NavbarStyled = styled(Navbar)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${({ theme }) => theme.body.background.light};
-  padding: 20px ${({ theme }) => theme.body.padding};
+  background-color: ${({ theme }) => theme.body.background.dark};
+  padding: 20px ${({ theme }) => theme.body.padding}px;
 
   ${HomeLink} {
     margin-right: 10px;

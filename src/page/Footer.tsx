@@ -11,8 +11,8 @@ const Footer = styled(({ className, children }) => (
 ))`
   display: flex;
   flex-direction: row;
-  background-color: ${({ theme }) => theme.body.background.light};
-  padding: 20px ${({ theme }) => theme.body.padding};
+  background-color: ${({ theme }) => theme.body.background.dark};
+  padding: 20px ${({ theme }) => theme.body.padding}px;
 `;
 
 Footer.defaultProps = {
