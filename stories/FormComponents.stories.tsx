@@ -73,6 +73,7 @@ export const selectField = () => {
             options={dicio}
             name="availability"
             isClearable={true}
+            onChange={e => action('onChange')(e)}
             // placeholder="Disponibilidade"
           />
           <InputWithIconField icon="Search" name="search" />

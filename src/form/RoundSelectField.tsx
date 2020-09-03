@@ -16,6 +16,7 @@ type Props = {
   disabled?: boolean;
   menuPortalTarget?: HTMLBodyElement | null;
   isClearable?: boolean;
+  onChange?: (event: any) => void;
 };
 
 const RoundSelectField = ({
@@ -26,6 +27,7 @@ const RoundSelectField = ({
   options,
   menuPortalTarget,
   isClearable,
+  onChange,
   ...config
 }: Props) => {
   const { input, meta } = useField(name, config);
@@ -43,6 +45,10 @@ const RoundSelectField = ({
         disabled={disabled}
         menuPortalTarget={menuPortalTarget}
         isClearable={isClearable}
+        onChange={e => {
+          onChange && onChange(e);
+          input.onChange(e);
+        }}
       />
     </FormField>
   );

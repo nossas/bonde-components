@@ -148,11 +148,11 @@ const Option = (props: any) => (
 
 type Props = {
   options: Array<{
-    value: string | number;
+    value: unknown;
     label: string | number;
   }>;
   value: {
-    value: string | number;
+    value: unknown;
     label: string | number;
   };
   onChange: (event: any) => void;
