@@ -37,8 +37,10 @@ export default {
   `),
   H5: annotate(styled(Text.withComponent('h5'))<TextProps>`
     font-size: 13px;
-    line-height: 1.54;
+    line-height: 18px;
     color: #424242;
+    letter-spacing: 0.005em;
+    font-weight: 800;
   `),
   H6: annotate(styled(Text.withComponent('h6'))<TextProps>`
     font-size: 11px;
