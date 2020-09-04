@@ -6,6 +6,7 @@ const Navigation = styled.div`
   height: 50px;
   background-color: ${({ theme }) => theme.brand.dark};
   padding: 0 ${({ theme }) => theme.body.padding}px;
+  align-items: flex-end;
 `;
 
 Navigation.defaultProps = {

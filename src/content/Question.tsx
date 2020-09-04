@@ -23,7 +23,10 @@ const Question = ({ siteUrl, secretKey, config, border, title }: Props) => {
   const token = jwt.sign(payload, secretKey);
 
   const iframeUrl =
-    siteUrl + '/embed/question/' + token + `bordered=${border}&titled=${title}`;
+    siteUrl +
+    '/embed/question/' +
+    token +
+    `#bordered=${border}&titled=${title}`;
 
   return (
     <iframe
