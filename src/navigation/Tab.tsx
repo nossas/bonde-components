@@ -8,6 +8,7 @@ const Tab = styled(CleanButton)<{ active?: boolean; theme?: any }>`
     css`
       border-bottom: 1.5px solid ${theme.brand.main};
     `}
+  margin-right: 20px;
   cursor: pointer;
   font-weight: bold;
   font-size: 13px;
