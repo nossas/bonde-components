@@ -7,6 +7,7 @@ const Main = styled.div`
   min-height: 100vh;
   min-width: 100%;
   background-color: ${({ theme }) => theme.body.background.main};
+  font-family: ${({ theme }) => theme.fontFamily};
 `;
 
 Main.defaultProps = {
