@@ -47,11 +47,12 @@ const Wrapper = styled(CleanButton)<{ theme: any }>`
   }
 `;
 
-const Text = styled(Header.H5)`
+const Text = styled(Header.H5)<{ theme: any }>`
   text-transform: uppercase;
   font-weight: 800;
   margin: 0;
   text-align: left;
+  color: ${({ theme }) => theme.brand.dark};
 `;
 
 const Shortcut = ({
@@ -65,7 +66,7 @@ const Shortcut = ({
 }) => (
   <Wrapper theme={theme}>
     {icon}
-    <Text>{text}</Text>
+    <Text theme={theme}>{text}</Text>
   </Wrapper>
 );
 

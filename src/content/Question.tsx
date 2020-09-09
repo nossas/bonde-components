@@ -4,7 +4,10 @@ import Spinner from '../await/Spinner';
 import styled from 'styled-components';
 
 const Center = styled.div`
-  display: flex;
+  position: absolute;
+  top: 50%; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+  transform: translate(-50%, -50%);
 `;
 
 type Props = {
@@ -37,7 +40,7 @@ const Question = ({ siteUrl, secretKey, config, border, title }: Props) => {
     `#bordered=${border}&titled=${title}`;
 
   return (
-    <>
+    <div style={{ width: '100%', height: '100%' }}>
       {isLoading && (
         <Center>
           <Spinner />
@@ -49,7 +52,7 @@ const Question = ({ siteUrl, secretKey, config, border, title }: Props) => {
         title="Metabase"
         style={{ border: 'none', width: '100%', height: '100%' }}
       />
-    </>
+    </div>
   );
 };
 
