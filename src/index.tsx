@@ -1,4 +1,5 @@
 export { default as Loading } from './await/Loading';
+export { default as Spinner } from './await/Spinner';
 
 export { default as Bonde } from './content/Bonde';
 export { default as Button } from './content/Button';
