@@ -16,7 +16,7 @@ const Tab = styled(CleanButton)<{ active?: boolean; theme?: any }>`
   letter-spacing: 0.005em;
   font-family: ${({ theme }) => theme.fontFamily};
   text-transform: uppercase;
-  padding-bottom: 15px;
+  padding-bottom: ${({ active }) => (active ? '13.5px' : '15px')};
   color: ${({ active, theme }) =>
     active ? `${theme.brand.main}` : `${theme.brand.light}`};
   &:hover,
@@ -25,6 +25,7 @@ const Tab = styled(CleanButton)<{ active?: boolean; theme?: any }>`
     ${({ theme }) => `
       border-bottom: 1.5px solid ${theme.brand.main};
       color: ${theme.brand.main};
+      padding-bottom: 13.5px;
     `}
   }
 `;

@@ -11,7 +11,7 @@ const theme = {
   },
   fontFamily: "'Nunito Sans', sans-serif",
   body: {
-    padding: 65,
+    padding: 60,
     background: {
       light: '#fff',
       main: 'rgb(247,247,247)',
