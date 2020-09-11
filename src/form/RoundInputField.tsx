@@ -2,12 +2,11 @@ import React from 'react';
 import { useField } from 'react-final-form';
 import FormField from './FormField';
 import Hint from './Hint';
-import InputWithIcon from './InputWithIcon';
+import RoundInput from './RoundInput';
 import Label from './Label';
 
 type Props = {
   name: string;
-  icon: string;
   type?: string;
   label?: string;
   placeholder?: string;
@@ -15,32 +14,29 @@ type Props = {
   onBlur?: (e: any) => void;
 };
 
-const InputWithIconField = ({
+const RoundInputField = ({
   name,
   type,
   label,
   placeholder,
   disabled,
   onBlur,
-  icon,
   ...config
 }: Props) => {
   const { input, meta } = useField(name, config);
-
   return (
     <FormField>
       {label && <Label>{label}</Label>}
       {(meta.error || meta.submitError) && meta.touched && (
         <Hint color="error">{meta.error || meta.submitError}</Hint>
       )}
-      <InputWithIcon
+      <RoundInput
         {...input}
-        icon={icon}
         placeholder={placeholder}
         type={type}
         invalid={(meta.error || meta.submitError) && meta.touched}
         disabled={disabled}
-        onBlur={e => {
+        onBlur={(e: any) => {
           onBlur && onBlur(e);
           input.onBlur(e);
         }}
@@ -49,4 +45,4 @@ const InputWithIconField = ({
   );
 };
 
-export default InputWithIconField;
+export default RoundInputField;

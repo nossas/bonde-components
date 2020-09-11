@@ -6,8 +6,8 @@ import {
   RoundSelectField,
   Form,
   Button,
-  InputWithIcon,
-  InputWithIconField,
+  RoundInput,
+  RoundInputField,
 } from '@';
 import { Form as FinalForm } from 'react-final-form';
 
@@ -76,7 +76,7 @@ export const selectField = () => {
             onChange={e => action('onChange')(e)}
             // placeholder="Disponibilidade"
           />
-          <InputWithIconField icon="Search" name="search" />
+          <RoundInputField name="search" />
           <Button type="submit" disabled={submitting}>
             Submit
           </Button>
@@ -93,10 +93,7 @@ selectField.story = {
 export const input = () => {
   return (
     <Layout>
-      <InputWithIcon
-        icon="Search"
-        placeholder="Buscar nome, email, especialidade..."
-      />
+      <RoundInput placeholder="Buscar nome, email, especialidade..." />
     </Layout>
   );
 };

@@ -32,8 +32,8 @@ export { default as TextareaField } from './form/TextareaField';
 export { default as Textarea } from './form/Textarea';
 export { default as RoundSelect } from './form/RoundSelect';
 export { default as RoundSelectField } from './form/RoundSelectField';
-export { default as InputWithIcon } from './form/InputWithIcon';
-export { default as InputWithIconField } from './form/InputWithIconField';
+export { default as RoundInput } from './form/RoundInput';
+export { default as RoundInputField } from './form/RoundInputField';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';
