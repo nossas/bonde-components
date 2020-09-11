@@ -6,7 +6,7 @@ import theme from '../base/theme';
 import Icon from '../content/Icon';
 
 const SelectIcon = styled.div<{ show: boolean }>`
-  transition: all 275ms;
+  transition: all 350ms;
 
   ${props =>
     props.show &&
