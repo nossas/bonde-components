@@ -7,6 +7,7 @@ import {
   InputField,
   Validators,
   TextareaField,
+  SelectField
 } from '@';
 import { Form as FinalForm } from 'react-final-form';
 import styled from 'styled-components';
@@ -72,6 +73,14 @@ export const form = () => (
           type="password"
           validate={required('Required')}
         />
+        <SelectField
+          label="Favorite color"
+          name="color"
+        >
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Green">Green</option>
+        </SelectField>
         <TextareaField
           label="Mensagem"
           name="message"
