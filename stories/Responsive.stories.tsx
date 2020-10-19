@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Row,
-  Col,
-  // Grid,
-  Header,
-} from '@';
+import { Row, Col, Header } from '@';
 import styled from 'styled-components';
 
 interface BlockProps {
