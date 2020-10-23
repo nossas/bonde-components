@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '@';
+import { Header, SubHeader } from '@';
 
 export const title = () => (
   <div>
@@ -14,4 +14,14 @@ export const title = () => (
 
 export default {
   title: 'Header',
+};
+
+export const subHeader = () => (
+  <SubHeader>
+    <Header.H3>Redes</Header.H3>
+  </SubHeader>
+);
+
+subHeader.story = {
+  name: 'SubHeader',
 };
