@@ -17,6 +17,8 @@ type Props = {
   menuPortalTarget?: HTMLBodyElement | null;
   isClearable?: boolean;
   onChange?: (event: any) => void;
+  maxMenuHeight?: number;
+  menuPlacement?: 'auto' | 'top' | 'bottom';
 };
 
 const RoundSelectField = ({
@@ -28,6 +30,8 @@ const RoundSelectField = ({
   menuPortalTarget,
   isClearable,
   onChange,
+  maxMenuHeight = 300,
+  menuPlacement = 'bottom',
   ...config
 }: Props) => {
   const { input, meta } = useField(name, config);
@@ -45,6 +49,8 @@ const RoundSelectField = ({
         disabled={disabled}
         menuPortalTarget={menuPortalTarget}
         isClearable={isClearable}
+        maxMenuHeight={maxMenuHeight}
+        menuPlacement={menuPlacement}
         onChange={e => {
           onChange && onChange(e);
           input.onChange(e);

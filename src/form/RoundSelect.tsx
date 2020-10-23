@@ -113,6 +113,12 @@ const StyledOption = styled.div<{
   }
 `;
 
+const StyledMenu = styled.div`
+  & >.Select__menu {
+    z-index: 3;
+  }
+`
+
 StyledOption.defaultProps = {
   theme,
 };
@@ -146,6 +152,14 @@ const Option = (props: any) => (
   </StyledOption>
 );
 
+const Menu = (props: any) => {
+  return (
+    <StyledMenu>
+      <components.Menu {...props}>{props.children}</components.Menu>
+    </StyledMenu>
+  );
+};
+
 type Props = {
   options: Array<{
     value: unknown;
@@ -161,6 +175,8 @@ type Props = {
   disabled?: boolean;
   menuPortalTarget?: HTMLBodyElement | null;
   isClearable?: boolean;
+  maxMenuHeight?: number;
+  menuPlacement?: "auto" | "top" | "bottom";
 };
 
 const RoundSelect = ({ ...props }: Props) => {
@@ -174,6 +190,7 @@ const RoundSelect = ({ ...props }: Props) => {
         Control,
         SingleValue,
         Option,
+        Menu
       }}
       onMenuOpen={() => toggle(true)}
       onMenuClose={() => toggle(false)}
@@ -186,6 +203,7 @@ const RoundSelect = ({ ...props }: Props) => {
 
 RoundSelect.defaultProps = {
   theme,
+  menuHeight: 300
 };
 
 RoundSelect.displayName = 'RoundSelect';
