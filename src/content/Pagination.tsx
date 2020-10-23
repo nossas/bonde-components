@@ -10,6 +10,7 @@ type Props = {
   pageSize: number;
   setPageSize: (arg: number) => void;
   totalPages: number;
+  showMorePlacement?: 'auto' | 'top' | 'bottom';
 };
 
 const WrapPagination = styled.div`
@@ -108,6 +109,7 @@ const Pagination = ({
   pageSize,
   totalPages,
   setPageSize,
+  showMorePlacement,
 }: Props): React.ReactElement => {
   const [items, setItems] = useState<number[]>(getItems(pageIndex, totalPages));
 
@@ -191,6 +193,7 @@ const Pagination = ({
           }}
           onChange={e => setPageSize(Number(e.value))}
           menuPortalTarget={document.querySelector('body')}
+          menuPlacement={showMorePlacement}
         />
       </WrapSelect>
     </WrapPagination>
