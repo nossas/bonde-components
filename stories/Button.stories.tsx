@@ -45,6 +45,9 @@ export const disabled = () => (
     <Button disabled onClick={action('Hit me!')}>
       Hit me!
     </Button>
+    <Button secondary disabled onClick={action('Hit me!')}>
+      I'm a secondary disabled!
+    </Button>
   </Layout>
 );
 

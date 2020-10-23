@@ -75,6 +75,16 @@ const theme = {
     background: {
       main: 'none',
     },
+    disabled: {
+      color: {
+        main: '#AAAAAA',
+        hover: '#AAAAAA',
+        focus: '#AAAAAA',
+      },
+      background: {
+        main: 'none',
+      },
+    },
   },
   error: '#FF2B4E',
 };
