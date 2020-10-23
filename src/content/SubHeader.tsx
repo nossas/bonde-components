@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import Header from "./Header"
+import styled from 'styled-components';
+import Header from './Header';
 
 const SubHeader = styled.div`
   display: flex;
@@ -11,6 +11,6 @@ const SubHeader = styled.div`
   ${Header.H3} {
     color: #fff;
   }
-`
+`;
 
-export default SubHeader
+export default SubHeader;

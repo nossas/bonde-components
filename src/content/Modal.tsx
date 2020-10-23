@@ -23,9 +23,9 @@ const ModalStyled = styled.div<ModalProps>`
 `;
 
 type ModalContent = {
-  width: string;
+  width: number;
   theme: any;
-  height?: string;
+  height?: number;
 };
 
 const ModalContentStyled = styled.div<ModalContent>`
@@ -33,8 +33,8 @@ const ModalContentStyled = styled.div<ModalContent>`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding: 30px;
-  width: ${props => props.width};
-  height: ${props => (props.height ? props.height : 'auto')};
+  width: ${props => `${props.width}px`};
+  height: ${props => (props.height ? `${props.height}px` : 'auto')};
   position: absolute;
   left: 50%;
   top: 50%;
@@ -58,8 +58,8 @@ type Props = {
   /** Flag used to control modal open and close */
   isOpen?: boolean;
   /** Width of modal content in percent (%) */
-  width: string;
-  height?: string;
+  width: number;
+  height?: number;
   /** Function used when closing modal */
   onClose: () => void;
   children: React.ReactNode;
@@ -78,7 +78,7 @@ const Modal = ({ children, isOpen, onClose, width }: Props) => (
 
 Modal.defaultProps = {
   isOpen: false,
-  width: 30,
+  width: 300,
 };
 
 /** @component */
