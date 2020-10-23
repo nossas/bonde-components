@@ -23,14 +23,19 @@ const StyledControl = styled.div<{
   invalid: boolean;
 }>`
   & > .Select__control {
+    // Sets clear button color dinamically
+    & > .Select__indicators > .Select__clear-indicator {
+      color: ${props => props.theme.brand.main};
+    }
+    background-color: unset;
     ${props =>
       !props.value
         ? css`
             &:hover,
             &:focus {
-              border-color: ${props.theme.brand.dark};
+              border-color: ${props.theme.commons.main};
             }
-            border-color: ${props.theme.brand.dark};
+            border-color: ${props.theme.commons.main};
           `
         : css`
             &:hover,
@@ -73,7 +78,7 @@ const StyledSingleValue = styled.div<{
     transition: opacity 300ms;
     font-family: ${props => props.theme.fontFamily};
     color: ${props =>
-      !props.value ? props.theme.commons.dark : props.theme.brand.main};
+      !props.value ? props.theme.commons.main : props.theme.brand.main};
   }
 `;
 
@@ -114,10 +119,10 @@ const StyledOption = styled.div<{
 `;
 
 const StyledMenu = styled.div`
-  & >.Select__menu {
+  & > .Select__menu {
     z-index: 3;
   }
-`
+`;
 
 StyledOption.defaultProps = {
   theme,
@@ -130,7 +135,9 @@ const SingleValue = (props: any) => (
 );
 
 const DropdownIndicator = (props: any) => {
-  const color = !props.selectProps.value ? theme.brand.dark : theme.brand.main;
+  const color = !props.selectProps.value
+    ? theme.commons.main
+    : theme.brand.main;
   return (
     <components.DropdownIndicator {...props}>
       <SelectIcon show={props.selectProps.show}>
@@ -176,7 +183,7 @@ type Props = {
   menuPortalTarget?: HTMLBodyElement | null;
   isClearable?: boolean;
   maxMenuHeight?: number;
-  menuPlacement?: "auto" | "top" | "bottom";
+  menuPlacement?: 'auto' | 'top' | 'bottom';
 };
 
 const RoundSelect = ({ ...props }: Props) => {
@@ -190,7 +197,7 @@ const RoundSelect = ({ ...props }: Props) => {
         Control,
         SingleValue,
         Option,
-        Menu
+        Menu,
       }}
       onMenuOpen={() => toggle(true)}
       onMenuClose={() => toggle(false)}
@@ -203,7 +210,7 @@ const RoundSelect = ({ ...props }: Props) => {
 
 RoundSelect.defaultProps = {
   theme,
-  menuHeight: 300
+  menuHeight: 300,
 };
 
 RoundSelect.displayName = 'RoundSelect';

@@ -76,7 +76,7 @@ export const selectField = () => {
             onChange={e => action('onChange')(e)}
             // placeholder="Disponibilidade"
           />
-          <RoundInputField name="search" />
+          <RoundInputField name="search" placeholder="Buscar" />
           <Button type="submit" disabled={submitting}>
             Submit
           </Button>
@@ -93,7 +93,7 @@ selectField.story = {
 export const input = () => {
   return (
     <Layout>
-      <RoundInput placeholder="Buscar nome, email, especialidade..." />
+      <RoundInput border placeholder="Buscar nome, email, especialidade..." />
     </Layout>
   );
 };
