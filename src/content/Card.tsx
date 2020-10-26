@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Spacing from './Spacing';
+import Spacing from '../layout/Spacing';
 
 type Props = {
   margin?: Record<string, number>;
