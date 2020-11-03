@@ -40,6 +40,8 @@ export { default as RoundInputField } from './form/RoundInputField';
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';
 
+export { toast, ToastContainer, Success } from './notifications';
+
 export { default as Body } from './page/Body';
 export { default as Footer } from './page/Footer';
 export { default as Main } from './page/Main';
