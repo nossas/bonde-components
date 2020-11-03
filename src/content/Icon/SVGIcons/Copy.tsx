@@ -8,7 +8,7 @@ const Icon: React.FC = ({ className }: any) => {
       height="16"
       fill="none"
       viewBox="0 0 14 16"
-      className={className + ' stroke'}
+      className={className + ' fill'}
     >
       <path
         fill="#000"
