@@ -15,6 +15,7 @@ export { default as Table } from './content/Table';
 export { default as Pagination } from './content/Pagination';
 export { default as SubHeader } from './content/SubHeader';
 export { default as Card } from './content/Card';
+export { default as Tooltip } from './content/Tooltip';
 
 export { default as Dropdown } from './dropdown/Dropdown';
 export { default as DropdownIconItem } from './dropdown/DropdownIconItem';
