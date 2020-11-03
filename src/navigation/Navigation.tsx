@@ -3,9 +3,14 @@ import theme from '../base/theme';
 
 const Navigation = styled.div`
   display: flex;
-  height: 50px;
+  height: 40px;
   background-color: ${({ theme }) => theme.brand.dark};
   align-items: flex-end;
+
+  & > a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 Navigation.defaultProps = {

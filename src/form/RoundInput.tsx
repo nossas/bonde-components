@@ -8,47 +8,25 @@ type Props = {
   theme: any;
   onBlur?: (e: any) => void;
   placeholder?: string;
+  border?: boolean;
 };
 
 const RoundInput = styled.input<Props>`
-  padding: 10px 40px 10px 15px;
+  padding: 0 60px 0 15px;
   width: 100%;
-  max-height: 40px;
+  height: 40px;
 
   font-family: ${props => props.theme.fontFamily};
   font-size: 14px;
   line-height: 22px;
   color: ${props => props.theme.commons.dark};
-  border: 1px solid;
+  border: none;
   box-sizing: border-box;
-  border-radius: 7px;
-
-  ${props =>
-    !props.value
-      ? css`
-          &:hover,
-          &:focus {
-            border-color: ${props.theme.brand.dark};
-          }
-          border-color: ${props.theme.brand.dark};
-        `
-      : css`
-          &:hover,
-          &:focus {
-            border-color: ${props.theme.brand.main};
-          }
-          border-color: ${props.theme.brand.main};
-        `}
-
-  ${props =>
-    props.invalid &&
-    css`
-      border-color: ${props.theme.error};
-    `}
+  background-color: unset;
 
   &[disabled] {
     color: #d1cdd2;
-    background: none;
+    background: unset;
   }
 
   &::placeholder,
@@ -59,6 +37,29 @@ const RoundInput = styled.input<Props>`
     color: ${props => props.theme.commons.dark};
     font-family: ${props => props.theme.fontFamily};
   }
+
+  ${({ border, value, theme, invalid }) =>
+    border &&
+    css`
+      border: 1px solid;
+      border-radius: 7px;
+      ${!value
+        ? css`
+            &:hover,
+            &:focus {
+              border-color: ${theme.commons.main};
+            }
+            border-color: ${theme.commons.main};
+          `
+        : css`
+            &:hover,
+            &:focus {
+              border-color: ${theme.brand.main};
+            }
+            border-color: ${theme.brand.main};
+          `}
+      ${invalid && `border-color: ${theme.error};`}
+    `}
 `;
 
 RoundInput.defaultProps = {

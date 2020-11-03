@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from './Button';
 import RoundSelect from '../form/RoundSelect';
@@ -10,18 +10,21 @@ type Props = {
   pageSize: number;
   setPageSize: (arg: number) => void;
   totalPages: number;
+  showMorePlacement?: 'auto' | 'top' | 'bottom';
 };
 
 const WrapPagination = styled.div`
-  display: grid;
+  display: flex;
   margin: 20px 0px;
-  grid-template-columns: 40px 80px minmax(100px, 650px) 80px 40px 150px;
   grid-gap: 15px;
+  & button {
+    width: unset;
+  }
 `;
 
 const WrapItems = styled.div`
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
+  grid-gap: 10px;
 `;
 
 const StyledButton = styled(({ _active, ...rest }) => <Button {...rest} />)<{
@@ -45,6 +48,7 @@ const StyledButton = styled(({ _active, ...rest }) => <Button {...rest} />)<{
 `;
 
 const WrapSelect = styled.div<{ theme: any }>`
+  width: 150px;
   & .Select__control {
     border-color: ${({ theme }) => theme.brand.dark};
     &:hover {
@@ -108,8 +112,13 @@ const Pagination = ({
   pageSize,
   totalPages,
   setPageSize,
+  showMorePlacement,
 }: Props): React.ReactElement => {
-  const [items, setItems] = useState<number[]>(getItems(pageIndex, totalPages));
+  const [items, setItems] = useState<number[]>([]);
+
+  useEffect(() => {
+    setItems(getItems(pageIndex, totalPages));
+  }, [totalPages]);
 
   const setPage = (page: number) => {
     const items = getItems(page, totalPages);
@@ -191,6 +200,7 @@ const Pagination = ({
           }}
           onChange={e => setPageSize(Number(e.value))}
           menuPortalTarget={document.querySelector('body')}
+          menuPlacement={showMorePlacement}
         />
       </WrapSelect>
     </WrapPagination>

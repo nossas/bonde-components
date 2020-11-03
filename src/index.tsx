@@ -8,12 +8,13 @@ export { default as Text } from './content/Text';
 export { default as Icon } from './content/Icon';
 export { default as Header } from './content/Header';
 export { default as Link } from './content/Link';
-export { default as Question } from './content/Question';
 export { default as Shortcut } from './content/Shortcut';
 export { default as Modal } from './content/Modal';
 export { default as CleanButton } from './content/CleanButton';
 export { default as Table } from './content/Table';
 export { default as Pagination } from './content/Pagination';
+export { default as SubHeader } from './content/SubHeader';
+export { default as Card } from './content/Card';
 
 export { default as Dropdown } from './dropdown/Dropdown';
 export { default as DropdownIconItem } from './dropdown/DropdownIconItem';
@@ -47,4 +48,8 @@ export { default as Col } from './responsive/Col';
 export { default as Grid } from './responsive/Grid';
 export { default as Row } from './responsive/Row';
 
+export { default as Spacing } from './layout/Spacing';
+
 export { useField, FormSpy } from 'react-final-form';
+
+export { default as Theme } from './base/theme';

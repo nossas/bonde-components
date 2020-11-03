@@ -19,6 +19,7 @@ const ModalStyled = styled.div<ModalProps>`
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  z-index: 3;
 `;
 
 type ModalContent = {
@@ -33,7 +34,7 @@ const ModalContentStyled = styled.div<ModalContent>`
   border-radius: 4px;
   padding: 30px;
   width: ${props => props.width};
-  height: ${props => (props.height ? props.height : 'auto')};
+  height: ${props => (props.height ? `${props.height}` : 'auto')};
   position: absolute;
   left: 50%;
   top: 50%;
@@ -77,7 +78,7 @@ const Modal = ({ children, isOpen, onClose, width }: Props) => (
 
 Modal.defaultProps = {
   isOpen: false,
-  width: 30,
+  width: 300,
 };
 
 /** @component */

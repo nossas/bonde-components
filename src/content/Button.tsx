@@ -121,18 +121,15 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
     box-shadow: none;
   `}
 
-  ${({ disabled }) =>
+  ${({ disabled, secondary }) =>
     disabled &&
+    !secondary &&
     `
     cursor: initial;
-    background: #d1cdd2;
     border: none;
+    background: #d1cdd2;
     color: #fff;
 
-    &:hover, &:focus, &:active {
-      background: none;
-    }
-    
     ${Icon}.stroke {
       path {
         stroke: #fff;
@@ -141,6 +138,27 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
     ${Icon}.fill {
       path {
         fill: #fff;
+      }
+    }
+  `}
+
+${({ disabled, secondary, theme }) =>
+  disabled &&
+  secondary &&
+  `
+    cursor: initial;
+    background: ${theme.disabled.background};
+    border: none;
+    color: ${theme.disabled.color.main};
+
+    ${Icon}.stroke {
+      path {
+        stroke: ${theme.disabled.color.main};
+      }
+    }
+    ${Icon}.fill {
+      path {
+        fill: ${theme.disabled.color.main};
       }
     }
   `}
