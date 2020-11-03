@@ -36,6 +36,10 @@ export const render = () => (
     <Icon name="Eye" />
     <Icon name="Whatsapp" />
     <Icon name="Heart" />
+
+    <Icon name="Check" />
+    <Icon name="Copy" />
+    <Icon name="Warning" />
   </Layout>
 );
 
@@ -69,6 +73,10 @@ export const small = () => (
     <Icon name="Eye" size="small" />
     <Icon name="Whatsapp" size="small" />
     <Icon name="Heart" size="small" />
+
+    <Icon name="Check" size="small" />
+    <Icon name="Copy" size="small" />
+    <Icon name="Warning" size="small" />
   </Layout>
 );
 
@@ -98,6 +106,10 @@ export const large = () => (
     <Icon name="Eye" size="large" />
     <Icon name="Whatsapp" size="large" />
     <Icon name="Heart" size="large" />
+
+    <Icon name="Check" size="large" />
+    <Icon name="Copy" size="large" />
+    <Icon name="Warning" size="large" />
   </Layout>
 );
 
@@ -127,6 +139,10 @@ export const color = () => (
     <Icon name="Eye" size="large" color="red" />
     <Icon name="Whatsapp" size="large" color="red" />
     <Icon name="Heart" size="large" color="red" />
+
+    <Icon name="Check" size="large" color="red" />
+    <Icon name="Copy" size="large" color="red" />
+    <Icon name="Warning" size="large" color="red" />
   </Layout>
 );
 

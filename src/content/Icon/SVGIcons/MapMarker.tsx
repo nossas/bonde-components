@@ -20,6 +20,6 @@ const Icon = ({ className }: any) => (
   </svg>
 );
 
-Icon.displayName = 'Icon.Location';
+Icon.displayName = 'Icon.MapMarker';
 
 export default Icon;

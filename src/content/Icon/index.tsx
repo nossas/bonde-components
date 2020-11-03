@@ -9,9 +9,9 @@ interface IconProps {
   color?: string;
 }
 
-const IconController: React.FC<IconProps> = ({ className, name, ...props }) => {
+const IconController: React.FC<IconProps> = ({ name, ...props }) => {
   const IconSVG = SVGIcons[name];
-  if (IconSVG) return <IconSVG className={className} {...props} />;
+  if (IconSVG) return <IconSVG {...props} />;
   else return <span />;
 };
 

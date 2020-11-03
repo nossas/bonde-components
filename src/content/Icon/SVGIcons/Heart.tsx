@@ -16,6 +16,6 @@ const Icon = ({ className }: any) => (
   </svg>
 );
 
-Icon.displayName = 'Icon.Favorite';
+Icon.displayName = 'Icon.Heart';
 
 export default Icon;
