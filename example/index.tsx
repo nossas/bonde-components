@@ -22,7 +22,6 @@ import {
   Button,
   TextareaField,
   Validators,
-  Question,
   Table
 } from '../.';
 
@@ -184,19 +183,6 @@ const Routing = () => {
                 );
               }}
             </ConnectedForm>
-          </Route>
-          <Route exact path="/question">
-            <div style={{
-              width: "800px",
-              height: "600px"
-            }}>
-              <Question
-                siteUrl={process.env.REACT_APP_METABASE_SITE_URL || ""}
-                secretKey={process.env.REACT_APP_METABASE_SECRET_KEY || ""}
-                config={{ resource: { question: 1140 }, params: {} }}
-                questionOptions={"#bordered=false&titled=true"}
-              />
-            </div>
           </Route>
           <Route exact path="/table">
             <div style={{ padding: 30 }}>
