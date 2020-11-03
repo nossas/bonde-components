@@ -22,6 +22,7 @@ import {
   Button,
   TextareaField,
   Validators,
+  Table
 } from '../.';
 
 const useSession = (defaultCommunity: any) => {
@@ -88,6 +89,40 @@ const Routing = () => {
   const { community } = useSession();
   const { required } = Validators;
 
+  const data = React.useMemo(
+    () => [
+      {
+        col1: 'Hello',
+        col2: 'World',
+      },
+      {
+        col1: 'react-table',
+        col2: 'rocks',
+      },
+      {
+        col1: 'whatever',
+        col2: 'you want',
+      },
+    ],
+    []
+  )
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Column 1',
+        accessor: 'col1', // accessor is the "key" in the data
+        className: 'sticky',
+        bold: true
+      },
+      {
+        Header: 'Column 2',
+        accessor: 'col2',
+      },
+    ],
+    []
+  )
+
   return (
     <Main>
       <Navbar
@@ -149,11 +184,16 @@ const Routing = () => {
               }}
             </ConnectedForm>
           </Route>
+          <Route exact path="/table">
+            <div style={{ padding: 30 }}>
+              <Table columns={columns} data={data} sticky="end" />
+            </div>
+          </Route>
         </Switch>
         <Link to="/with-menu">Navigate to page with menu</Link>
       </Body>
       <Footer />
-    </Main>
+    </Main >
   );
 };
 

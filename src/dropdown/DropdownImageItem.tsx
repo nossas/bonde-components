@@ -44,7 +44,7 @@ const DropdownImageItem = styled(({ className, value }) => {
       background-color: #c7c7c7;
     }
   `}
-  ${Header.h4}, ${Header.h5} {
+  ${Header.H4}, ${Header.H5} {
     margin: 0;
   }
 `;

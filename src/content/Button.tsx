@@ -3,66 +3,90 @@ import styled from 'styled-components';
 import Icon from './Icon';
 import theme from '../base/theme';
 
-interface ButtonProps {
+type ButtonProps = {
   /** Children nodes. */
-  children: any;
+  children?: any;
   /** Disable button. */
   disabled?: boolean;
   /** Button type. */
-  type?: string;
+  type: 'button' | 'submit' | 'reset';
   dark?: boolean;
   light?: boolean;
+  secondary?: boolean;
   /** Button align. */
-  align?: 'center' | 'left' | 'right';
-}
+  align: 'center' | 'left' | 'right';
+  /* Optional colors */
+  main?: string;
+  hover?: string;
+  focus?: string;
+  onClick?: (event: any) => void;
+};
+
+type ButtonStyledProps = {
+  /** Disable button. */
+  disabled?: boolean;
+  /** Button type. */
+  dark?: boolean;
+  light?: boolean;
+  secondary?: boolean;
+  /** Button align. */
+  align: 'center' | 'left' | 'right';
+  theme: any;
+  /* Optional colors */
+  main?: string;
+  hover?: string;
+  focus?: string;
+};
 
 /**
  * The only true Button component.
  */
-const ButtonStyled = styled.button<ButtonProps>`
-  display: flex;
-  flex-direction: row;
+const ButtonStyled = styled.button<ButtonStyledProps>`
+  display: grid;
   align-items: center;
-  justify-content: center;
-  font-family: ${props => props.theme.fontFamily};
+  justify-content: ${({ align }) => align};
+  grid-template-columns: auto auto;
+  grid-column-gap: 5px;
+  font-family: ${({ theme }) => theme.fontFamily};
   font-weight: bold;
-  font-size: 13px;
-  text-align: ${props => props.align};
-  border-radius: 100px;
-  padding: 12px 60px;
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 10px 20px;
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
-  box-shadow: 1px 2px 7px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid;
-  
-  color: ${({ theme }) => theme.color.main};
+  width: 100%;
+
+  border-color: ${({ theme }) => theme.border.main};
+  background: ${({ theme }) => theme.background.main};
+  color: ${({ theme, main }) => main || theme.color.main};
+
   ${Icon}.stroke {
     path {
-      stroke: ${({ theme }) => theme.color.main};
+      stroke: ${({ theme, main }) => main || theme.color.main};
     }
   }
   ${Icon}.fill {  
     path {
-      fill: ${({ theme }) => theme.color.main};
+      fill: ${({ theme, main }) => main || theme.color.main};
     }
   }
 
-  border-color: ${({ theme }) => theme.border.main};
-  background: ${({ theme }) => theme.background.main};
-  ${({ disabled, theme }) =>
+  ${({ disabled, theme, hover }) =>
     !disabled &&
     `
     &:hover {
-      color: ${theme.color.hover || theme.color.main};
+      color: ${hover || theme.color.hover || theme.color.main};
       ${Icon}.stroke {
         path {
-          stroke: ${theme.color.hover || theme.color.main};
+          stroke: ${hover || theme.color.hover || theme.color.main};
         }
       }
       ${Icon}.fill {
         path {
-          fill: ${theme.color.hover || theme.color.main};
+          fill: ${hover || theme.color.hover || theme.color.main};
         }
       }
 
@@ -70,42 +94,42 @@ const ButtonStyled = styled.button<ButtonProps>`
       background: ${theme.background.hover || theme.background.main};
     }
   `}
-  ${({ disabled, theme }) =>
+  ${({ disabled, theme, focus }) =>
     !disabled &&
     `
-    &:active {
-      color: ${theme.color.focus || theme.color.main};
+    &:active, &:focus {
+      color: ${focus || theme.color.focus || theme.color.main};
       ${Icon}.stroke {
         path {
-          stroke: ${theme.color.focus || theme.color.main};
+          stroke: ${focus || theme.color.focus || theme.color.main};
         }
       }
       ${Icon}.fill {
         path {
-          fill: ${theme.color.focus || theme.color.main};
+          fill: ${focus || theme.color.focus || theme.color.main};
         }
       }
 
       border-color: ${theme.border.focus || theme.border.main};
-      background: ${theme.background.focus || theme.background.main};;
+      background: ${theme.background.focus || theme.background.main};
     }
   `}
 
-  ${({ dark, light, disabled }) =>
-    (dark || light || disabled) &&
+  ${({ dark, light, disabled, secondary }) =>
+    (dark || light || disabled || secondary) &&
     `
     box-shadow: none;
-    border: 1px solid;
   `}
 
-  ${({ disabled }) =>
+  ${({ disabled, secondary }) =>
     disabled &&
+    !secondary &&
     `
     cursor: initial;
-    background: #d1cdd2;
     border: none;
+    background: #d1cdd2;
     color: #fff;
-    
+
     ${Icon}.stroke {
       path {
         stroke: #fff;
@@ -117,30 +141,50 @@ const ButtonStyled = styled.button<ButtonProps>`
       }
     }
   `}
-  
-  ${Icon} {
-    margin-right: 5px;
-  }
+
+${({ disabled, secondary, theme }) =>
+  disabled &&
+  secondary &&
+  `
+    cursor: initial;
+    background: ${theme.disabled.background};
+    border: none;
+    color: ${theme.disabled.color.main};
+
+    ${Icon}.stroke {
+      path {
+        stroke: ${theme.disabled.color.main};
+      }
+    }
+    ${Icon}.fill {
+      path {
+        fill: ${theme.disabled.color.main};
+      }
+    }
+  `}
 `;
 
-ButtonStyled.defaultProps = {
-  align: 'center',
-  type: 'button',
+const Button = (props: ButtonProps) => {
+  const keyTheme =
+    !props.dark && !props.light && !props.secondary
+      ? 'default'
+      : props.dark
+      ? 'dark'
+      : props.light
+      ? 'light'
+      : 'secondary';
+
+  const customTheme = {
+    fontFamily: theme.fontFamily,
+    ...(theme[keyTheme] || {}),
+  };
+
+  return <ButtonStyled {...props} theme={customTheme} />;
 };
 
-const Button = (props: any) => {
-  const keyTheme =
-    !props.dark && !props.light ? 'default' : props.dark ? 'dark' : 'light';
-
-  return (
-    <ButtonStyled
-      theme={{
-        fontFamily: theme.fontFamily,
-        ...(theme[keyTheme] || {}),
-      }}
-      {...props}
-    />
-  );
+Button.defaultProps = {
+  align: 'center',
+  type: 'button',
 };
 
 export default Button;

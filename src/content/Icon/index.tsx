@@ -4,19 +4,25 @@ import * as SVGIcons from './SVGIcons';
 
 interface IconProps {
   className?: string;
-  size?: 'default' | 'small' | 'large';
+  size?: 'default' | 'small' | 'large' | 'xs';
   name: keyof typeof SVGIcons;
   color?: string;
 }
 
-const IconController: React.FC<IconProps> = ({ className, name, ...props }) => {
+const IconController: React.FC<IconProps> = ({ name, ...props }) => {
   const IconSVG = SVGIcons[name];
-  if (IconSVG) return <IconSVG className={className} {...props} />;
+  if (IconSVG) return <IconSVG {...props} />;
   else return <span />;
 };
 
 const Icon = styled(IconController)<IconProps>`
   vertical-align: middle;
+  ${props =>
+    props.size === 'xs' &&
+    `
+  width: calc(0.75*20px);
+  height: calc(0.75*15px);
+  `}
   ${props =>
     props.size === 'small' &&
     `

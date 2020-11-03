@@ -38,7 +38,7 @@ const EmptyWrap = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${Header.h4} {
+  ${Header.H4} {
     margin-top: 15px;
     font-weight: normal;
   }
@@ -51,7 +51,7 @@ interface EmptyProps {
 const Empty: React.FC<EmptyProps> = ({ message }) => (
   <EmptyWrap>
     <EmptyIcon />
-    {message && <Header.h4>{message}</Header.h4>}
+    {message && <Header.H4>{message}</Header.H4>}
   </EmptyWrap>
 );
 

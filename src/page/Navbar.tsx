@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Icon from '../content/Icon';
 import Bonde from '../content/Bonde';
-import theme from './theme';
+import theme from '../base/theme';
 
 interface NavbarProps {
   className?: string;
@@ -12,11 +12,11 @@ interface NavbarProps {
 
 // Reset link to keep BondeSVG render
 const HomeLink = styled.a`
-  color: black;
+  color: #000;
   text-decoration: none;
 
-  $:hover {
-    color: black;
+  &:hover {
+    color: #000;
     text-decoration: none;
   }
 `;
@@ -47,8 +47,8 @@ const NavbarStyled = styled(Navbar)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: ${props => props.theme.background};
-  padding: 20px ${props => props.theme.paddingX};
+  background-color: ${({ theme }) => theme.body.background.dark};
+  padding: 20px ${({ theme }) => theme.body.padding}px;
 
   ${HomeLink} {
     margin-right: 10px;

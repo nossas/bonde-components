@@ -66,7 +66,7 @@ Loading.defaultProps = {
   sparklesColor: '#35E3C3',
   sparklesColorInit: '#DBDBDB',
   sparklesDuration: '6s',
-  messageComponent: Header.h3,
+  messageComponent: Header.H3,
 };
 
 export default Loading;
