@@ -23,3 +23,4 @@ export { default as Warning } from './Warning';
 export { default as Whatsapp } from './Whatsapp';
 export { default as Eye } from './Eye';
 export { default as Open } from './Open';
+export { default as Sync } from './Sync';

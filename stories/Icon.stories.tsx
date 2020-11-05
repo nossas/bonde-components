@@ -40,6 +40,8 @@ export const render = () => (
     <Icon name="Check" />
     <Icon name="Copy" />
     <Icon name="Warning" />
+
+    <Icon name="Sync" />
   </Layout>
 );
 
@@ -77,6 +79,8 @@ export const small = () => (
     <Icon name="Check" size="small" />
     <Icon name="Copy" size="small" />
     <Icon name="Warning" size="small" />
+
+    <Icon name="Sync" size="small" />
   </Layout>
 );
 
@@ -110,6 +114,8 @@ export const large = () => (
     <Icon name="Check" size="large" />
     <Icon name="Copy" size="large" />
     <Icon name="Warning" size="large" />
+
+    <Icon name="Sync" size="large" />
   </Layout>
 );
 
@@ -143,6 +149,8 @@ export const color = () => (
     <Icon name="Check" size="large" color="red" />
     <Icon name="Copy" size="large" color="red" />
     <Icon name="Warning" size="large" color="red" />
+
+    <Icon name="Sync" size="large" color="red" />
   </Layout>
 );
 
