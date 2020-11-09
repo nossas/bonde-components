@@ -35,16 +35,19 @@ const Shortcut = ({
   text: string;
   theme: any;
 }) => {
-  const textTooBig = text.split(" ").length > 3
+  const textTooBig = text.split(' ').length > 4;
   return (
     <Wrapper theme={theme}>
       {icon}
       <Text theme={theme}>
-        {text.split(" ").slice(0, 4).join(" ") + `${textTooBig ? "..." : ""}`}
+        {text
+          .split(' ')
+          .slice(0, 4)
+          .join(' ') + `${textTooBig ? '...' : ''}`}
       </Text>
     </Wrapper>
-  )
-}
+  );
+};
 
 Shortcut.defaultProps = {
   theme,
