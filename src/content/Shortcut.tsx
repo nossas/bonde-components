@@ -5,16 +5,15 @@ import CleanButton from './CleanButton';
 import theme from '../base/theme';
 
 const Wrapper = styled(CleanButton)<{ theme: any }>`
-  width: 200px;
+  width: 100%;
   height: 90px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   cursor: pointer;
   background-color: ${({ theme }) => theme.brand.light};
-  padding: 0px 20px;
 
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 130px;
   align-items: center;
   justify-content: center;
   grid-column-gap: 20px;
@@ -35,12 +34,17 @@ const Shortcut = ({
   icon: React.ReactElement;
   text: string;
   theme: any;
-}) => (
-  <Wrapper theme={theme}>
-    {icon}
-    <Text theme={theme}>{text}</Text>
-  </Wrapper>
-);
+}) => {
+  const textTooBig = text.split(" ").length > 3
+  return (
+    <Wrapper theme={theme}>
+      {icon}
+      <Text theme={theme}>
+        {text.split(" ").slice(0, 4).join(" ") + `${textTooBig ? "..." : ""}`}
+      </Text>
+    </Wrapper>
+  )
+}
 
 Shortcut.defaultProps = {
   theme,

@@ -5,7 +5,7 @@ export const shortcut = () => (
   <div>
     <Shortcut
       icon={<Icon name="User" size="small" />}
-      text="fazer match de msr"
+      text="fazer match de profissionais da saúde"
     />
   </div>
 );
