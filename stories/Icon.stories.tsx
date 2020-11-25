@@ -41,6 +41,10 @@ export const render = () => (
     <Icon name="Copy" />
     <Icon name="Warning" />
 
+    <Icon name="Bolt" />
+    <Icon name="Ticket" />
+    <Icon name="TicketRecurring" />
+
     <Icon name="Sync" />
   </Layout>
 );
@@ -80,6 +84,10 @@ export const small = () => (
     <Icon name="Copy" size="small" />
     <Icon name="Warning" size="small" />
 
+    <Icon name="Bolt" size="small" />
+    <Icon name="Ticket" size="small" />
+    <Icon name="TicketRecurring" size="small" />
+
     <Icon name="Sync" size="small" />
   </Layout>
 );
@@ -115,6 +123,10 @@ export const large = () => (
     <Icon name="Copy" size="large" />
     <Icon name="Warning" size="large" />
 
+    <Icon name="Bolt" size="large" />
+    <Icon name="Ticket" size="large" />
+    <Icon name="TicketRecurring" size="large" />
+
     <Icon name="Sync" size="large" />
   </Layout>
 );
@@ -149,6 +161,10 @@ export const color = () => (
     <Icon name="Check" size="large" color="red" />
     <Icon name="Copy" size="large" color="red" />
     <Icon name="Warning" size="large" color="red" />
+
+    <Icon name="Bolt" size="large" color="red" />
+    <Icon name="Ticket" size="large" color="red" />
+    <Icon name="TicketRecurring" size="large" color="red" />
 
     <Icon name="Sync" size="large" color="red" />
   </Layout>

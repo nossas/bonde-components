@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import TooltipIcon from './TooltipIcon';
 
-const TooltipStyled = styled.div`
-  display: flex;
-  flex-direction: row;
-
-  svg {
-    margin-left: 10px;
-    cursor: pointer;
-  }
-`;
-
-const Message = styled.span`
+export const Message = styled.span`
   font-family: Nunito Sans;
   position: absolute;
   background-color: #424242;
@@ -32,15 +22,16 @@ const Message = styled.span`
 `;
 
 type Props = {
+  className?: string;
   label?: string | any;
   info: string | any;
 };
 
-const Tooltip = ({ label, info }: Props) => {
+const Tooltip = styled(({ label, info, className }: Props) => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <TooltipStyled>
+    <div className={className}>
       {label}
       <div
         style={{ position: 'relative' }}
@@ -50,8 +41,16 @@ const Tooltip = ({ label, info }: Props) => {
         <TooltipIcon />
         {visible && <Message>{info}</Message>}
       </div>
-    </TooltipStyled>
+    </div>
   );
-};
+})`
+  display: flex;
+  flex-direction: row;
+
+  svg {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+`;
 
 export default Tooltip;
