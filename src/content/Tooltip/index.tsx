@@ -32,7 +32,7 @@ const Message = styled.span`
 `;
 
 type Props = {
-  label?: string;
+  label?: string | any;
   info: string | any;
 };
 
