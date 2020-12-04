@@ -31,12 +31,14 @@ const Shortcut = ({
   icon,
   text,
   theme,
+  ...props
 }: {
   icon: React.ReactElement;
   text: string;
   theme: any;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }) => (
-  <Wrapper theme={theme}>
+  <Wrapper theme={theme} {...props}>
     {icon}
     <Text theme={theme}>{text}</Text>
   </Wrapper>
