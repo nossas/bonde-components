@@ -9,6 +9,7 @@ type Props = {
   onBlur?: (e: any) => void;
   placeholder?: string;
   border?: boolean;
+  onKeyPress?: (e: any) => void;
 };
 
 const RoundInput = styled.input<Props>`
