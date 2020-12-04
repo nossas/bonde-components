@@ -36,7 +36,7 @@ const Shortcut = ({
   icon: React.ReactElement;
   text: string;
   theme: any;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }) => (
   <Wrapper theme={theme} {...props}>
     {icon}
