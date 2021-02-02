@@ -14,6 +14,7 @@ type Props = {
   placeholder?: string;
   disabled?: boolean;
   onBlur?: (e: any) => void;
+  onKeyPress?: (e: any) => void;
 };
 
 const StyledFormField = styled(FormField)<{
@@ -58,6 +59,7 @@ const RoundInputField = ({
   placeholder,
   disabled,
   onBlur,
+  onKeyPress,
   ...config
 }: Props) => {
   const { input, meta } = useField(name, config);
@@ -72,6 +74,7 @@ const RoundInputField = ({
       )}
       <RoundInput
         {...input}
+        onKeyPress={onKeyPress}
         placeholder={placeholder}
         type={type}
         invalid={(meta.error || meta.submitError) && meta.touched}
