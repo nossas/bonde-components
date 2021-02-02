@@ -53,4 +53,5 @@ const Tooltip = styled(({ label, info, className }: Props) => {
   }
 `;
 
-export default Tooltip;
+export default Tooltip
+export { Message };
