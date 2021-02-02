@@ -54,4 +54,5 @@ const Tooltip = ({ label, info }: Props) => {
   );
 };
 
-export default Tooltip;
+export default Tooltip
+export { Message };

@@ -16,7 +16,7 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=17"
   },
   "husky": {
     "hooks": {
@@ -39,21 +39,21 @@
   "module": "dist/bonde-components.esm.js",
   "devDependencies": {
     "@babel/core": "^7.8.7",
-    "@storybook/addon-actions": "^5.3.17",
-    "@storybook/addon-links": "^5.3.17",
-    "@storybook/addons": "^5.3.17",
-    "@storybook/react": "^5.3.17",
+    "@storybook/addon-actions": "^6.2.0-alpha.20",
+    "@storybook/addon-links": "^6.2.0-alpha.20",
+    "@storybook/addons": "^6.2.0-alpha.20",
+    "@storybook/react": "^6.2.0-alpha.20",
     "@types/jest": "^25.1.4",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
     "@types/react-select": "^3.0.16",
     "@types/react-table": "7.0.22",
     "@types/styled-components": "^5.0.1",
     "babel-loader": "^8.0.6",
     "husky": "^4.2.3",
     "lint-staged": "^10.2.11",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "react": "^17",
+    "react-dom": "^17",
     "ts-loader": "^6.2.1",
     "tsdx": "^0.12.3",
     "tslib": "^1.11.1",
@@ -61,9 +61,9 @@
   },
   "dependencies": {
     "final-form": "^4.18.7",
-    "react-final-form": "^6.3.5",
-    "react-select": "^3.1.0",
-    "react-table": "^7.5.0",
+    "react-final-form": "^6.5",
+    "react-select": "^3.2.0",
+    "react-table": "^7.6.0",
     "react-toastify": "^6.0.9",
     "styled-components": "^5.0.1"
   }
