@@ -46,6 +46,9 @@ export const render = () => (
     <Icon name="TicketRecurring" />
 
     <Icon name="Sync" />
+    <Icon name="New" />
+    <Icon name="Cloud" />
+
   </Layout>
 );
 
@@ -89,6 +92,8 @@ export const small = () => (
     <Icon name="TicketRecurring" size="small" />
 
     <Icon name="Sync" size="small" />
+    <Icon name="New" size="small" />
+    <Icon name="Cloud" size="small"/>
   </Layout>
 );
 
@@ -128,7 +133,9 @@ export const large = () => (
     <Icon name="TicketRecurring" size="large" />
 
     <Icon name="Sync" size="large" />
-  </Layout>
+    <Icon name="New" size="large" />
+    <Icon name="Cloud" size="large" />
+</Layout>
 );
 
 export const color = () => (
@@ -167,6 +174,8 @@ export const color = () => (
     <Icon name="TicketRecurring" size="large" color="red" />
 
     <Icon name="Sync" size="large" color="red" />
+    <Icon name="New" size="large" color="red" />
+    <Icon name="Cloud" size="large" color="red" />
   </Layout>
 );
 
