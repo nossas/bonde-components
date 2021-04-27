@@ -4,6 +4,7 @@ export { default as ArrowRight } from './ArrowRight';
 export { default as ArrowUp } from './ArrowUp';
 export { default as Bonde } from './Bonde';
 export { default as Bolt } from './Bolt';
+export { default as BoltUnfilled } from './BoltUnfilled';
 export { default as Bot } from './Bot';
 export { default as Check } from './Check';
 export { default as Close } from './Close';
