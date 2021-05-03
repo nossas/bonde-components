@@ -118,7 +118,7 @@ const Pagination = ({
 
   useEffect(() => {
     setItems(getItems(pageIndex, totalPages));
-  }, [totalPages]);
+  }, [pageIndex, totalPages]);
 
   const setPage = (page: number) => {
     const items = getItems(page, totalPages);
