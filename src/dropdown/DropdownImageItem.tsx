@@ -10,6 +10,7 @@ interface Img {
 interface Value {
   img: Img;
   label: string;
+  user?: any
 }
 
 interface DropdownImageItemProps {
