@@ -54,7 +54,7 @@ const mediaQueries = (collapse: string) => (styles: string) => {
 
 // [lg: number, md: number, sm: number, xs: number]
 const getFlexBasis = (width: number, sizes: number[] = []) => {
-  let size: number = 0;
+  let size = 0;
 
   if (width > 991.98) {
     // lg
