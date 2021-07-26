@@ -41,6 +41,7 @@ const DropdownFluidList = styled.div<DropdownFluidListProps>`
   display: flex;
   flex-direction: column;
   z-index: 3;
+  
   ${props =>
     props.direction === 'left' &&
     `
@@ -88,10 +89,18 @@ const DropdownFluidLayout = styled.div`
   position: relative;
 `;
 
+interface ItemProp {
+  label?: string
+  name?: string
+  icon?: string
+  clickable?: boolean
+  render?: any
+}
+
 interface DropdownProps {
   placeholder?: string;
   item?: any;
-  items: any[];
+  items: ItemProp[];
   selectable?: boolean;
   onSelect: Function;
   dropdownInput?: any;
@@ -150,15 +159,8 @@ const Dropdown: React.FC<DropdownProps> = ({
                 };
 
                 return (
-                  <DropdownFluidItem
-                    key={`dropdown-item-${index}`}
-                    {...itemProps}
-                  >
-                    {typeof value !== 'string' && value.render ? (
-                      <value.render value={value} selected={item} />
-                    ) : (
-                      <DropdownItemUI clickable value={value} selected={item} />
-                    )}
+                  <DropdownFluidItem key={`dropdown-item-${index}`} {...itemProps}>
+                    <DropdownItemUI clickable={clickable} value={value} selected={item} />
                   </DropdownFluidItem>
                 );
               })}

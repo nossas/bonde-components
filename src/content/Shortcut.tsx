@@ -31,12 +31,14 @@ const Shortcut = ({
   icon,
   text,
   theme,
+  onClick
 }: {
   icon: React.ReactElement;
   text: string;
   theme: any;
+  onClick?: any;
 }) => (
-  <Wrapper theme={theme}>
+  <Wrapper theme={theme} onClick={onClick}>
     {icon}
     <Text theme={theme}>{text}</Text>
   </Wrapper>
