@@ -11,7 +11,7 @@ const Switch = ({ onClick, checked, disabled }: SwitchProps) => {
   return (
     <Label>
       <input onClick={onClick} type="checkbox" checked={checked} disabled={disabled}/>
-      <span className="slider round" />
+      <span className="slider" />
     </Label>
   )
 }
@@ -19,8 +19,11 @@ const Switch = ({ onClick, checked, disabled }: SwitchProps) => {
 const Label = styled.label`
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 28px;
+  min-width: 28px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 3px 3px 10px 1px rgb(138 138 138 / 55%);
 
   input {
     opacity: 0;
@@ -31,48 +34,38 @@ const Label = styled.label`
   .slider {
     position: absolute;
     cursor: pointer;
+    border-radius: 34px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #858585;
     -webkit-transition: .4s;
     transition: .4s;
   }
 
-  .slider:before {
+  .slider::before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 1px;
+    bottom: 1px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
   }
 
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #50E3C2;
   }
 
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
+  input:checked + .slider::before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
   }
 `
+
 export default Switch;
