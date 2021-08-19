@@ -57,7 +57,6 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
   outline: none;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid;
-  width: 100%;
 
   border-color: ${({ theme }) => theme.border.main};
   background: ${({ theme }) => theme.background.main};
