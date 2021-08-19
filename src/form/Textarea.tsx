@@ -16,7 +16,7 @@ const Textarea = styled.textarea<TextareaProps>`
   color: #000000;
   border: none;
   border-bottom: 1px solid #AAAAAA;
-  padding: 8px 0;
+  padding: 60px 0;
   background: none;
 
   &[disabled] {
