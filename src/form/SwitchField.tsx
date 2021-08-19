@@ -12,31 +12,28 @@ const SwitchField = (props: any) => {
   const { input, meta } = useField(name, config);
 
   return (
-    <>
-      <FormField>
-        <Container disabled={!input.value}>
-          {label && <Label>{label}</Label>}
-
-          <span className="text">{input.value ? textOn : textOff}</span>
-
-          <Switch
-            disabled={disabled}
-            onClick={() => input.onChange(!input.value)}
-            checked={input.value}
-          />
-        </Container>
-      </FormField>
-
+    <FormField>
       {(meta.error || meta.submitError) && meta.touched && (
         <Hint color="error">{meta.error || meta.submitError}</Hint>
       )}
-    </>
+      <Container disabled={!input.value}>
+        {label && <Label>{label}</Label>}
+
+        <span className="text">{input.value ? textOn : textOff}</span>
+
+        <Switch
+          disabled={disabled}
+          onClick={() => input.onChange(!input.value)}
+          checked={input.value}
+        />
+      </Container>
+    </FormField>
   );
 };
 
 type ContainerProps = {
-  disabled: boolean
-}
+  disabled: boolean;
+};
 
 const Container = styled.div<ContainerProps>`
   display: flex;
@@ -46,8 +43,8 @@ const Container = styled.div<ContainerProps>`
     font-size: '13px';
     font-weight: 800;
     margin-right: 8px;
-    color: ${({ disabled }) => disabled ? '#858585' : '#50E3C2'}
+    color: ${({ disabled }) => (disabled ? '#858585' : '#50E3C2')};
   }
-`
+`;
 
 export default SwitchField;

@@ -8,7 +8,7 @@ interface FormFieldProps {
 const FormField = styled.div<FormFieldProps>`
   position: relative;
   display: flex;
-  padding: 0 0 17px;
+  padding: 0 0 30px;
 
   flex-direction: ${props => props.direction};
   ${props =>
