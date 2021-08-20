@@ -51,7 +51,7 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
   font-weight: bold;
   font-size: 14px;
   border-radius: 50px;
-  padding: 10px 20px;
+  padding: ${({ align }) => align === "center" ? "10px 20px" : "10px 0"};
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
