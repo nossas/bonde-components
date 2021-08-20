@@ -54,9 +54,10 @@ type Props = {
   label: string;
   name: string;
   disabled?: boolean;
+  validate?: any
 };
 
-const SelectField = (props: Props) => {
+const SelectField = (props: Props): React.ReactElement => {
   const { label, name, disabled, children, ...config } = props;
   const { input, meta } = useField(name, config);
 

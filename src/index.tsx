@@ -38,6 +38,7 @@ export { default as RoundSelect } from './form/RoundSelect';
 export { default as RoundSelectField } from './form/RoundSelectField';
 export { default as RoundInput } from './form/RoundInput';
 export { default as RoundInputField } from './form/RoundInputField';
+export { default as SwitchField } from './form/SwitchField';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';

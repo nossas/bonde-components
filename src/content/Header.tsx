@@ -27,12 +27,14 @@ export default {
     font-size: 21px;
     font-weight: 800;
     line-height: 0.95;
+    margin-bottom: 12px;
     color: #000;
   `),
   H4: annotate(styled(Text.withComponent('h4'))<TextProps>`
     font-size: 18px;
     font-weight: 800;
     line-height: 1.39;
+    margin-bottom: 5px;
     color: #000;
   `),
   H5: annotate(styled(Text.withComponent('h5'))<TextProps>`

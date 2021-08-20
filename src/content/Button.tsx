@@ -51,13 +51,12 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
   font-weight: bold;
   font-size: 14px;
   border-radius: 50px;
-  padding: 10px 20px;
+  padding: ${({ align }) => align === "center" ? "10px 20px" : "10px 0"};
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid;
-  width: 100%;
 
   border-color: ${({ theme }) => theme.border.main};
   background: ${({ theme }) => theme.background.main};

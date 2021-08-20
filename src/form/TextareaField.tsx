@@ -5,8 +5,9 @@ import Hint from './Hint';
 import Textarea from './Textarea';
 import Label from './Label';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const TextareaField = (props: any) => {
-  const { label, name, placeholder, type, disabled, ...config } = props;
+  const { label, name, placeholder, disabled, ...config } = props;
   const { input, meta } = useField(name, config);
 
   return (
@@ -15,12 +16,14 @@ const TextareaField = (props: any) => {
       {(meta.error || meta.submitError) && meta.touched && (
         <Hint color="error">{meta.error || meta.submitError}</Hint>
       )}
-      <Textarea
-        placeholder={placeholder}
-        invalid={(meta.error || meta.submitError) && meta.touched}
-        disabled={disabled}
-        {...input}
-      />
+      <div style={{display: "flex", paddingTop: "8px"}}>
+        <Textarea
+          placeholder={placeholder}
+          invalid={(meta.error || meta.submitError) && meta.touched}
+          disabled={disabled}
+          {...input}
+        />
+      </div>
     </FormField>
   );
 };
