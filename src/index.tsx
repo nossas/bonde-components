@@ -62,6 +62,7 @@ export { FORM_ERROR } from 'final-form';
 export { default as Theme } from './base/theme';
 
 export { default as chakraTheme } from "./chakra-theme/chakra";
+export { default as FontsLoader } from "./chakra-theme/FontsLoader";
 export {
   Button as CButton,
   ChakraProvider,
