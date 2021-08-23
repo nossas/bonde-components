@@ -60,3 +60,10 @@ export { useField, FormSpy } from 'react-final-form';
 export { FORM_ERROR } from 'final-form';
 
 export { default as Theme } from './base/theme';
+
+export { default as chakraTheme } from "./chakra-theme/chakra";
+export {
+  Button as CButton,
+  ChakraProvider,
+  CSSReset
+} from "@chakra-ui/react";
