@@ -63,23 +63,4 @@ export { default as Theme } from './base/theme';
 
 export { default as chakraTheme } from "./chakra-theme/chakra";
 export { default as FontsLoader } from "./chakra-theme/FontsLoader";
-export {
-  Box,
-  Button,
-  IconButton,
-  Link as CLink,
-  List,
-  ListItem,
-  ListIcon,
-  Image,
-  InputGroup,
-  Input,
-  InputLeftElement,
-  InputRightElement,
-  SimpleGrid,
-  Stack,
-  Text,
-  ChakraProvider,
-  Heading,
-  CSSReset
-} from "@chakra-ui/react";
+export * from "@chakra-ui/react";
