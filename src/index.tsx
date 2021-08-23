@@ -2,9 +2,9 @@ export { default as Loading } from './await/Loading';
 export { default as Spinner } from './await/Spinner';
 
 export { default as Bonde } from './content/Bonde';
-export { default as Button } from './content/Button';
+// export { default as Button } from './content/Button';
 export { default as Empty } from './content/Empty';
-export { default as Text } from './content/Text';
+// export { default as Text } from './content/Text';
 export { default as Icon } from './content/Icon';
 export { default as Header } from './content/Header';
 export { default as Link } from './content/Link';
@@ -27,7 +27,7 @@ export { default as ConnectedForm } from './form/ConnectedForm';
 export { default as Form } from './form/Form';
 export { default as FormField } from './form/FormField';
 export { default as Hint } from './form/Hint';
-export { default as Input } from './form/Input';
+// export { default as Input } from './form/Input';
 export { default as InputField } from './form/InputField';
 export { default as SelectField } from './form/SelectField';
 export { default as Label } from './form/Label';
@@ -64,7 +64,22 @@ export { default as Theme } from './base/theme';
 export { default as chakraTheme } from "./chakra-theme/chakra";
 export { default as FontsLoader } from "./chakra-theme/FontsLoader";
 export {
-  Button as CButton,
+  Box,
+  Button,
+  IconButton,
+  Link as CLink,
+  List,
+  ListItem,
+  ListIcon,
+  Image,
+  InputGroup,
+  Input,
+  InputLeftElement,
+  InputRightElement,
+  SimpleGrid,
+  Stack,
+  Text,
   ChakraProvider,
+  Heading,
   CSSReset
 } from "@chakra-ui/react";

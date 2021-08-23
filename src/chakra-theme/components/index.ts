@@ -4,3 +4,4 @@ export { default as Input } from "./Input";
 export { default as FormLabel } from "./FormLabel";
 export { default as Select } from "./Select";
 export { default as Radio } from "./Radio";
+export { default as Text } from "./Text";

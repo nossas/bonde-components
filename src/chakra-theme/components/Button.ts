@@ -1,3 +1,7 @@
+type Props = {
+  colorScheme: "pink" | "gray"
+}
+
 const disabled = {
   solid: {
     bg: "gray.50",
@@ -20,7 +24,7 @@ export default {
     textTransform: "uppercase"
   },
   variants: {
-    solid: ({ colorScheme }: any) => ({
+    solid: ({ colorScheme }: Props): any => ({
       bg: `${colorScheme}.100`,
       color: "white",
       _hover: {
@@ -37,7 +41,7 @@ export default {
       },
       _disabled: disabled.solid
     }),
-    outline: ({ colorScheme }: any) => ({
+    outline: ({ colorScheme }: Props): any => ({
       bg: "transparent",
       color: `${colorScheme}.300`,
       borderColor: `${colorScheme}.300`,
@@ -58,10 +62,11 @@ export default {
       },
       _disabled: disabled.outline
     }),
-    link: ({ colorScheme }: any) => ({
+    link: ({ colorScheme }: Props): any => ({
       bg: "transparent",
       borderColor: "transparent",
       color: `${colorScheme}.300`,
+      minW: "auto",
       _hover: {
         color: `${colorScheme}.200`,
         borderColor: "transparent",
