@@ -61,6 +61,14 @@ export { FORM_ERROR } from 'final-form';
 
 export { default as Theme } from './base/theme';
 
+// Chakra UI
 export { default as chakraTheme } from "./chakra-theme/chakra";
 export { default as FontsLoader } from "./chakra-theme/FontsLoader";
+// Custom Icons
+export { default as BotIcon } from "./chakra-theme/icons/BotIcon";
+export { default as NetIcon } from "./chakra-theme/icons/NetIcon";
+export { default as PagesIcon } from "./chakra-theme/icons/PagesIcon";
+export { default as SearchIcon } from "./chakra-theme/icons/SearchIcon";
+export { default as SettingsIcon } from "./chakra-theme/icons/SettingsIcon";
+
 export * from "@chakra-ui/react";
