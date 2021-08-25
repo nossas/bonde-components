@@ -1,27 +1,21 @@
 import React from "react";
+import _ from "lodash";
 import { withTheme } from "@rjsf/core";
-import { Button, Stack } from "@chakra-ui/react";
-import * as widgets from "./widgets";
-import FieldTemplate from "./ChakraFieldTemplate";
-import ErrorList from "./ChakraErrorList";
-import ObjectFieldTemplate from "./ChakraObjectFieldTemplate";
+import ChakraTheme from "./ChakraTheme";
 
-const ChakraTheme = {
-  children: (
-    <Stack direction="row" justifyContent="flex-end">
-      <Button type="submit">Salvar</Button>
-    </Stack>
-  ),
-  widgets,
-  ErrorList,
-  FieldTemplate,
-  ObjectFieldTemplate
+const Form = withTheme(ChakraTheme)
+
+export type JSONSchemaFormError = {
+  name: string;
+  message: string;
+  params: Record<any, any>;
+  property: string;
+  stack: string;
+  schemaPath: string;
 }
 
-const Form = withTheme(ChakraTheme);
-
-const transformErrors = (errors: any[]) => {
-  return errors.map((error: any) => {
+const transformErrors = (errors: JSONSchemaFormError[]): JSONSchemaFormError[] => {
+  return errors.map((error: JSONSchemaFormError) => {
     if (error.name === "required") {
       error.message = "Preenchimento obrigatório"
     }
@@ -29,15 +23,34 @@ const transformErrors = (errors: any[]) => {
   });
 }
 
+export type JSONSchemaFormProps = {
+  onSubmit: any;
+  schema: any;
+  uiSchema: any;
+  formData?: any;
+  transformErrors?: (errors: JSONSchemaFormError[]) => JSONSchemaFormError[];
+}
+
 // eslint-disable-next-line react/prop-types
-const JSONSchemaForm: React.FC = ({ onSubmit, schema, uiSchema }: any): React.ReactElement => (
+const JSONSchemaForm: React.FC<JSONSchemaFormProps> = ({
+  onSubmit,
+  schema,
+  uiSchema,
+  formData,
+  transformErrors: xtransformErrors
+}): React.ReactElement => (
   <Form
-    liveValidate
     noHtml5Validate
+    formData={formData}
     schema={schema}
     uiSchema={uiSchema}
     onSubmit={onSubmit}
-    transformErrors={transformErrors}
+    transformErrors={(errors: any[]) => {
+      return xtransformErrors
+        ? _.uniqBy(transformErrors(errors).concat(xtransformErrors(errors)), "stack")
+        : transformErrors(errors)
+      ;
+    }}
   />
 );
 
