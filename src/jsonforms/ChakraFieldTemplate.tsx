@@ -29,7 +29,7 @@ const ChakraFieldTemplate = ({
 
   const options = uiSchema["ui:options"] || {}
   const inside = (
-    <FormControl id={id} isRequired={required} isInvalid={rawErrors.length > 0} mb={4}>
+    <FormControl id={id} isRequired={required} isInvalid={rawErrors.length > 0} mb={2}>
       <Stack direction="row" justifyContent="space-between">
         {displayLabel && label ? (
           <Stack direction="row" spacing={4} alignItems="center">

@@ -1,12 +1,18 @@
 import React from "react";
-import { Box, Text, Grid } from "@chakra-ui/react";
+import { Box, Grid } from "@chakra-ui/react";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ChakraObjectFieldTemplate = (props: any): React.ReactElement => {
   const {
-    onlyProperties,
-    grid
-  } = props.uiSchema["ui:options"] || {};
+    TitleField,
+    DescriptionField,
+    uiSchema,
+    title,
+    description,
+    idSchema,
+    required
+  } = props;
+  const { onlyProperties, grid } = uiSchema["ui:options"] || {};
 
   const children = props.properties.map((element: any) => element.content)
 
@@ -16,11 +22,18 @@ const ChakraObjectFieldTemplate = (props: any): React.ReactElement => {
     </Grid>
   ) : (
     <Box>
-      {props.title && (<Text fontWeight="800" fontSize="md" mb={4}>{props.title}</Text>)}
-      {props.description && (
-        <Text>
-          {props.description}
-        </Text>
+    {(uiSchema['ui:title'] || title) && (
+        <TitleField
+          id={`${idSchema.$id}-title`}
+          title={title}
+          required={required}
+        />
+      )}
+      {description && (
+        <DescriptionField
+          id={`${idSchema.$id}-description`}
+          description={description}
+        />
       )}
       {grid ? (
         <Grid templateColumns="repeat(12, 1fr)" gap={4}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Stack } from "@chakra-ui/react";
 import * as widgets from "./widgets";
-import ChakraS3UploadField from "./fields/ChakraS3UploadField";
+import * as fields from "./fields";
 import FieldTemplate from "./ChakraFieldTemplate";
 import ErrorList from "./ChakraErrorList";
 import ObjectFieldTemplate from "./ChakraObjectFieldTemplate";
@@ -13,9 +13,7 @@ const ChakraTheme = {
     </Stack>
   ),
   widgets,
-  fields: {
-    "s3": ChakraS3UploadField
-  },
+  fields,
   ErrorList,
   FieldTemplate,
   ObjectFieldTemplate

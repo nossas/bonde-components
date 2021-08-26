@@ -22,6 +22,9 @@ const ChakraTextWidget = ({
   autofocus,
   options,
   schema,
+  uiSchema,
+  formContext,
+  rawErrors,
   ...inputProps
 }: ChakraTextWidgetProps): React.ReactElement => {
   const _onChange = ({
