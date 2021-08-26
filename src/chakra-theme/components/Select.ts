@@ -1,7 +1,10 @@
+import Input from "./Input"
+
 export default {
+  variants: {
+    ...Input.variants
+  },
   defaultProps: {
-    field: {
-      variant: "flushed"
-    }
+    ...Input.defaultProps
   }
 }

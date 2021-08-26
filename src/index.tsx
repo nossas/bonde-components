@@ -50,9 +50,9 @@ export { default as Footer } from './page/Footer';
 export { default as Main } from './page/Main';
 export { default as Navbar } from './page/Navbar';
 
-export { default as Col } from './responsive/Col';
-export { default as Grid } from './responsive/Grid';
-export { default as Row } from './responsive/Row';
+// export { default as Col } from './responsive/Col';
+// export { default as Grid } from './responsive/Grid';
+// export { default as Row } from './responsive/Row';
 
 export { default as Spacing } from './layout/Spacing';
 
