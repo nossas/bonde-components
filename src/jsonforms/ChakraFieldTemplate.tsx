@@ -6,9 +6,9 @@ import {
   List,
   ListItem,
   FormErrorMessage,
-  FormHelperText,
   Tooltip,
-  Stack
+  Stack,
+  GridItem
 } from "@chakra-ui/react";
 import { InfoIcon } from "..";
 
@@ -21,13 +21,14 @@ const ChakraFieldTemplate = ({
   required,
   rawErrors = [],
   rawHelp,
-  rawDescription
+  uiSchema
 }: FieldTemplateProps): React.ReactElement => {
   if (hidden) {
     return children;
   }
 
-  return (
+  const options = uiSchema["ui:options"] || {}
+  const inside = (
     <FormControl id={id} isRequired={required} isInvalid={rawErrors.length > 0} mb={4}>
       <Stack direction="row" justifyContent="space-between">
         {displayLabel && label ? (
@@ -55,9 +56,18 @@ const ChakraFieldTemplate = ({
         )}
       </Stack>
       {children}
-      {rawDescription && <FormHelperText>{rawDescription}</FormHelperText>}
     </FormControl>
   );
+
+  if (options.cols) {
+    return (
+      <GridItem colSpan={options.cols}>
+        {inside}
+      </GridItem>
+    )
+  }
+
+  return inside;
 };
 
 export default ChakraFieldTemplate;

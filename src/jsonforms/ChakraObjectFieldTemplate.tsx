@@ -1,20 +1,33 @@
 import React from "react";
+import { Box, Text, Grid } from "@chakra-ui/react";
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ChakraObjectFieldTemplate = (props: any): React.ReactElement => {
-  console.log("ChakraObjectFieldTemplate", { props });
-  const options = props.uiSchema["ui:options"] || {};
+  const {
+    onlyProperties,
+    grid
+  } = props.uiSchema["ui:options"] || {};
 
-  return options?.onlyProperties ? (
-    <>
-      {props.properties.map((element: any) => element.content)}
-    </>
+  const children = props.properties.map((element: any) => element.content)
+
+  return onlyProperties && !grid ? children : onlyProperties && grid ? (
+    <Grid templateColumns="repeat(12, 1fr)" gap={4}>
+      {children}
+    </Grid>
   ) : (
-    <div>
-      {props.title}
-      {props.description}
-      {props.properties.map((element: any) => element.content)}
-    </div>
+    <Box>
+      {props.title && (<Text fontWeight="800" fontSize="md" mb={4}>{props.title}</Text>)}
+      {props.description && (
+        <Text>
+          {props.description}
+        </Text>
+      )}
+      {grid ? (
+        <Grid templateColumns="repeat(12, 1fr)" gap={4}>
+          {children}
+        </Grid>
+      ) : children}
+    </Box>
   );
 }
 
