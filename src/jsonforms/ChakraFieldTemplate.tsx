@@ -48,7 +48,7 @@ const ChakraFieldTemplate = ({
             {rawErrors.map((error, i: number) => {
               return (
                 <ListItem key={i}>
-                  <FormErrorMessage color="red">{error}</FormErrorMessage>
+                  <FormErrorMessage color="red" m={0}>{error}</FormErrorMessage>
                 </ListItem>
               );
             })}
