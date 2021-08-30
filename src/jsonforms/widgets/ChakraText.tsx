@@ -28,9 +28,15 @@ const ChakraTextWidget = ({
   ...inputProps
 }: ChakraTextWidgetProps): React.ReactElement => {
   const _onChange = ({
-    target: { value },
+    target: { value: targetValue },
   }: React.ChangeEvent<HTMLInputElement>) =>
-    onChange(value === "" ? options.emptyValue : value);
+    onChange(
+      targetValue === ""
+        ? options.emptyValue
+        : options.normalize
+        ? (options as any).normalize(targetValue, value)
+        : targetValue
+    )
   const _onBlur = ({ target: { value } }: React.FocusEvent<HTMLInputElement>) =>
     onBlur(id, value);
   const _onFocus = ({

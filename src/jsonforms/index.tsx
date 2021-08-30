@@ -1,9 +1,10 @@
 import React from "react";
 import _ from "lodash";
+import { Button, Stack } from "@chakra-ui/react";
 import { withTheme } from "@rjsf/core";
 import ChakraTheme from "./ChakraTheme";
 
-const Form = withTheme(ChakraTheme)
+const Form = withTheme(ChakraTheme);
 
 export type JSONSchemaFormError = {
   name: string;
@@ -23,7 +24,7 @@ const transformErrors = (errors: JSONSchemaFormError[]): JSONSchemaFormError[] =
   });
 }
 
-export type JSONSchemaFormProps = {
+export type JSONSchemaFormProps = any & {
   onSubmit: any;
   schema: any;
   uiSchema: any;
@@ -37,21 +38,30 @@ const JSONSchemaForm: React.FC<JSONSchemaFormProps> = ({
   schema,
   uiSchema,
   formData,
-  transformErrors: xtransformErrors
-}): React.ReactElement => (
-  <Form
-    noHtml5Validate
-    formData={formData}
-    schema={schema}
-    uiSchema={uiSchema}
-    onSubmit={onSubmit}
-    transformErrors={(errors: any[]) => {
-      return xtransformErrors
-        ? _.uniqBy(transformErrors(errors).concat(xtransformErrors(errors)), "stack")
-        : transformErrors(errors)
-      ;
-    }}
-  />
-);
+  transformErrors: xtransformErrors,
+  ...props
+}): React.ReactElement => {
+
+  return (
+    <Form
+      noHtml5Validate
+      formData={formData}
+      schema={schema}
+      uiSchema={uiSchema}
+      onSubmit={onSubmit}
+      transformErrors={(errors: any[]) => {
+        return xtransformErrors
+          ? _.uniqBy(transformErrors(errors).concat(xtransformErrors(errors)), "stack")
+          : transformErrors(errors)
+        ;
+      }}
+      {...props}
+    >
+      <Stack direction="row" justifyContent="flex-end">
+        <Button type="submit">Salvar</Button>
+      </Stack>
+    </Form>
+  );
+}
 
 export default JSONSchemaForm;
