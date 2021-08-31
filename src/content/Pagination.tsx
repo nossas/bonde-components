@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Button from './Button';
+import { Stack, Button } from "@chakra-ui/react";
 import RoundSelect from '../form/RoundSelect';
 import theme from '../base/theme';
 
@@ -12,40 +12,6 @@ type Props = {
   totalPages: number;
   showMorePlacement?: 'auto' | 'top' | 'bottom';
 };
-
-const WrapPagination = styled.div`
-  display: flex;
-  margin: 20px 0px;
-  grid-gap: 15px;
-  & button {
-    width: unset;
-  }
-`;
-
-const WrapItems = styled.div`
-  display: flex;
-  grid-gap: 10px;
-`;
-
-const StyledButton = styled(({ _active, ...rest }) => <Button {...rest} />)<{
-  active: boolean;
-}>`
-  ${({ disabled }) =>
-    disabled &&
-    `
-    background: none;
-    color:  #aaa;
-  `}
-  ${({ active }) =>
-    active &&
-    `
-    color:  #ee0099;
-    &:focus, &:active {
-      color:  #ee0099;
-    }
-  `}
-  padding: 0;
-`;
 
 const WrapSelect = styled.div<{ theme: any }>`
   width: 150px;
@@ -127,48 +93,52 @@ const Pagination = ({
   };
 
   return (
-    <WrapPagination>
-      <StyledButton
-        secondary
+    <Stack my={4} spacing={2}>
+      <Button
+        variant="link"
+        colorScheme="gray"
         onClick={() => setPage(0)}
         disabled={pageIndex === 0}
       >
         {'<<'}
-      </StyledButton>{' '}
-      <StyledButton
-        secondary
+      </Button>{' '}
+      <Button
+        variant="link"
+        colorScheme="gray"
         onClick={() => setPage(pageIndex - 1)}
         disabled={pageIndex === 0}
       >
         anterior
-      </StyledButton>{' '}
-      <WrapItems>
+      </Button>{' '}
+      <Stack direction="row" spacing={2}>
         {items.map((item: number, i: number) => (
-          <StyledButton
-            focus="#000"
-            active={item - 1 === pageIndex}
-            secondary
-            onClick={() => setPage(item - 1)}
+          <Button
             key={`page-item-${i}`}
+            variant="link"
+            colorScheme="gray"
+            active={item - 1 === pageIndex}
+            onClick={() => setPage(item - 1)}
           >
             {item}
-          </StyledButton>
+          </Button>
         ))}
-      </WrapItems>
-      <StyledButton
-        secondary
+      </Stack>
+      <Button
+        variant="link"
+        colorScheme="gray"
         onClick={() => setPage(pageIndex + 1)}
         disabled={pageIndex === totalPages - 1}
       >
         próxima
-      </StyledButton>{' '}
-      <StyledButton
-        secondary
+      </Button>{' '}
+      <Button
+        variant="link"
+        colorScheme="gray"
         onClick={() => setPage(totalPages - 1)}
         disabled={pageIndex === totalPages - 1}
       >
         {'>>'}
-      </StyledButton>{' '}
+      </Button>{' '}
       <WrapSelect>
         <RoundSelect
           options={[
@@ -203,7 +173,7 @@ const Pagination = ({
           menuPlacement={showMorePlacement}
         />
       </WrapSelect>
-    </WrapPagination>
+    </Stack>
   );
 };
 

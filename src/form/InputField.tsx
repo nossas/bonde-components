@@ -1,9 +1,58 @@
 import React from 'react';
+import styled from "styled-components";
 import { useField } from 'react-final-form';
+import theme from "../base/theme";
 import FormField from './FormField';
 import Hint from './Hint';
-import Input from './Input';
 import Label from './Label';
+
+interface InputProps {
+  invalid?: boolean;
+}
+
+const Input = styled.input<InputProps>`
+  font-family: ${props => props.theme.fontFamily};
+  font-size: 16px;
+  color: #000;
+  border: none;
+  border-bottom: 1px solid ${props => props.theme.commons.main};
+  padding: 8px 0;
+  background: none;
+
+  ${props => props.invalid && `border-color: #ff0931;`}
+
+  &[disabled] {
+    color: #d1cdd2;
+    background: none;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid ${props => props.theme.brand.main};
+  }
+
+  &::placeholder {
+    color: ${props => props.theme.commons.dark};
+  }
+  &::-webkit-input-placeholder {
+    color: ${props => props.theme.commons.dark};
+  }
+  &::-moz-placeholder {
+    color: ${props => props.theme.commons.dark};
+  }
+  &:-ms-input-placeholder {
+    color: ${props => props.theme.commons.dark};
+  }
+  &:-moz-placeholder {
+    color: ${props => props.theme.commons.dark};
+  }
+`;
+
+Input.defaultProps = {
+  theme,
+  invalid: false,
+  type: 'text',
+};
 
 const InputField = (props: any) => {
   const { label, name, placeholder, type, disabled, onBlur, ...config } = props;
