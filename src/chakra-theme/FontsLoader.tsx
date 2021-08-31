@@ -5,10 +5,6 @@ const FontsLoader = (): React.ReactElement => (
   <GoogleFontLoader
     fonts={[
       {
-        font: 'Bebas Neue',
-        weights: [400, 700, 800],
-      },
-      {
         font: 'Nunito Sans',
         weights: [400, 700, 800],
       },

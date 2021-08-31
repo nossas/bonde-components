@@ -1,4 +1,4 @@
 export default {
-  heading: "Bebas Neue",
+  heading: "Nunito Sans",
   body: "Nunito Sans"
 }
