@@ -88,12 +88,17 @@ export default {
     })
   },
   sizes: {
+    xs: {
+      h: "42px",
+      fontSize: "sm",
+      px: 4
+    },
     sm: {
       h: "42px",
       minW: "192px",
       fontSize: "sm",
       px: 4
-    }
+    },
   },
   defaultProps: {
     variant: "solid",
