@@ -112,6 +112,7 @@ export default {
   sizes,
   defaultProps: {
     variant: "solid",
-    colorScheme: "pink"
+    colorScheme: "pink",
+    size: "sm"
   }
 }
