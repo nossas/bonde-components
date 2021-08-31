@@ -61,6 +61,8 @@ export { default as JSONSchemaForm } from './jsonforms';
 export { default as chakraTheme } from './chakra-theme/chakra';
 export { default as FontsLoader } from './chakra-theme/FontsLoader';
 // Custom Icons
+export { default as ArrowUpIcon } from './chakra-theme/icons/ArrowUpIcon';
+export { default as ArrowDownIcon } from './chakra-theme/icons/ArrowDownIcon';
 export { default as BotIcon } from './chakra-theme/icons/BotIcon';
 export { default as EditIcon } from './chakra-theme/icons/EditIcon';
 export { default as InfoIcon } from './chakra-theme/icons/InfoIcon';

@@ -1,11 +1,8 @@
 import type {
+  StyleFunctionProps,
   SystemStyleObject,
   SystemStyleFunction,
-} from "@chakra-ui/theme-tools"
-
-type Props = {
-  colorScheme: "pink" | "gray"
-}
+} from "@chakra-ui/theme-tools";
 
 const disabled = {
   solid: {
@@ -38,7 +35,7 @@ const sizes: Record<string, SystemStyleObject> = {
 }
 
 const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
-  solid: ({ colorScheme }: Props): any => ({
+  solid: ({ colorScheme }: StyleFunctionProps): any => ({
     bg: `${colorScheme}.100`,
     color: "white",
     _hover: {
@@ -55,7 +52,7 @@ const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
     },
     _disabled: disabled.solid
   }),
-  outline: ({ colorScheme }: Props): any => ({
+  outline: ({ colorScheme }: StyleFunctionProps): any => ({
     bg: "transparent",
     color: `${colorScheme}.300`,
     borderColor: `${colorScheme}.300`,
@@ -76,7 +73,7 @@ const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
     },
     _disabled: disabled.outline
   }),
-  link: ({ colorScheme }: Props): any => ({
+  link: ({ colorScheme }: StyleFunctionProps): any => ({
     bg: "transparent",
     borderColor: "transparent",
     color: `${colorScheme}.300`,
@@ -99,6 +96,21 @@ const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
       boxShadow: "none"
     },
     _disabled: disabled.link
+  }),
+  dropdown: ({ color }: StyleFunctionProps): any => ({
+    bg: "transparet",
+    borderColor: "trasparent",
+    color,
+    minW: "auto",
+    _hover: {
+      color
+    },
+    _active: {
+      color
+    },
+    _focus: {
+      boxShadow: "none"
+    },
   })
 }
 
