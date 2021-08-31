@@ -1,17 +1,31 @@
 export default {
-  baseStyle: {
-    fontFamily: "Bebas Neue"
-  },
   sizes: {
-    sm: {
-      fontSize: ["xs", "sm"],
-      color: "gray.300"
+    // H6  
+    xs: {
+      fontWeight: "bold"
     },
+    // H5
+    sm: {
+      fontWeight: "extrabold"
+    },
+    // H4
     md: {
-      fontSize: ["sm", "md"],
+      fontWeight: "bold"
+    },
+    // H3
+    lg: {
+      fontWeight: "extrabold"
+    },
+    // H2
+    xl: {
+      fontWeight: "black"
+    },
+    // H1
+    "2xl": {
+      fontWeight: "black"
     }
   },
   defaultProps: {
-    size: "md"
+    size: "2xl"
   }
 }
