@@ -1,8 +1,6 @@
 import React from 'react';
 import { useField } from 'react-final-form';
-import { Select } from "@chakra-ui/react";
-import FormField from './FormField';
-import Label from './Label';
+import { Select, FormControl, FormLabel, Flex } from "@chakra-ui/react";
 import Hint from './Hint';
 
 type Props = {
@@ -18,15 +16,17 @@ const SelectField = (props: Props): React.ReactElement => {
   const { input, meta } = useField(name, config);
 
   return (
-    <FormField>
-      <Label>{label}</Label>
-      {(meta.error || meta.submitError) && meta.touched && (
-        <Hint color="error">{meta.error || meta.submitError}</Hint>
-      )}
+    <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched}>
+      <Flex direction="row" justify="space-between">
+        <FormLabel>{label}</FormLabel>
+        {(meta.error || meta.submitError) && meta.touched && (
+          <Hint color="error">{meta.error || meta.submitError}</Hint>
+        )}
+      </Flex>
       <Select disabled={disabled} {...input}>
         {children}
       </Select>
-    </FormField>
+    </FormControl>
   );
 };
 
