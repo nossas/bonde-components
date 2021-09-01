@@ -8,7 +8,7 @@ const InputField = (props: any) => {
   const { input, meta } = useField(name, config);
 
   return (
-    <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched}>
+    <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched} mb={4}>
       <Flex direction="row" justify="space-between">
         <FormLabel>{label}</FormLabel>
         {(meta.error || meta.submitError) && meta.touched && (
