@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({
   children,
   indexRoute,
 }) => (
-  <Stack direction="row" bg="black" px={12} py={6} spacing={4}>
+  <Stack direction="row" bg="black" px={12} py={4} alignItems="center">
     <HomeLink href={indexRoute} title="Bonde Home Link">
       {brand !== 'small' ? <Bonde /> : <Icon name="Bonde" />}
     </HomeLink>
