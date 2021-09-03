@@ -8,7 +8,8 @@ const baseButton = {
 
 const baseList = {
   borderRadius: "none",
-  boxShadow: "xs"
+  border: "none",
+  boxShadow: "sm"
 };
 
 const baseItem = {

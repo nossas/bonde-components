@@ -57,6 +57,13 @@ export { default as Theme } from './base/theme';
 // React JSON Schema Form
 export { default as JSONSchemaForm } from './jsonforms';
 
+export {
+  default as PerformDropdown,
+  PerformDropdownButton,
+  PerformDropdownItem,
+  PerformDropdownList
+} from "./perform-dropdown";
+
 // Chakra UI
 export { default as chakraTheme } from './chakra-theme/chakra';
 export { default as FontsLoader } from './chakra-theme/FontsLoader';
