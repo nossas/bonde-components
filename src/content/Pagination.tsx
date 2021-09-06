@@ -93,7 +93,7 @@ const Pagination = ({
   };
 
   return (
-    <Stack my={4} spacing={2}>
+    <Stack direction="row" my={4} spacing={2} justify="center">
       <Button
         variant="link"
         colorScheme="gray"
@@ -116,7 +116,7 @@ const Pagination = ({
             key={`page-item-${i}`}
             variant="link"
             colorScheme="gray"
-            active={item - 1 === pageIndex}
+            color={item - 1 === pageIndex ? "pink.200" : "gray.300"}
             onClick={() => setPage(item - 1)}
           >
             {item}

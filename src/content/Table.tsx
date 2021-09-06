@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
 import { useTable, useSortBy, useFlexLayout } from 'react-table';
+import { Stack } from "@chakra-ui/react";
 import styled, { css } from 'styled-components';
 
 import Pagination from './Pagination';
@@ -210,74 +211,76 @@ function Table({
 
   // Render the UI for your table
   return (
-    <Main>
-      <StyledTable
-        sticky={sticky as string}
-        backgroundColor={backgroundColor}
-        {...getTableProps()}
-      >
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <StyledTr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column: any) => (
-                <StyledTh
-                  {...column.getHeaderProps({
-                    ...column.getSortByToggleProps(),
-                    className: column.collapse
-                      ? 'collapse '
-                      : '' + column.className || '',
-                    style: column.style,
-                  })}
-                  theme={theme}
-                  backgroundColor={backgroundColor}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      paddingRight: '5px',
-                    }}
-                  >
-                    {column.render('Header')}
-                    <span>
-                      {column.isSorted ? (
-                        column.isSortedDesc ? (
-                          <Icon name="ArrowDown" size="small" />
-                        ) : (
-                          <Icon name="ArrowUp" size="small" />
-                        )
-                      ) : (
-                        ''
-                      )}
-                    </span>
-                  </div>
-                </StyledTh>
-              ))}
-            </StyledTr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row);
-            return (
-              <StyledTr {...row.getRowProps()}>
-                {row.cells.map((cell: any) => (
-                  <StyledTd
-                    {...cell.getCellProps({
-                      className: cell.column.className,
-                      style: cell.column.style,
-                      bold: cell.column.bold,
+    <Stack spacing={4}>
+      <Main>
+        <StyledTable
+          sticky={sticky as string}
+          backgroundColor={backgroundColor}
+          {...getTableProps()}
+        >
+          <thead>
+            {headerGroups.map(headerGroup => (
+              <StyledTr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column: any) => (
+                  <StyledTh
+                    {...column.getHeaderProps({
+                      ...column.getSortByToggleProps(),
+                      className: column.collapse
+                        ? 'collapse '
+                        : '' + column.className || '',
+                      style: column.style,
                     })}
                     theme={theme}
+                    backgroundColor={backgroundColor}
                   >
-                    {cell.render('Cell')}
-                  </StyledTd>
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        paddingRight: '5px',
+                      }}
+                    >
+                      {column.render('Header')}
+                      <span>
+                        {column.isSorted ? (
+                          column.isSortedDesc ? (
+                            <Icon name="ArrowDown" size="small" />
+                          ) : (
+                            <Icon name="ArrowUp" size="small" />
+                          )
+                        ) : (
+                          ''
+                        )}
+                      </span>
+                    </div>
+                  </StyledTh>
                 ))}
               </StyledTr>
-            );
-          })}
-        </tbody>
-      </StyledTable>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map(row => {
+              prepareRow(row);
+              return (
+                <StyledTr {...row.getRowProps()}>
+                  {row.cells.map((cell: any) => (
+                    <StyledTd
+                      {...cell.getCellProps({
+                        className: cell.column.className,
+                        style: cell.column.style,
+                        bold: cell.column.bold,
+                      })}
+                      theme={theme}
+                    >
+                      {cell.render('Cell')}
+                    </StyledTd>
+                  ))}
+                </StyledTr>
+              );
+            })}
+          </tbody>
+        </StyledTable>
+      </Main>
       {pagination && (
         <Pagination
           goToPage={pagination.goToPage}
@@ -288,7 +291,7 @@ function Table({
           showMorePlacement="top"
         />
       )}
-    </Main>
+    </Stack>
   );
 }
 
