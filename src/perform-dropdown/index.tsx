@@ -42,7 +42,11 @@ export const PerformDropdownList: React.FC<PerformDropdownListProps> = ({
   return (
     <Fade
       in={isOpen}
-      style={{ position: "absolute", zIndex: 2 } as any}
+      style={{
+        position: "absolute",
+        top: isOpen ? "0" : "-1000px",
+        zIndex: 2
+      } as any}
     >
       <Box {...boxProps}>
         {children}
