@@ -1,17 +1,25 @@
 export default {
   transparent: "transparent",
-  black: "#000",
-  white: "#fff",
-  red: "#FF0931",
+  black: "#000000",
+  white: "#FFFFFF",
+  red: {
+    100: "#FF0931",
+    200: "#FF2B4E"
+  },
   gray: {
-    50: "#D1CDD2",
-    100: "#DEDEDE",
-    200: "#8A8A8A",
-    300: "#565656"
+    50: "#EEEEEE",
+    100: "#D1CDD2",
+    200: "#AAAAAA",
+    300: "#9B9B9B",
+    400: "#424242"
+  },
+  green: {
+    200: "#50E3C2"
   },
   pink: {
-    100: "#EE0099",
-    200: "#E2058A",
-    300: "#B4006C"
+    200: "#EE0099",
+    300: "#E2058A",
+    400: "#B4006C"
   }
 }
+
