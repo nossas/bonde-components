@@ -6,16 +6,16 @@ import type {
 
 const disabled = {
   solid: {
-    bg: "gray.50",
+    bg: "gray.100",
     color: "white"
   },
   outline: {
-    color: "gray.50",
-    borderColor: "gray.50",
+    color: "gray.100",
+    borderColor: "gray.100",
     bg: "transparent"
   },
   link: {
-    color: "gray.50"
+    color: "gray.100"
   }
 }
 
@@ -36,14 +36,14 @@ const sizes: Record<string, SystemStyleObject> = {
 
 const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
   solid: ({ colorScheme }: StyleFunctionProps): any => ({
-    bg: `${colorScheme}.100`,
+    bg: `${colorScheme}.200`,
     color: "white",
     _hover: {
-      bg: `${colorScheme}.200`,
+      bg: `${colorScheme}.300`,
       _disabled: disabled.solid
     },
     _active: {
-      bg: `${colorScheme}.300`,
+      bg: `${colorScheme}.400`,
       _disabled: disabled.solid
     },
     _focus: {
@@ -54,17 +54,17 @@ const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
   }),
   outline: ({ colorScheme }: StyleFunctionProps): any => ({
     bg: "transparent",
-    color: `${colorScheme}.300`,
-    borderColor: `${colorScheme}.300`,
+    color: `${colorScheme}.400`,
+    borderColor: `${colorScheme}.400`,
     _hover: {
-      color: `${colorScheme}.200`,
-      borderColor: `${colorScheme}.200`,
+      color: `${colorScheme}.300`,
+      borderColor: `${colorScheme}.300`,
       bg: "transparent",
       _disabled: disabled.outline
     },
     _active: {
-      color: `${colorScheme}.100`,
-      borderColor: `${colorScheme}.100`,
+      color: `${colorScheme}.200`,
+      borderColor: `${colorScheme}.200`,
       bg: "transparent",
       _disabled: disabled.outline
     },
@@ -76,17 +76,17 @@ const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
   link: ({ colorScheme }: StyleFunctionProps): any => ({
     bg: "transparent",
     borderColor: "transparent",
-    color: `${colorScheme}.300`,
+    color: `${colorScheme}.400`,
     minW: "auto",
     _hover: {
-      color: `${colorScheme}.200`,
+      color: `${colorScheme}.300`,
       borderColor: "transparent",
       bg: "transparent",
       textDecoration: "none",
       _disabled: disabled.link
     },
     _active: {
-      color: `${colorScheme}.100`,
+      color: `${colorScheme}.200`,
       borderColor: "transparent",
       bg: "transparent",
       textDecoration: "none",
