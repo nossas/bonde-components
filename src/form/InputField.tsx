@@ -3,8 +3,18 @@ import { useField } from 'react-final-form';
 import { Input, FormControl, FormLabel, Flex } from "@chakra-ui/react";
 import Hint from './Hint';
 
-const InputField = (props: any) => {
-  const { label, name, placeholder, type, disabled, onBlur, ...config } = props;
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const InputField = (props: any): React.ReactElement => {
+  const {
+    variant,
+    label,
+    name,
+    placeholder,
+    type,
+    disabled,
+    onBlur,
+    ...config
+  } = props;
   const { input, meta } = useField(name, config);
 
   return (
@@ -16,6 +26,7 @@ const InputField = (props: any) => {
         )}
       </Flex>
       <Input
+        variant={variant}
         value={input.value}
         onChange={input.onChange}
         placeholder={placeholder}

@@ -1,3 +1,5 @@
+import { SystemStyleObject } from "@chakra-ui/theme-tools";
+
 type Props = {
   colorScheme: 'pink' | any;
 };
@@ -34,6 +36,30 @@ export default {
         },
       },
     }),
+    outline: ({ colorScheme }: SystemStyleObject): SystemStyleObject => ({
+      field: {
+        bg: "white",
+        borderColor: "gray.200",
+        _hover: {
+          borderColor: `${colorScheme}.200`,
+        },
+        _focus: {
+          outline: 'none',
+          borderColor: `${colorScheme}.200`,
+          boxShadow: 'none',
+        },
+        _disabled: {
+          borderColor: 'gray.200',
+          color: 'gray.50',
+          _placeholder: {
+            color: 'gray.50',
+          },
+        },
+        _invalid: {
+          borderColor: 'red.100',
+        },
+      }
+    })
   },
   defaultProps: {
     size: 'sm',
