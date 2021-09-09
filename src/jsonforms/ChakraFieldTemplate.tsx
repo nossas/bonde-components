@@ -61,7 +61,7 @@ const ChakraFieldTemplate = ({
 
   if (options.cols) {
     return (
-      <GridItem colSpan={options.cols}>
+      <GridItem colSpan={options.cols as any}>
         {inside}
       </GridItem>
     )

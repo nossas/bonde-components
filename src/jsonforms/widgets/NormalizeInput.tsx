@@ -15,7 +15,7 @@ const NormalizeInput: React.FC<NormalizeInputProps> = (props) => {
   return (
     <ChakraText
       {...props}
-      onChange={(newValue) => {
+      onChange={(newValue: any) => {
         let updated = newValue;
         if (normalize) {
           updated = normalize(newValue, value);
