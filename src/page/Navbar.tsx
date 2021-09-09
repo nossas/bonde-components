@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Stack } from "@chakra-ui/react";
 import Icon from '../content/Icon';
 import Bonde from '../content/Bonde';
-import theme from '../base/theme';
 
 interface NavbarProps {
   className?: string;
@@ -21,45 +21,17 @@ const HomeLink = styled.a`
   }
 `;
 
-const FluidLayout = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-grow: 1;
-`;
-
 const Navbar: React.FC<NavbarProps> = ({
   brand,
   children,
-  className,
   indexRoute,
 }) => (
-  <div className={className}>
+  <Stack direction="row" bg="black" px={12} py={4} alignItems="center">
     <HomeLink href={indexRoute} title="Bonde Home Link">
       {brand !== 'small' ? <Bonde /> : <Icon name="Bonde" />}
     </HomeLink>
-    <FluidLayout>{children}</FluidLayout>
-  </div>
+    {children}
+  </Stack>
 );
 
-const NavbarStyled = styled(Navbar)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: ${({ theme }) => theme.body.background.dark};
-  padding: 20px ${({ theme }) => theme.body.padding}px;
-
-  ${HomeLink} {
-    margin-right: 10px;
-  }
-`;
-
-NavbarStyled.defaultProps = {
-  theme,
-  brand: 'default',
-};
-
-NavbarStyled.displayName = 'Navbar';
-
-export default NavbarStyled;
+export default Navbar;

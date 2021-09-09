@@ -12,6 +12,7 @@ const Link = styled((props: any) => {
   text-transform: uppercase;
   text-decoration: none;
   color: ${props => props.theme.dark.color.main};
+  cursor: pointer;
 
   &:hover,
   &:active {
