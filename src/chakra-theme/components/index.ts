@@ -7,3 +7,4 @@ export { default as Select } from "./Select";
 export { default as Radio } from "./Radio";
 export { default as Text } from "./Text";
 export { default as Menu } from "./Menu";
+export { default as Modal } from "./Modal";
