@@ -97,6 +97,17 @@ const variants: Record<string, SystemStyleObject | SystemStyleFunction> = {
     },
     _disabled: disabled.link
   }),
+  tag: ({ colorScheme }: StyleFunctionProps): any => ({
+    bg: `${colorScheme}.100`,
+    borderColor: "trasparent",
+    color: `black`,
+    borderRadius: "4px",
+    textTransfor: "normal",
+    minW: "auto",
+    _hover: "none",
+    _active: "none",
+    _focus: "none",
+  }),
   dropdown: ({ color }: StyleFunctionProps): any => ({
     bg: "transparet",
     borderColor: "trasparent",
