@@ -99,13 +99,13 @@ const S3UploadField = (props: S3UploadFieldProps) => {
         disabled={disabled}
         signingUrl={signingUrl}
       >
-        {props.formData ? (
+        {input.value ? (
           <Box
             position="relative"
             boxSize={boxSize}
             borderRadius={borderRadius}
           >
-            <Image alt={alt} src={props.formData} />
+            <Image alt={alt} src={input.value} />
             <Box position="absolute" bottom="3px" right="0">
               <EditIcon
                 color="white"
