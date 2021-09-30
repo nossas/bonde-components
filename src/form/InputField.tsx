@@ -1,6 +1,7 @@
 import React from 'react';
 import { useField } from 'react-final-form';
-import { Input, FormControl, FormLabel, Flex } from "@chakra-ui/react";
+import { Input, FormControl, FormLabel, Flex, Tooltip } from "@chakra-ui/react";
+import InfoIcon from "../chakra-theme/icons/InfoIcon";
 import Hint from './Hint';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -10,6 +11,7 @@ const InputField = (props: any): React.ReactElement => {
     label,
     name,
     placeholder,
+    helpText,
     type,
     disabled,
     onBlur,
@@ -21,6 +23,11 @@ const InputField = (props: any): React.ReactElement => {
     <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched} mb={4}>
       <Flex direction="row" justify="space-between">
         <FormLabel>{label}</FormLabel>
+        {helpText && (
+          <Tooltip label={helpText}>
+            <InfoIcon />
+          </Tooltip>
+        )}
         {(meta.error || meta.submitError) && meta.touched && (
           <Hint color="error">{meta.error || meta.submitError}</Hint>
         )}
