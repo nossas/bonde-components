@@ -1,6 +1,13 @@
 import React from 'react';
 import { useField } from 'react-final-form';
-import { Input, FormControl, FormLabel, Flex, Tooltip } from "@chakra-ui/react";
+import {
+  Input,
+  FormControl,
+  FormLabel,
+  Flex,
+  Tooltip,
+  Stack
+} from "@chakra-ui/react";
 import InfoIcon from "../chakra-theme/icons/InfoIcon";
 import Hint from './Hint';
 
@@ -22,12 +29,14 @@ const InputField = (props: any): React.ReactElement => {
   return (
     <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched} mb={4}>
       <Flex direction="row" justify="space-between">
-        <FormLabel>{label}</FormLabel>
-        {helpText && (
-          <Tooltip label={helpText}>
-            <InfoIcon />
-          </Tooltip>
-        )}
+        <Stack direction="row" spacing={2}>
+          <FormLabel>{label}</FormLabel>
+          {helpText && (
+            <Tooltip label={helpText}>
+              <InfoIcon boxSize={4} />
+            </Tooltip>
+          )}
+        </Stack>
         {(meta.error || meta.submitError) && meta.touched && (
           <Hint color="error">{meta.error || meta.submitError}</Hint>
         )}
