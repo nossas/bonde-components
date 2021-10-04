@@ -33,7 +33,7 @@ const InputField = (props: any): React.ReactElement => {
           <FormLabel>{label}</FormLabel>
           {helpText && (
             <Tooltip label={helpText}>
-              <InfoIcon boxSize={4} />
+              <InfoIcon color="gray.300" boxSize={3} />
             </Tooltip>
           )}
         </Stack>

@@ -3,6 +3,7 @@ import { createIcon } from "@chakra-ui/react";
 
 const InfoIcon = createIcon({
   displayName: "InfoIcon",
+  viewBox: "0 0 14 14",
   path: (
     <>
       <path fill="currentColor" d="M7.012 14c3.862 0 7-3.138 7-7s-3.138-7-7-7S0 3.138 0 7s3.15 7 7.012 7zm0-13.034a6.032 6.032 0 016.022 6.022 6.032 6.032 0 01-6.022 6.022A6.032 6.032 0 01.99 6.988 6.032 6.032 0 017.012.966z"/>
