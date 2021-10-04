@@ -4,7 +4,7 @@ export default {
   white: "#FFFFFF",
   red: {
     50: "#FBCDCD",
-    100: "#FF0931",
+    100: "#FF8C8C",
     200: "#FF2B4E",
     300: "#D92E4A",
     400: "#B42940"
