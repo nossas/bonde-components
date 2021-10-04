@@ -56,9 +56,6 @@ export { FORM_ERROR } from 'final-form';
 
 export { default as Theme } from './base/theme';
 
-// React JSON Schema Form
-export { default as JSONSchemaForm } from './jsonforms';
-
 export {
   default as PerformDropdown,
   PerformDropdownButton,
