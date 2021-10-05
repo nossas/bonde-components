@@ -47,7 +47,7 @@
     "@types/react-select": "^3.0.16",
     "babel-loader": "^8.0.6",
     "ts-loader": "^6.2.1",
-    "tsdx": "^0.12.3",
+    "tsdx": "0.14.1",
     "tslib": "^1.11.1"
   },
   "dependencies": {

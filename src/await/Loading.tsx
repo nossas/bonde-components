@@ -33,7 +33,7 @@ const LoadingStyles = styled.div<LoadingStylesProps>`
 `;
 
 interface LoadingProps {
-  children: any
+  children?: any
   align?: "center" | "left" | "right"
   fullsize?: boolean
   background?: string
