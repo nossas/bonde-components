@@ -7,6 +7,8 @@ const variantColor: PartsStyleFunction<typeof parts> = (props) => {
 
   return {
     th: {
+      color: "gray.400",
+      fontWeight: "normal",
       borderColor: mode(`${c}.50`, `${c}.700`)(props)
     },
     td: {
