@@ -68,6 +68,7 @@
     "@chakra-ui/button": "^1.4.2",
     "@chakra-ui/checkbox": "^1.5.5",
     "@chakra-ui/close-button": "^1.1.11",
+    "@chakra-ui/color-mode": "^1.1.12",
     "@chakra-ui/control-box": "^1.0.15",
     "@chakra-ui/counter": "^1.1.8",
     "@chakra-ui/css-reset": "^1.0.0",
