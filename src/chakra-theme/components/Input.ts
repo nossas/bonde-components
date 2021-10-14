@@ -8,6 +8,7 @@ export default {
   variants: {
     flushed: ({ colorScheme }: Props): any => ({
       field: {
+        fontSize: "16px",
         py: 1,
         color: 'black',
         borderBottomWidth: '1px',
