@@ -1,4 +1,4 @@
-import type {
+import {
   StyleFunctionProps
 } from "@chakra-ui/theme-tools";
 
