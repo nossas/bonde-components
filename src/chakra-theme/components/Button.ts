@@ -1,4 +1,4 @@
-import type {
+import {
   StyleFunctionProps,
   SystemStyleObject,
   SystemStyleFunction,
