@@ -23,6 +23,7 @@ export const PerformDropdownList: React.FC<PerformDropdownListProps> = ({
 }) => {
   const { isOpen } = useContext(dropdownContext);
   const boxProps: any = {
+    width: '400px',
     bg: 'white',
     boxShadow: 'base',
     mt: 10,
@@ -31,7 +32,6 @@ export const PerformDropdownList: React.FC<PerformDropdownListProps> = ({
   if (scroll) {
     boxProps.overflowY = 'scroll';
     boxProps.height = '500px';
-    boxProps.width = '400px';
   }
 
   return (
