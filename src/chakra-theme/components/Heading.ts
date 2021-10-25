@@ -14,10 +14,11 @@ const sizes: Record<string, SystemStyleObject> = {
     fontSize: ['xs', null, 'sm'],
   },
   md: {
+    fontWeight: 'bold',
     fontSize: ['sm', null, 'md'],
   },
   lg: {
-    fontWeight: 'extrabold',
+    fontWeight: 'bold',
     fontSize: ['md', null, 'lg'],
   },
   xl: {
