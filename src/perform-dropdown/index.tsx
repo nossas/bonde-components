@@ -23,7 +23,8 @@ export const PerformDropdownList: React.FC<PerformDropdownListProps> = ({
 }) => {
   const { isOpen } = useContext(dropdownContext);
   const boxProps: any = {
-    width: '400px',
+    minWidth: '200px',
+    maxWidth: '400px',
     bg: 'white',
     boxShadow: 'base',
     mt: 10,
