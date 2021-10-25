@@ -1,67 +1,62 @@
-import React, { useState, createContext, useContext, useRef } from "react";
-import {
-  Button,
-  Box,
-  Fade,
-  useOutsideClick
-} from "@chakra-ui/react";
-import ArrowUpIcon from "../chakra-theme/icons/ArrowUpIcon";
-import ArrowDownIcon from "../chakra-theme/icons/ArrowDownIcon";
+import React, { useState, createContext, useContext, useRef } from 'react';
+import { Button, Box, Fade, useOutsideClick } from '@chakra-ui/react';
+import ArrowUpIcon from '../chakra-theme/icons/ArrowUpIcon';
+import ArrowDownIcon from '../chakra-theme/icons/ArrowDownIcon';
 
 type DropdownContext = {
-  isOpen: boolean
-  onToggle: () => void
-}
+  isOpen: boolean;
+  onToggle: () => void;
+};
 
 const dropdownContext = createContext<DropdownContext>({
   isOpen: false,
-  onToggle: () => {}
+  onToggle: () => {},
 });
 
 type PerformDropdownListProps = {
-  scroll?: boolean
-}
+  scroll?: boolean;
+};
 
 export const PerformDropdownList: React.FC<PerformDropdownListProps> = ({
   children,
-  scroll
+  scroll,
 }) => {
-  const { isOpen } = useContext(dropdownContext)
+  const { isOpen } = useContext(dropdownContext);
   const boxProps: any = {
-    bg: "white",
-    boxShadow: "base",
-    mt: 10
-  }
+    bg: 'white',
+    boxShadow: 'base',
+    mt: 10,
+  };
 
   if (scroll) {
-    boxProps.overflowY = "scroll";
-    boxProps.height = "500px";
-    boxProps.width = "400px";
+    boxProps.overflowY = 'scroll';
+    boxProps.height = '500px';
+    boxProps.width = '400px';
   }
 
   return (
     <Fade
       in={isOpen}
-      style={{
-        position: "absolute",
-        top: isOpen ? "0" : "-1000px",
-        zIndex: 2
-      } as any}
+      style={
+        {
+          position: 'absolute',
+          top: isOpen ? '0' : '-1000px',
+          zIndex: 2,
+        } as any
+      }
     >
-      <Box {...boxProps}>
-        {children}
-      </Box>
+      <Box {...boxProps}>{children}</Box>
     </Fade>
   );
-}
+};
 
 type PerformDropdownItemProps = {
   onClick?: any;
-}
+};
 
 export const PerformDropdownItem: React.FC<PerformDropdownItemProps> = ({
   children,
-  onClick
+  onClick,
 }) => {
   const { onToggle } = useContext(dropdownContext);
 
@@ -72,34 +67,38 @@ export const PerformDropdownItem: React.FC<PerformDropdownItemProps> = ({
         if (onClick) onClick();
         onToggle();
       }}
-      _hover={{ bg: "gray.100" }}
+      _hover={{ bg: 'gray.100' }}
     >
       {children}
     </Box>
   );
-}
+};
 
-export const PerformDropdownButton: React.FC<any> = ({ children, color, ...props }) => {
+export const PerformDropdownButton: React.FC<any> = ({
+  children,
+  color,
+  ...props
+}) => {
   const { isOpen, onToggle } = useContext(dropdownContext);
   const buttonProps = {
     ...props,
     zIndex: 3,
-    rightIcon: isOpen ? <ArrowUpIcon boxSize={3} /> : <ArrowDownIcon boxSize={3} />,
-    onClick: onToggle
-  }
+    rightIcon: isOpen ? (
+      <ArrowUpIcon boxSize={3} />
+    ) : (
+      <ArrowDownIcon boxSize={3} />
+    ),
+    onClick: onToggle,
+  };
 
   if (color) {
     buttonProps.color = color;
-    buttonProps["_hover"] = { color };
-    buttonProps["_active"] = { color };
+    buttonProps['_hover'] = { color };
+    buttonProps['_active'] = { color };
   }
 
-  return (
-    <Button {...buttonProps}>
-      {children}
-    </Button>
-  );
-}
+  return <Button {...buttonProps}>{children}</Button>;
+};
 
 const PerformDropdown: React.FC = ({ children }) => {
   const wrapperRef: any = useRef();
@@ -107,14 +106,14 @@ const PerformDropdown: React.FC = ({ children }) => {
 
   useOutsideClick({
     ref: wrapperRef,
-    handler: () => setIsOpen(false)
-  })
+    handler: () => setIsOpen(false),
+  });
 
   return (
     <dropdownContext.Provider
       value={{
         isOpen,
-        onToggle: () => setIsOpen(!isOpen)
+        onToggle: () => setIsOpen(!isOpen),
       }}
     >
       <Box ref={wrapperRef} position="relative" display="flex">
@@ -122,6 +121,6 @@ const PerformDropdown: React.FC = ({ children }) => {
       </Box>
     </dropdownContext.Provider>
   );
-}
+};
 
 export default PerformDropdown;

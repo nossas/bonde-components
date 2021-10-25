@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Stack } from "@chakra-ui/react";
+import { Stack } from '@chakra-ui/react';
 import Icon from '../content/Icon';
 import Bonde from '../content/Bonde';
 
@@ -21,11 +21,7 @@ const HomeLink = styled.a`
   }
 `;
 
-const Navbar: React.FC<NavbarProps> = ({
-  brand,
-  children,
-  indexRoute,
-}) => (
+const Navbar: React.FC<NavbarProps> = ({ brand, children, indexRoute }) => (
   <Stack direction="row" bg="black" px="57px" py={4} alignItems="center">
     <HomeLink href={indexRoute} title="Bonde Home Link">
       {brand !== 'small' ? <Bonde /> : <Icon name="Bonde" />}

@@ -16,7 +16,7 @@ const TextareaField = (props: any) => {
       {(meta.error || meta.submitError) && meta.touched && (
         <Hint color="error">{meta.error || meta.submitError}</Hint>
       )}
-      <div style={{display: "flex", paddingTop: "8px"}}>
+      <div style={{ display: 'flex', paddingTop: '8px' }}>
         <Textarea
           placeholder={placeholder}
           invalid={(meta.error || meta.submitError) && meta.touched}

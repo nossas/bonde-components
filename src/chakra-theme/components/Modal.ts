@@ -1,14 +1,14 @@
 export default {
   baseStyle: {
     dialog: {
-      borderRadius: "none"
+      borderRadius: 'none',
     },
     header: {
-      fontSize: "3xl",
-      fontWeight: "black"
-    }
+      fontSize: '3xl',
+      fontWeight: 'black',
+    },
   },
   defaultProps: {
-    isCentered: true
-  }
-}
+    isCentered: true,
+  },
+};

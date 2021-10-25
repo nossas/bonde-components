@@ -1,20 +1,25 @@
-import styled from 'styled-components'
-import React from 'react'
+import styled from 'styled-components';
+import React from 'react';
 
 interface SwitchProps {
-  onClick?: () => void
-  checked?: boolean
-  disabled?: boolean
+  onClick?: () => void;
+  checked?: boolean;
+  disabled?: boolean;
 }
 
 const Switch = ({ onClick, checked, disabled }: SwitchProps) => {
   return (
     <Label>
-      <input onClick={onClick} type="checkbox" checked={checked} disabled={disabled}/>
+      <input
+        onClick={onClick}
+        type="checkbox"
+        checked={checked}
+        disabled={disabled}
+      />
       <span className="slider" />
     </Label>
-  )
-}
+  );
+};
 
 const Label = styled.label`
   position: relative;
@@ -40,25 +45,25 @@ const Label = styled.label`
     right: 0;
     bottom: 0;
     background-color: #858585;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
 
   .slider::before {
     position: absolute;
-    content: "";
+    content: '';
     height: 12px;
     width: 12px;
     border-radius: 50%;
     left: 1px;
     bottom: 1px;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
   }
 
   input:checked + .slider {
-    background-color: #50E3C2;
+    background-color: #50e3c2;
   }
 
   input:checked + .slider::before {
@@ -66,6 +71,6 @@ const Label = styled.label`
     -ms-transform: translateX(14px);
     transform: translateX(14px);
   }
-`
+`;
 
 export default Switch;

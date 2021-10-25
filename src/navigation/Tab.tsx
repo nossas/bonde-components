@@ -8,7 +8,7 @@ export interface TabProps {
   onClick?: () => void;
 }
 
-const Tab: React.FC<TabProps> = ({ children, active, onClick }: TabProps) => {
+const Tab: React.FC<TabProps> = ({ children, active, onClick }) => {
   const { colorMode } = useColorMode();
   const defaultColor = colorMode === 'dark' ? 'white' : 'black';
 

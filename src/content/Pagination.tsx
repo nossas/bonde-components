@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Stack, Button } from "@chakra-ui/react";
+import { Stack, Button } from '@chakra-ui/react';
 import RoundSelect from '../form/RoundSelect';
 import theme from '../base/theme';
 
@@ -116,7 +116,7 @@ const Pagination = ({
             key={`page-item-${i}`}
             variant="link"
             colorScheme="gray"
-            color={item - 1 === pageIndex ? "pink.200" : "gray.300"}
+            color={item - 1 === pageIndex ? 'pink.200' : 'gray.300'}
             onClick={() => setPage(item - 1)}
           >
             {item}
