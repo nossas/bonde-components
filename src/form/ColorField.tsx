@@ -1,27 +1,26 @@
 import React from 'react';
 import { useField } from 'react-final-form';
-import {
-  Input,
-  FormControl,
-  FormLabel,
-  Flex,
-  Tooltip,
-  Stack,
-} from '@chakra-ui/react';
+import { Flex, FormControl, FormLabel, Stack, Tooltip } from '@chakra-ui/react';
 import InfoIcon from '../chakra-theme/icons/InfoIcon';
+import { SketchPicker } from 'react-color';
 import Hint from './Hint';
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const InputField = (props: any): React.ReactElement => {
+// interface ColorFieldProps extends {
+//   name: string
+//   label?: string
+//   helpText?: string
+// }
+
+const ColorField = (props: any): any => {
   const {
-    variant,
+    // variant,
     label,
     name,
-    placeholder,
+    // placeholder,
     helpText,
-    type,
-    disabled,
-    onBlur,
+    // type,
+    // disabled,
+    // onBlur,
     ...config
   } = props;
   const { input, meta } = useField(name, config);
@@ -36,7 +35,7 @@ const InputField = (props: any): React.ReactElement => {
           <FormLabel>{label}</FormLabel>
           {helpText && (
             <Tooltip label={helpText}>
-              <InfoIcon color="gray.300" boxSize={3} />
+              <InfoIcon boxSize={4} />
             </Tooltip>
           )}
         </Stack>
@@ -44,20 +43,12 @@ const InputField = (props: any): React.ReactElement => {
           <Hint color="error">{meta.error || meta.submitError}</Hint>
         )}
       </Flex>
-      <Input
-        variant={variant}
-        value={input.value}
-        onChange={input.onChange}
-        placeholder={placeholder}
-        type={type || input.type}
-        disabled={disabled}
-        onBlur={e => {
-          onBlur && onBlur(e);
-          input.onBlur(e);
-        }}
+      <SketchPicker
+        color={input.value}
+        onChangeComplete={(color: any) => input.onChange(color.hex)}
       />
     </FormControl>
   );
 };
 
-export default InputField;
+export default ColorField;

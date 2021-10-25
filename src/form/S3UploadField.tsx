@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Button,
@@ -6,33 +6,14 @@ import {
   FormControl,
   FormLabel,
   FormHelperText,
-  Stack
-} from "@chakra-ui/react";
-import ReactS3Uploader from "react-s3-uploader";
-import { EditIcon } from "../../";
+  Stack,
+} from '@chakra-ui/react';
+import { useField, FieldInputProps } from 'react-final-form';
+import ReactS3Uploader from 'react-s3-uploader';
+import EditIcon from '../chakra-theme/icons/EditIcon';
+import UploadImageIcon from '../chakra-theme/icons/UploadImageIcon';
 
-// autofocus: false
-// disabled: false
-// errorSchema: {}
-// formContext: {}
-// formData: undefined
-// idPrefix: undefined
-// idSchema: {$id: "root_image"}
-// name: "image"
-// onBlur: ƒ ()
-// onChange: ƒ (value, errorSchema)
-// onDropPropertyClick: ƒ (key)
-// onFocus: ƒ ()
-// onKeyChange: ƒ (value, errorSchema)
-// rawErrors: undefined
-// readonly: false
-// registry: {fields: {…}, widgets: {…}, ArrayFieldTemplate: undefined, ObjectFieldTemplate: ƒ, FieldTemplate: ƒ, …}
-// required: false
-// schema: {type: "string", title: "Logo da comunidade"}
-// uiSchema: {ui:field: "s3", classNames: undefined}
-// process.env.REACT_APP_UPLOADS_URL
-
-type S3UploadFileFieldProps = {
+interface S3UploadFileFieldProps {
   signingUrl: string;
   onChange: any;
   disabled?: boolean;
@@ -41,27 +22,28 @@ type S3UploadFileFieldProps = {
 const S3UploadFileField: React.FC<S3UploadFileFieldProps> = ({
   children,
   onChange,
+  signingUrl,
   disabled,
-  signingUrl
 }) => {
   const inputRef: any = React.useRef(null);
+
   // Override callbacks
   const onProgress = (args: any) => {
     console.log('onProgress', { args });
-  }
+  };
   const onError = (args: any) => {
     console.log('onError', { args });
-  }
+  };
   const onFinish = ({ signedUrl }: any) => {
     const imageUrl: string = signedUrl.substring(0, signedUrl.indexOf('?'));
     console.log('onFinish', { imageUrl });
     onChange(imageUrl);
-  }
+  };
   // Button should be ReactS3Uploader active.
   const onClick = (evt: any) => {
     evt?.preventDefault();
     inputRef?.current.click();
-  }
+  };
 
   return (
     <div className="wrapper-upload-file-button">
@@ -78,57 +60,64 @@ const S3UploadFileField: React.FC<S3UploadFileFieldProps> = ({
         style={{ display: 'none' }}
       />
     </div>
-  )
+  );
+};
+
+interface S3UploadFieldProps extends FieldInputProps<string> {
+  label?: string;
+  helpText?: string;
+  disabled?: boolean;
+  alt?: string;
+  signingUrl: string;
+  uploadImageIcon: any;
+  removeTextButton?: string;
+  borderRadius?: any;
+  boxSize?: any;
 }
 
-
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const S3UploadField = (props: any) => {
-  console.log("S3UploadField", { props });
+const S3UploadField = (props: S3UploadFieldProps) => {
   const {
+    label,
+    helpText,
+    name,
+    disabled,
     alt,
     signingUrl,
-    boxSize = "85px",
-    borderRadius = "50%",
-    removeTextButton = "Remover",
-    uploadImageIcon: UploadImageIcon
-  } = props.uiSchema["ui:options"] || {}
-  const { title } = props.schema || {}
-  const helpText = props.uiSchema["ui:help"]
-  const id = props.idSchema["$id"]
+    uploadImageIcon: UploadImageIconComponent,
+    removeTextButton,
+    borderRadius,
+    boxSize,
+    ...config
+  } = props;
+  const { input } = useField(name, config);
 
   return (
-    <Stack direction="row" spacing={4}>
+    <Stack direction="row" spacing={6} mb={4} align="center">
       <S3UploadFileField
-        onChange={props.onChange}
-        disabled={props.disabled}
+        onChange={input.onChange}
+        disabled={disabled}
         signingUrl={signingUrl}
       >
-        {props.formData ? (
+        {input.value ? (
           <Box
             position="relative"
             boxSize={boxSize}
             borderRadius={borderRadius}
           >
-            <Image alt={alt} src={props.formData} />
+            <Image alt={alt} src={input.value} />
             <Box position="absolute" bottom="3px" right="0">
-              <EditIcon
-                color="white"
-                boxSize={6}
-              />
+              <EditIcon color="white" boxSize={6} />
             </Box>
           </Box>
         ) : (
-          <UploadImageIcon
-            boxSize={boxSize}
-            borderRadius={borderRadius}
-          />
+          <UploadImageIconComponent boxSize={boxSize} />
         )}
       </S3UploadFileField>
-      <FormControl id={id}>
-        <FormLabel>{title}</FormLabel>
+      <FormControl id={`${name}-id`}>
+        <FormLabel>{label}</FormLabel>
         {helpText && (
-          <FormHelperText mt={4} mb={4}>
+          <FormHelperText mt={3} color="gray.400" fontSize="md">
             {helpText}
           </FormHelperText>
         )}
@@ -146,6 +135,13 @@ const S3UploadField = (props: any) => {
       </FormControl>
     </Stack>
   );
-}
+};
+
+S3UploadField.defaultProps = {
+  uploadImageIcon: UploadImageIcon,
+  removeTextButton: 'Remover',
+  borderRadius: '50%',
+  boxSize: '85px',
+};
 
 export default S3UploadField;

@@ -13,7 +13,6 @@ export { default as BTable } from './content/Table';
 export { default as Pagination } from './content/Pagination';
 export { default as SubHeader } from './content/SubHeader';
 export { default as Card } from './content/Card';
-export { default as Tooltip } from './content/Tooltip';
 export { Message } from './content/Tooltip';
 
 export { default as Dropdown } from './dropdown/Dropdown';
@@ -36,7 +35,9 @@ export { default as RoundSelectField } from './form/RoundSelectField';
 export { default as RoundInput } from './form/RoundInput';
 export { default as RoundInputField } from './form/RoundInputField';
 export { default as SwitchField } from './form/SwitchField';
-export { default as RadioField } from "./form/RadioField";
+export { default as RadioField } from './form/RadioField';
+export { default as S3UploadField } from './form/S3UploadField';
+export { default as ColorField } from './form/ColorField';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';
@@ -55,15 +56,12 @@ export { FORM_ERROR } from 'final-form';
 
 export { default as Theme } from './base/theme';
 
-// React JSON Schema Form
-export { default as JSONSchemaForm } from './jsonforms';
-
 export {
   default as PerformDropdown,
   PerformDropdownButton,
   PerformDropdownItem,
-  PerformDropdownList
-} from "./perform-dropdown";
+  PerformDropdownList,
+} from './perform-dropdown';
 
 // Chakra UI
 export { default as chakraTheme } from './chakra-theme/chakra';
@@ -72,6 +70,7 @@ export { default as FontsLoader } from './chakra-theme/FontsLoader';
 export { default as ArrowUpIcon } from './chakra-theme/icons/ArrowUpIcon';
 export { default as ArrowDownIcon } from './chakra-theme/icons/ArrowDownIcon';
 export { default as BotIcon } from './chakra-theme/icons/BotIcon';
+export { default as ChartIcon } from './chakra-theme/icons/ChartIcon';
 export { default as EditIcon } from './chakra-theme/icons/EditIcon';
 export { default as InfoIcon } from './chakra-theme/icons/InfoIcon';
 export { default as NetIcon } from './chakra-theme/icons/NetIcon';

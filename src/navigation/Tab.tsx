@@ -1,37 +1,46 @@
-import styled, { css } from 'styled-components';
-import CleanButton from '../content/CleanButton';
-import theme from '../base/theme';
+import React from 'react';
+import { Button } from '@chakra-ui/react';
+import { useColorMode } from '@chakra-ui/color-mode';
 
-const Tab = styled(CleanButton)<{ active?: boolean; theme?: any }>`
-  ${({ active, theme }) =>
-    active &&
-    css`
-      border-bottom: 1.5px solid ${theme.brand.main};
-    `}
-  margin-right: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 13px;
-  line-height: 18px;
-  letter-spacing: 0.005em;
-  font-family: ${({ theme }) => theme.fontFamily};
-  text-transform: uppercase;
-  padding-bottom: ${({ active }) => (active ? '13.5px' : '15px')};
-  color: ${({ active, theme }) =>
-    active ? `${theme.brand.main}` : `${theme.brand.light}`};
-  &:hover,
-  &:active,
-  &:focus {
-    ${({ theme }) => `
-      border-bottom: 1.5px solid ${theme.brand.main};
-      color: ${theme.brand.main};
-      padding-bottom: 13.5px;
-    `}
+export interface TabProps {
+  children: any;
+  active?: boolean;
+  onClick?: () => void;
+}
+
+const Tab: React.FC<TabProps> = ({ children, active, onClick }: TabProps) => {
+  const { colorMode } = useColorMode();
+  const defaultColor = colorMode === 'dark' ? 'white' : 'black';
+
+  const defaultStylesProps: any = {
+    color: defaultColor,
+  };
+  if (colorMode === 'dark' && active) {
+    defaultStylesProps.borderBottomWidth = '2px';
+    defaultStylesProps.borderBottomStyle = 'solid';
+    defaultStylesProps.borderBottomColor = 'pink.200';
   }
-`;
+  if (active) {
+    defaultStylesProps.color = 'pink.200';
+    defaultStylesProps._hover = {
+      color: 'pink.200',
+      borderBottomColor: 'pink.200',
+    };
+  }
 
-Tab.defaultProps = {
-  theme,
+  return (
+    <Button
+      variant="ghost"
+      colorScheme="gray"
+      onClick={onClick}
+      px={0}
+      pb={2}
+      mr={5}
+      {...defaultStylesProps}
+    >
+      {children}
+    </Button>
+  );
 };
 
 export default Tab;

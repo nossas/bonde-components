@@ -32,6 +32,15 @@ const LoadingStyles = styled.div<LoadingStylesProps>`
   text-align: ${props => props.align};
 `;
 
+interface LoadingProps {
+  children: any;
+  align?: 'center' | 'left' | 'right';
+  fullsize?: boolean;
+  background?: string;
+  message?: string;
+  messageComponent?: any;
+}
+
 /**
  * Animated loading transition component.
  */
@@ -43,7 +52,7 @@ const Loading: React.FC<LoadingProps> = ({
   message,
   messageComponent: MessageComponent,
   ...props
-}) => {
+}: LoadingProps) => {
   return fullsize ? (
     <FullSize background={background}>
       <LoadingSVG {...props} />
