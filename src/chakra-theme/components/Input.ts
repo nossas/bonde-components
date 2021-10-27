@@ -1,4 +1,4 @@
-import { SystemStyleObject } from "@chakra-ui/theme-tools";
+import { SystemStyleObject } from '@chakra-ui/theme-tools';
 
 type Props = {
   colorScheme: 'pink' | any;
@@ -8,7 +8,7 @@ export default {
   variants: {
     flushed: ({ colorScheme }: Props): any => ({
       field: {
-        fontSize: "16px",
+        fontSize: '16px',
         py: 1,
         color: 'black',
         borderBottomWidth: '1px',
@@ -39,8 +39,8 @@ export default {
     }),
     outline: ({ colorScheme }: SystemStyleObject): SystemStyleObject => ({
       field: {
-        bg: "white",
-        borderColor: "gray.200",
+        bg: 'white',
+        borderColor: 'gray.200',
         _hover: {
           borderColor: `${colorScheme}.200`,
         },
@@ -59,8 +59,8 @@ export default {
         _invalid: {
           borderColor: 'red.100',
         },
-      }
-    })
+      },
+    }),
   },
   defaultProps: {
     size: 'sm',

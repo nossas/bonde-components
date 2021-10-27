@@ -6,9 +6,9 @@ import {
   FormLabel,
   Flex,
   Tooltip,
-  Stack
-} from "@chakra-ui/react";
-import InfoIcon from "../chakra-theme/icons/InfoIcon";
+  Stack,
+} from '@chakra-ui/react';
+import InfoIcon from '../chakra-theme/icons/InfoIcon';
 import Hint from './Hint';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -27,7 +27,10 @@ const InputField = (props: any): React.ReactElement => {
   const { input, meta } = useField(name, config);
 
   return (
-    <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched} mb={4}>
+    <FormControl
+      isInvalid={(meta.error || meta.submitError) && meta.touched}
+      mb={4}
+    >
       <Flex direction="row" justify="space-between">
         <Stack direction="row" spacing={2} align="center">
           <FormLabel>{label}</FormLabel>

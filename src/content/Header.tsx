@@ -31,7 +31,6 @@ Text.defaultProps = {
 
 Text.displayName = 'Text';
 
-
 const annotate = (Component: any) => {
   Component.defaultProps = {
     theme,

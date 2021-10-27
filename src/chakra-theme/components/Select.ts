@@ -1,10 +1,10 @@
-import Input from "./Input"
+import Input from './Input';
 
 export default {
   variants: {
-    ...Input.variants
+    ...Input.variants,
   },
   defaultProps: {
-    ...Input.defaultProps
-  }
-}
+    ...Input.defaultProps,
+  },
+};

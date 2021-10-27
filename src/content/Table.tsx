@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import React from 'react';
 import { useTable, useSortBy, useFlexLayout } from 'react-table';
-import { Stack } from "@chakra-ui/react";
+import { Stack } from '@chakra-ui/react';
 import styled, { css } from 'styled-components';
 
 import Pagination from './Pagination';

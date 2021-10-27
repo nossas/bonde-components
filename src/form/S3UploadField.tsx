@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   Button,
@@ -6,12 +6,12 @@ import {
   FormControl,
   FormLabel,
   FormHelperText,
-  Stack
-} from "@chakra-ui/react";
-import { useField, FieldInputProps } from "react-final-form";
-import ReactS3Uploader from "react-s3-uploader";
-import EditIcon from "../chakra-theme/icons/EditIcon";
-import UploadImageIcon from "../chakra-theme/icons/UploadImageIcon";
+  Stack,
+} from '@chakra-ui/react';
+import { useField, FieldInputProps } from 'react-final-form';
+import ReactS3Uploader from 'react-s3-uploader';
+import EditIcon from '../chakra-theme/icons/EditIcon';
+import UploadImageIcon from '../chakra-theme/icons/UploadImageIcon';
 
 interface S3UploadFileFieldProps {
   signingUrl: string;
@@ -23,27 +23,27 @@ const S3UploadFileField: React.FC<S3UploadFileFieldProps> = ({
   children,
   onChange,
   signingUrl,
-  disabled
+  disabled,
 }) => {
   const inputRef: any = React.useRef(null);
 
   // Override callbacks
   const onProgress = (args: any) => {
     console.log('onProgress', { args });
-  }
+  };
   const onError = (args: any) => {
     console.log('onError', { args });
-  }
+  };
   const onFinish = ({ signedUrl }: any) => {
     const imageUrl: string = signedUrl.substring(0, signedUrl.indexOf('?'));
     console.log('onFinish', { imageUrl });
     onChange(imageUrl);
-  }
+  };
   // Button should be ReactS3Uploader active.
   const onClick = (evt: any) => {
     evt?.preventDefault();
     inputRef?.current.click();
-  }
+  };
 
   return (
     <div className="wrapper-upload-file-button">
@@ -61,18 +61,18 @@ const S3UploadFileField: React.FC<S3UploadFileFieldProps> = ({
       />
     </div>
   );
-}
+};
 
 interface S3UploadFieldProps extends FieldInputProps<string> {
-  label?: string
-  helpText?: string
-  disabled?: boolean
-  alt?: string
-  signingUrl: string
-  uploadImageIcon: any
-  removeTextButton?: string
-  borderRadius?: any
-  boxSize?: any
+  label?: string;
+  helpText?: string;
+  disabled?: boolean;
+  alt?: string;
+  signingUrl: string;
+  uploadImageIcon: any;
+  removeTextButton?: string;
+  borderRadius?: any;
+  boxSize?: any;
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -107,16 +107,11 @@ const S3UploadField = (props: S3UploadFieldProps) => {
           >
             <Image alt={alt} src={input.value} />
             <Box position="absolute" bottom="3px" right="0">
-              <EditIcon
-                color="white"
-                boxSize={6}
-              />
+              <EditIcon color="white" boxSize={6} />
             </Box>
           </Box>
         ) : (
-          <UploadImageIconComponent
-            boxSize={boxSize}
-          />
+          <UploadImageIconComponent boxSize={boxSize} />
         )}
       </S3UploadFileField>
       <FormControl id={`${name}-id`}>
@@ -140,13 +135,13 @@ const S3UploadField = (props: S3UploadFieldProps) => {
       </FormControl>
     </Stack>
   );
-}
+};
 
 S3UploadField.defaultProps = {
   uploadImageIcon: UploadImageIcon,
-  removeTextButton: "Remover",
-  borderRadius: "50%",
-  boxSize: "85px" 
-}
+  removeTextButton: 'Remover',
+  borderRadius: '50%',
+  boxSize: '85px',
+};
 
 export default S3UploadField;

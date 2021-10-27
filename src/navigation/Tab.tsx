@@ -3,7 +3,6 @@ import { Button } from '@chakra-ui/react';
 import { useColorMode } from '@chakra-ui/color-mode';
 
 export interface TabProps {
-  children: any;
   active?: boolean;
   onClick?: () => void;
 }

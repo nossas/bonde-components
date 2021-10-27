@@ -1,5 +1,5 @@
-import React from "react";
-import GoogleFontLoader from "react-google-font-loader";
+import React from 'react';
+import GoogleFontLoader from 'react-google-font-loader';
 
 const FontsLoader = (): React.ReactElement => (
   <GoogleFontLoader

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useField } from 'react-final-form';
-import { Flex, FormControl, FormLabel, Stack, Tooltip } from "@chakra-ui/react";
+import { Flex, FormControl, FormLabel, Stack, Tooltip } from '@chakra-ui/react';
 import InfoIcon from '../chakra-theme/icons/InfoIcon';
 import { SketchPicker } from 'react-color';
-import Hint from "./Hint";
+import Hint from './Hint';
 
 // interface ColorFieldProps extends {
 //   name: string
@@ -26,7 +26,10 @@ const ColorField = (props: any): any => {
   const { input, meta } = useField(name, config);
 
   return (
-    <FormControl isInvalid={(meta.error || meta.submitError) && meta.touched} mb={4}>
+    <FormControl
+      isInvalid={(meta.error || meta.submitError) && meta.touched}
+      mb={4}
+    >
       <Flex direction="row" justify="space-between">
         <Stack direction="row" spacing={2} align="center">
           <FormLabel>{label}</FormLabel>
@@ -46,6 +49,6 @@ const ColorField = (props: any): any => {
       />
     </FormControl>
   );
-}
+};
 
 export default ColorField;

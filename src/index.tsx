@@ -35,9 +35,9 @@ export { default as RoundSelectField } from './form/RoundSelectField';
 export { default as RoundInput } from './form/RoundInput';
 export { default as RoundInputField } from './form/RoundInputField';
 export { default as SwitchField } from './form/SwitchField';
-export { default as RadioField } from "./form/RadioField";
-export { default as S3UploadField } from "./form/S3UploadField";
-export { default as ColorField } from "./form/ColorField";
+export { default as RadioField } from './form/RadioField';
+export { default as S3UploadField } from './form/S3UploadField';
+export { default as ColorField } from './form/ColorField';
 
 export { default as Navigation } from './navigation/Navigation';
 export { default as Tab } from './navigation/Tab';
@@ -60,8 +60,8 @@ export {
   default as PerformDropdown,
   PerformDropdownButton,
   PerformDropdownItem,
-  PerformDropdownList
-} from "./perform-dropdown";
+  PerformDropdownList,
+} from './perform-dropdown';
 
 // Chakra UI
 export { default as chakraTheme } from './chakra-theme/chakra';

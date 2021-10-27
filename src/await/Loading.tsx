@@ -33,12 +33,11 @@ const LoadingStyles = styled.div<LoadingStylesProps>`
 `;
 
 interface LoadingProps {
-  children: any
-  align?: "center" | "left" | "right"
-  fullsize?: boolean
-  background?: string
-  message?: string
-  messageComponent?: any
+  align?: 'center' | 'left' | 'right';
+  fullsize?: boolean;
+  background?: string;
+  message?: string;
+  messageComponent?: any;
 }
 
 /**
@@ -52,7 +51,7 @@ const Loading: React.FC<LoadingProps> = ({
   message,
   messageComponent: MessageComponent,
   ...props
-}: LoadingProps) => {
+}) => {
   return fullsize ? (
     <FullSize background={background}>
       <LoadingSVG {...props} />
