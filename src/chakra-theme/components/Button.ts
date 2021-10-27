@@ -127,6 +127,20 @@ const variantGhost: SystemStyleFunction = props => {
     };
   }
 
+  if (c === 'pink') {
+    return {
+      ...defaultStyleProps,
+      color: 'pink.200',
+      _hover: {
+        bg: 'transparent',
+        color: 'pink.300',
+      },
+      _active: {
+        bg: 'transparent',
+      },
+    };
+  }
+
   return {
     ...defaultStyleProps,
     color: `${c}.400`,
