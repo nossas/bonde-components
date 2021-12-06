@@ -22,7 +22,13 @@ const HomeLink = styled.a`
 `;
 
 const Navbar: React.FC<NavbarProps> = ({ brand, children, indexRoute }) => (
-  <Stack direction="row" bg="black" px="57px" py={4} alignItems="center">
+  <Stack
+    direction="row"
+    bg="black"
+    px={[6, null, null, 12]}
+    py={4}
+    alignItems="center"
+  >
     <HomeLink href={indexRoute} title="Bonde Home Link">
       {brand !== 'small' ? <Bonde /> : <Icon name="Bonde" />}
     </HomeLink>

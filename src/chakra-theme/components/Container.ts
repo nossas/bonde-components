@@ -4,6 +4,6 @@ export default {
     mx: 'auto',
     maxW: '100%',
     py: '20px',
-    px: 12,
+    px: [6, null, null, 12],
   },
 };
