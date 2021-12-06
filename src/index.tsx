@@ -51,7 +51,7 @@ export { default as Navbar } from './page/Navbar';
 
 export { default as Spacing } from './layout/Spacing';
 
-export { useField, FormSpy } from 'react-final-form';
+export { useField, FormSpy, Form as FinalForm } from 'react-final-form';
 export { FORM_ERROR } from 'final-form';
 
 export { default as Theme } from './base/theme';
