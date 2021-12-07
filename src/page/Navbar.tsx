@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Stack } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Icon from '../content/Icon';
 import Bonde from '../content/Bonde';
 
@@ -22,7 +22,7 @@ const HomeLink = styled.a`
 `;
 
 const Navbar: React.FC<NavbarProps> = ({ brand, children, indexRoute }) => (
-  <Stack
+  <Flex
     direction="row"
     bg="black"
     px={[6, null, null, 12]}
@@ -33,7 +33,7 @@ const Navbar: React.FC<NavbarProps> = ({ brand, children, indexRoute }) => (
       {brand !== 'small' ? <Bonde /> : <Icon name="Bonde" />}
     </HomeLink>
     {children}
-  </Stack>
+  </Flex>
 );
 
 export default Navbar;
