@@ -51,7 +51,7 @@ export { default as Navbar } from './page/Navbar';
 
 export { default as Spacing } from './layout/Spacing';
 
-export { useField, FormSpy } from 'react-final-form';
+export { useField, FormSpy, Form as FinalForm } from 'react-final-form';
 export { FORM_ERROR } from 'final-form';
 
 export { default as Theme } from './base/theme';
@@ -69,6 +69,7 @@ export { default as FontsLoader } from './chakra-theme/FontsLoader';
 // Custom Icons
 export { default as ArrowUpIcon } from './chakra-theme/icons/ArrowUpIcon';
 export { default as ArrowDownIcon } from './chakra-theme/icons/ArrowDownIcon';
+export { default as ArrowLeftIcon } from './chakra-theme/icons/ArrowLeftIcon';
 export { default as BotIcon } from './chakra-theme/icons/BotIcon';
 export { default as ChartIcon } from './chakra-theme/icons/ChartIcon';
 export { default as EditIcon } from './chakra-theme/icons/EditIcon';
