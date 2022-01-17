@@ -25,13 +25,13 @@ const CommunityMenu = ({
   session,
   inverted,
 }: CommunityMenuProps): React.ReactElement => {
-  const { apps: config }: any = session;
+  const { apps: config, updateSession }: any = session;
   const { modules } = community;
 
-  console.log('config', { config });
   const handleClick = (url: string) => async () => {
-    console.log('click to', url);
-    // await onChange({ community, url });
+    updateSession('community', community).then(() => {
+      window.location.href = url;
+    });
   };
 
   return (

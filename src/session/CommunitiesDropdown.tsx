@@ -18,8 +18,7 @@ const CommunitiesDropdown: React.FC<CommunitiesDropdownProperties> = ({
   session,
   isMobile,
 }) => {
-  let community: any;
-  const { communities } = session;
+  const { communities, community, updateSession } = session;
 
   return (
     <Stack direction="row" spacing={2}>
@@ -56,8 +55,7 @@ const CommunitiesDropdown: React.FC<CommunitiesDropdownProperties> = ({
             <PerformDropdownItem
               key={c.id}
               onClick={() => {
-                console.log('selected', { community: c });
-                // onChange({ community: c });
+                updateSession('community', c);
               }}
             >
               <Stack direction="row" spacing={4} p={4}>

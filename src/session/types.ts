@@ -8,8 +8,10 @@ export interface BaseUIProperties {
 }
 
 export interface Session {
-  currentUser: any;
-  communities: any[];
+  currentUser: User;
+  communities: Community[];
+  community: Community;
+  updateSession: (key: string, value: any) => Promise<any>;
   apps: {
     settings: string;
     redes: string;
