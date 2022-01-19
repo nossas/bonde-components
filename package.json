@@ -41,25 +41,25 @@
     "@storybook/addons": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "@types/jest": "^25.1.4",
-    "@types/react": "^17  ",
+    "@types/react": "^16.9 || ^17",
     "@types/react-color": "^3.0.4",
-    "@types/react-dom": "^17",
+    "@types/react-dom": "^16.8 || ^17",
     "@types/react-select": "^3.0.16",
     "@types/react-table": "7.0.22",
     "@types/styled-components": "^5.0.1",
     "babel-loader": "^8.0.6",
     "husky": "^4.2.3",
     "lint-staged": "^10.2.11",
-    "react": "^17",
-    "react-dom": "^17",
+    "react": "^16.9 || ^17",
+    "react-dom": "^16.8 || ^17",
     "ts-loader": "^6.2.1",
     "tsdx": "^0.12.3",
     "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "react": "^17",
-    "react-dom": "^17"
+    "react": "^16.9 || ^17",
+    "react-dom": "^16.8 || ^17"
   },
   "dependencies": {
     "@chakra-ui/accordion": "^1.3.5",
@@ -119,7 +119,6 @@
     "react-s3-uploader": "^4.9.3",
     "react-select": "^3.1.0",
     "react-table": "^7.5.0",
-    "react-toastify": "^6.0.9",
-    "styled-components": "^5.0.1"
+    "react-toastify": "^6.0.9"
   }
 }
