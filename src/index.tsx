@@ -63,6 +63,9 @@ export {
   PerformDropdownList,
 } from './perform-dropdown';
 
+export { default as SessionUI } from './session/BaseUI';
+export { default as CommunityMenu } from './session/CommunityMenu';
+
 // Chakra UI
 export { default as chakraTheme } from './chakra-theme/chakra';
 export { default as FontsLoader } from './chakra-theme/FontsLoader';
