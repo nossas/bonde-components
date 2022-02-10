@@ -11,6 +11,7 @@ import Footer from '../page/Footer';
 import Navbar from '../page/Navbar';
 
 interface ContentProps {
+  isMobile: boolean;
   bgColor: string;
 }
 
@@ -18,7 +19,20 @@ const Content = styled.div<ContentProps>`
   display: flex;
   flex-grow: 1;
   background-color: ${(props: ContentProps) => props.bgColor};
+  
+  ${(props: ContentProps) => props.isMobile && `
+    padding-top: 65px;
+    overflow-y: auto;
+  `}
 `;
+
+const FooterTool: React.FC<any> = ({ languageTool: LanguageTool }) => LanguageTool ? (
+  <Footer>
+    <LanguageTool />
+  </Footer>
+) : (
+  <Footer />
+)
 
 const BaseUI: React.FC<BaseUIProperties> = ({
   children,
@@ -32,6 +46,7 @@ const BaseUI: React.FC<BaseUIProperties> = ({
   return (
     <Main>
       <Navbar
+        fixed={isMobile}
         indexRoute={indexRoute}
         brand={disableNavigation ? 'default' : 'small'}
       >
@@ -48,14 +63,13 @@ const BaseUI: React.FC<BaseUIProperties> = ({
           )}
         </Flex>
       </Navbar>
-      <Content bgColor={bgColor || 'rgb(247,247,247)'}>{children}</Content>
-      {LanguageTool ? (
-        <Footer>
-          <LanguageTool />
-        </Footer>
-      ) : (
-        <Footer />
-      )}
+      <Content
+        isMobile={!!isMobile}
+        bgColor={bgColor || 'rgb(247,247,247)'}
+      >
+        {children}
+      </Content>
+      {!isMobile ? <FooterTool languageTool={LanguageTool} /> : null}
     </Main>
   );
 };

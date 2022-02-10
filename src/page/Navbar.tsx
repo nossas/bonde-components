@@ -7,6 +7,7 @@ import Bonde from '../content/Bonde';
 interface NavbarProps {
   className?: string;
   indexRoute: string;
+  fixed?: boolean;
   brand?: 'default' | 'small';
 }
 
@@ -21,9 +22,11 @@ const HomeLink = styled.a`
   }
 `;
 
-const Navbar: React.FC<NavbarProps> = ({ brand, children, indexRoute }) => (
+const Navbar: React.FC<NavbarProps> = ({ brand, children, indexRoute, fixed = false }) => (
   <Flex
+    position={fixed ? 'fixed' : 'relative'}
     direction="row"
+    w="100%"
     bg="black"
     px={[6, null, null, 12]}
     py={4}
